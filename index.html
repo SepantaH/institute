@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>آموزشگاه زبان</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="section-about-more.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="calender.css">
+
+</head>
+
+<body>
+
+    <!-- ================================================= -->
+    <!-- ================= HEADER ======================== -->
+    <!-- ================================================= -->
+
+    <header>
+
+        <div class="container nav">
+
+            <div class="logo">
+
+                <img src="image1.jpg" alt="Logo">
+
+                <div>
+
+                    <h1>
+                        <sup> <small> راهبرد </small> </sup>
+                        <b> گـــویش ملل </b>
+                    </h1>
+
+                    <span>Learning Without Borders</span>
+
+                </div>
+
+            </div>
+
+            <!-- ---------- دکمه همبرگری (فقط در موبایل/تبلت دیده می‌شود) ---------- -->
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="باز و بسته کردن منو"
+                aria-expanded="false" aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav>
+
+                <ul id="navMenu">
+
+                    <li><a href="index.html" class="active">خانه</a></li>
+                    <li><a href="courses.html" target="_blank">دوره‌ها</a></li>
+                    <li><a href="index.html#calendar">تقویم</a></li>
+                    <li><a href="news.html" target="_blank">اخبار</a></li>
+                    <li><a href="library.html">کتابخانه</a></li>
+                    <li><a href="careers.html" class="active">همکاری با ما</a></li>
+                    <li><a href="about us.html" target="_blank">درباره ما</a></li>
+                    <li><a href="contact us.html" target="_blank">تماس با ما</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <script>
+        // ---------- باز/بسته کردن منوی موبایل (همبرگری) ----------
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const isOpen = navMenu.classList.toggle('open');
+            menuToggle.classList.toggle('open', isOpen);
+            menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // با کلیک روی هر لینک، منو بسته بشه (تجربه کاربری بهتر در موبایل)
+        navMenu.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                navMenu.classList.remove('open');
+                menuToggle.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // با کلیک بیرون از منو، منو بسته بشه
+        document.addEventListener('click', function (e) {
+            if (!navMenu.contains(e.target) && e.target !== menuToggle) {
+                navMenu.classList.remove('open');
+                menuToggle.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+
+    <!-- ================================================= -->
+    <!-- ======== آیکون‌های شناور شبکه‌های اجتماعی ====== -->
+    <!-- ================================================= -->
+
+    <div class="social-float">
+
+        <!-- ---------- آیکون اینستاگرام ---------- -->
+        <a href="https://instagram.com/@gouyeshmelal_insta" target="_blank" rel="noopener noreferrer"
+            class="social-btn instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white">
+                <path
+                    d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.88a1.13 1.13 0 1 1 0 2.25 1.13 1.13 0 0 1 0-2.25z" />
+            </svg>
+            <span class="tooltip">اینستاگرام آموزشگاه</span>
+        </a>
+
+        <!-- ---------- آیکون ایتا با منوی شعبه‌ها ---------- -->
+        <div class="social-btn-wrapper">
+
+            <button type="button" class="social-btn eitaa" id="eitaaToggle" aria-label="انتخاب شعبه در ایتا">
+                <img src="eitaa.svg" alt="ایتا" class="eitaa-img">
+                <span class="tooltip">ایتای آموزشگاه</span>
+            </button>
+
+            <div class="branch-menu" id="branchMenu">
+                <a href="https://eitaa.com/ID_MARKAZI" target="_blank" rel="noopener noreferrer">شعبه مرکزی</a>
+                <a href="https://eitaa.com/@Gouyesh_Melal_Aseman" target="_blank" rel="noopener noreferrer">شعبه آسمان</a>
+                <a href="https://eitaa.com/ID_BAGHERI" target="_blank" rel="noopener noreferrer">شعبه باقری</a>
+            </div>
+
+        </div>
+
+        <!-- ---------- آیکون بله با منوی شعبه‌ها ---------- -->
+        <div class="social-btn-wrapper">
+
+            <button type="button" class="social-btn bale" id="baleToggle" aria-label="انتخاب شعبه در بله">
+                <img src="bale.svg" alt="بله" class="bale-img">
+                <span class="tooltip">بله آموزشگاه</span>
+            </button>
+
+            <div class="branch-menu" id="baleBranchMenu">
+                <a href="https://ble.ir/ID_MARKAZI" target="_blank" rel="noopener noreferrer">شعبه مرکزی</a>
+                <a href="https://ble.ir/ID_ASEMAN" target="_blank" rel="noopener noreferrer">شعبه آسمان</a>
+                <a href="https://ble.ir/ID_BAGHERI" target="_blank" rel="noopener noreferrer">شعبه باقری</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // ---------- باز/بسته کردن منوی شعبه‌های ایتا ----------
+        const eitaaToggle = document.getElementById('eitaaToggle');
+        const branchMenu = document.getElementById('branchMenu');
+
+        eitaaToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            branchMenu.classList.toggle('open');
+        });
+
+        // با کلیک بیرون از منو، بسته بشه
+        document.addEventListener('click', function (e) {
+            if (!branchMenu.contains(e.target) && e.target !== eitaaToggle) {
+                branchMenu.classList.remove('open');
+            }
+        });
+
+        // ---------- باز/بسته کردن منوی شعبه‌های بله ----------
+        const baleToggle = document.getElementById('baleToggle');
+        const baleBranchMenu = document.getElementById('baleBranchMenu');
+
+        baleToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            baleBranchMenu.classList.toggle('open');
+        });
+
+        // با کلیک بیرون از منو، بسته بشه
+        document.addEventListener('click', function (e) {
+            if (!baleBranchMenu.contains(e.target) && e.target !== baleToggle) {
+                baleBranchMenu.classList.remove('open');
+            }
+        });
+    </script>
+
+    <!-- ================================================= -->
+    <!-- ================= HERO =========================== -->
+    <!-- ================================================= -->
+
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>اینجا قراره زبانت فول بشه 😉</h1>
+            <p>آموزش زبان انگلیسی بااساتید مجرب و محیط آموزشی مدرن</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn">ثبت نام</a>
+                <a href="placement-test.html" class="btn btn2">تعیین سطح</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- ================= SECTION 2: پوستر =============== -->
+    <!-- ================================================= -->
+
+    <section class="poster-section">
+
+        <div class="poster-bg">
+            <div class="glow glow1"></div>
+            <div class="glow glow2"></div>
+            <div class="glow glow3"></div>
+            <div class="grid-overlay"></div>
+        </div>
+
+        <div class="container poster-inner">
+
+            <div class="poster-heading">
+                <span class="discover-eyebrow">تازه‌های آموزشگاه</span>
+                <h2>پوستر <span>ها</span></h2>
+            </div>
+
+            <div class="poster-slider">
+
+                <div class="poster-slide">
+                    <a href="courses.html" target="_blank">
+                        <img src="poster1.jpg" alt="پوستر 1">
+                    </a>
+                </div>
+
+                <div class="poster-slide">
+                    <img src="poster2.jpg" alt="پوستر 2">
+                </div>
+
+                <div class="poster-slide">
+                    <a href="contact us.html" target="_blank">
+                        <img src="poster3.jpg" alt="پوستر 3">
+                    </a>
+                </div>
+
+                <button class="poster-prev">❮</button>
+                <button class="poster-next">❯</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+        // ---------- اسلایدر پوسترها ----------
+        let pCurrentSlide = 0;
+
+        const posterSlides = document.querySelectorAll(".poster-slide");
+        const posterNext = document.querySelector(".poster-next");
+        const posterPrev = document.querySelector(".poster-prev");
+
+        posterSlides[pCurrentSlide].style.transform = "translateX(0)";
+
+        function pNextSlide() {
+            const oldSlide = posterSlides[pCurrentSlide];
+            pCurrentSlide++;
+            if (pCurrentSlide >= posterSlides.length) pCurrentSlide = 0;
+            const newSlide = posterSlides[pCurrentSlide];
+
+            oldSlide.style.transform = "translateX(-100%)";
+            newSlide.style.transform = "translateX(100%)";
+
+            setTimeout(function () {
+                newSlide.style.transform = "translateX(0)";
+            }, 10);
+        }
+
+        function pPrevSlide() {
+            const oldSlide = posterSlides[pCurrentSlide];
+            pCurrentSlide--;
+            if (pCurrentSlide < 0) pCurrentSlide = posterSlides.length - 1;
+            const newSlide = posterSlides[pCurrentSlide];
+
+            oldSlide.style.transform = "translateX(100%)";
+            newSlide.style.transform = "translateX(-100%)";
+
+            setTimeout(function () {
+                newSlide.style.transform = "translateX(0)";
+            }, 10);
+        }
+
+        posterNext.addEventListener("click", pNextSlide);
+        posterPrev.addEventListener("click", pPrevSlide);
+
+        setInterval(pNextSlide, 10000);
+    </script>
+
+    <!-- ================================================= -->
+    <!-- ================= MAIN (خدمات) ==================== -->
+    <!-- ================================================= -->
+
+    <section class="services">
+
+        <h2>خدمات آموزشگاه</h2>
+
+        <p>با انتخاب هر بخش وارد صفحه مربوط به آن شوید.</p>
+
+        <div class="cards">
+
+            <a class="card" href="courses.html" target="_blank">
+                <div class="icon">📚</div>
+                <h3>دوره های آموزشی</h3>
+                <span>مشاهده تمام دوره ها</span>
+            </a>
+
+            <a class="card" href="news.html" target="_blank">
+                <div class="icon">📰</div>
+                <h3>اخبار آموزشگاه</h3>
+                <span>اطلاعیه ها و اخبار جدید</span>
+            </a>
+
+            <a class="card" href="calender.html" target="_blank">
+                <div class="icon">📅</div>
+                <h3>تقویم آموزشی</h3>
+                <span>برنامه کلاس ها</span>
+            </a>
+
+            <a class="card" href="courses.html" target="_blank">
+                <div class="icon">📖</div>
+                <h3>محتوای آموزشی</h3>
+                <span>فایل ها و جزوات</span>
+            </a>
+
+            <a class="card" href="#">
+                <div class="icon">📝</div>
+                <h3>تعیین سطح</h3>
+                <span>رزرو آزمون تعیین سطح</span>
+            </a>
+
+            <a class="card" href="contact us.html" target="_blank">
+                <div class="icon">☎</div>
+                <h3>تماس با ما</h3>
+                <span>راه های ارتباطی</span>
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- ========= SECTION 3: بیشتر با ما آشنا شوید ========= -->
+    <!-- ================================================= -->
+
+    <section class="discover">
+
+        <div class="blob"></div>
+
+        <div class="container discover-inner">
+
+            <!-- متن معرفی -->
+            <div class="discover-text">
+
+                <span class="discover-eyebrow">درباره گویش ملل</span>
+
+                <h2>بیشتر <span>با ما</span> آشنا شوید</h2>
+
+                <p>
+                    گویش ملل بیش از یک آموزشگاه است؛ جایی‌ست که یادگیری زبان با تجربه‌ای زنده، اساتید همراه
+                    و فضایی صمیمی گره می‌خورد. ما باور داریم هر زبان‌آموز مسیر خودش را دارد، برای همین
+                    برنامه‌ها را متناسب با هدف، سطح و سرعت پیشرفت شما طراحی می‌کنیم؛ نه یک کلاس معمولی،
+                    بلکه یک تجربه‌ی متفاوت از یادگیری.
+                </p>
+
+                <div class="discover-stats">
+
+                    <div>
+                        <b>+10</b>
+                        <span>سال تجربه</span>
+                    </div>
+
+                    <div>
+                        <b>+40</b>
+                        <span>استاد مجرب</span>
+                    </div>
+
+                    <div>
+                        <b>+500</b>
+                        <span>زبان‌آموز</span>
+                    </div>
+
+                </div>
+
+                <a href="about%20us.html" class="btn" target="_blank">داستان ما را بخوانید</a>
+
+            </div>
+
+            <!-- فضای آپلود ویدیوی معرفی -->
+            <div class="video-upload">
+
+                <div class="video-frame">
+
+                    <video id="introVideo" class="intro-video" src="introduction.mp4" poster="image1.jpg"
+                        onclick="toggleVideo()">
+                    </video>
+
+                    <div class="video-controls" onclick="toggleVideo()">
+                        <div class="play-ring" id="playIconWrap">
+                            <svg id="iconPlay" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            <svg id="iconPause" viewBox="0 0 24 24" style="display:none">
+                                <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="video-seekbar" onclick="seekVideo(event)">
+                    <div class="video-seekbar-fill" id="seekFill"></div>
+                    <div class="video-seekbar-handle" id="seekHandle"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+        // ---------- کنترل پخش ویدیوی معرفی ----------
+        const video = document.getElementById("introVideo");
+        const playIcon = document.getElementById("iconPlay");
+        const pauseIcon = document.getElementById("iconPause");
+        const seekFill = document.getElementById("seekFill");
+        const seekHandle = document.getElementById("seekHandle");
+        const seekbar = document.querySelector(".video-seekbar");
+
+        function toggleVideo() {
+
+            if (video.paused) {
+
+                video.play();
+                playIcon.style.display = "none";
+                pauseIcon.style.display = "block";
+
+            } else {
+
+                video.pause();
+                playIcon.style.display = "block";
+                pauseIcon.style.display = "none";
+            }
+        }
+
+        // آپدیت نوار پیشرفت هم‌زمان با پخش ویدیو
+        video.addEventListener("timeupdate", function () {
+
+            const percent = (video.currentTime / video.duration) * 100;
+
+            seekFill.style.width = percent + "%";
+            seekHandle.style.right = percent + "%";
+        });
+
+        // کلیک روی نوار برای عقب/جلو بردن ویدیو
+        function seekVideo(e) {
+
+            const rect = seekbar.getBoundingClientRect();
+
+            // چون جهت RTL هست، فاصله رو از سمت راست حساب می‌کنیم
+            const clickX = rect.right - e.clientX;
+
+            const percent = clickX / rect.width;
+
+            video.currentTime = percent * video.duration;
+        }
+
+        // وقتی ویدیو تموم شد، آیکون برگرده به حالت پلی
+        video.addEventListener("ended", function () {
+
+            playIcon.style.display = "block";
+            pauseIcon.style.display = "none";
+        });
+    </script>
+
+    <!-- ================================================= -->
+    <!-- ================= SECTION 4: گالری =============== -->
+    <!-- ================================================= -->
+
+    <section class="gallery-section">
+
+        <!-- افکت بک‌گراند متحرک -->
+        <div class="gallery-bg">
+            <div class="glow glow1"></div>
+            <div class="glow glow2"></div>
+            <div class="glow glow3"></div>
+            <div class="grid-overlay"></div>
+        </div>
+
+        <div class="container gallery-inner">
+
+            <div class="gallery-heading">
+                <span class="discover-eyebrow">لحظه‌های ماندگار</span>
+                <h2>گالری <span>آموزشگاه</span></h2>
+            </div>
+
+            <!-- اسلایدر بزرگ گالری -->
+            <div class="gallery-slider">
+
+                <div class="gallery-slide">
+                    <img src="poster2.jpg" alt="گالری 1">
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="gallery-poster2.jpg" alt="گالری 2">
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="gallery-poster3.jpg" alt="گالری 3">
+                </div>
+
+                <button class="gallery-prev">❮</button>
+                <button class="gallery-next">❯</button>
+
+            </div>
+
+            <!-- ردیف عکس‌های کوچیک -->
+            <div class="gallery-thumbs">
+
+                <a href="gallery.html" target="_blank" class="thumb">
+                    <img src="poster2.jpg" alt="عکس 1">
+                </a>
+
+                <a href="gallery.html" target="_blank" class="thumb">
+                    <img src="poster3.jpg" alt="عکس 2">
+                </a>
+
+                <a href="gallery.html" target="_blank" class="thumb">
+                    <img src="photo3.jpg" alt="عکس 3">
+                </a>
+
+                <a href="gallery.html" target="_blank" class="thumb">
+                    <img src="photo4.jpg" alt="عکس 4">
+                </a>
+
+                <a href="gallery.html" target="_blank" class="thumb">
+                    <img src="photo5.jpg" alt="عکس 5">
+                </a>
+
+                <a href="gallery.html" target="_blank" class="thumb">
+                    <img src="photo6.jpg" alt="عکس 6">
+                </a>
+
+                <a href="gallery.html" target="_blank" class="thumb more-thumb">
+                    <span class="more-text">+ بیشتر</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+        // ---------- اسلایدر گالری ----------
+        let gCurrentSlide = 0;
+
+        const gallerySlides = document.querySelectorAll(".gallery-slide");
+        const galleryNext = document.querySelector(".gallery-next");
+        const galleryPrev = document.querySelector(".gallery-prev");
+
+        gallerySlides[gCurrentSlide].style.transform = "translateX(0)";
+
+        function gNextSlide() {
+            const oldSlide = gallerySlides[gCurrentSlide];
+            gCurrentSlide++;
+            if (gCurrentSlide >= gallerySlides.length) gCurrentSlide = 0;
+            const newSlide = gallerySlides[gCurrentSlide];
+
+            oldSlide.style.transform = "translateX(-100%)";
+            newSlide.style.transform = "translateX(100%)";
+
+            setTimeout(function () {
+                newSlide.style.transform = "translateX(0)";
+            }, 10);
+        }
+
+        function gPrevSlide() {
+            const oldSlide = gallerySlides[gCurrentSlide];
+            gCurrentSlide--;
+            if (gCurrentSlide < 0) gCurrentSlide = gallerySlides.length - 1;
+            const newSlide = gallerySlides[gCurrentSlide];
+
+            oldSlide.style.transform = "translateX(100%)";
+            newSlide.style.transform = "translateX(-100%)";
+
+            setTimeout(function () {
+                newSlide.style.transform = "translateX(0)";
+            }, 10);
+        }
+
+        galleryNext.addEventListener("click", gNextSlide);
+        galleryPrev.addEventListener("click", gPrevSlide);
+
+        setInterval(gNextSlide, 10000);
+    </script>
+
+    <!-- ================================================= -->
+    <!-- ================= SECTION 5: تقویم آموزشی ========= -->
+    <!-- ================================================= -->
+
+   <section class="calendar-section" id="calendar">
+
+        <div class="calendar-bg">
+            <div class="soft-blob blob-gold"></div>
+            <div class="soft-blob blob-lilac"></div>
+        </div>
+
+        <div class="container calendar-inner">
+
+            <!-- توضیحات (سمت راست) -->
+            <div class="calendar-text">
+
+                <span class="discover-eyebrow">برنامه‌ریزی دقیق</span>
+                <h2>تقویم <span>آموزشی</span></h2>
+
+                <p>
+                    برای اینکه هیچ کلاس، آزمون یا رویداد مهمی رو از دست ندید، تقویم آموزشی
+                    گویش ملل رو همیشه در دسترس داریم. زمان‌بندی دوره‌ها، تاریخ آزمون‌های
+                    تعیین سطح، تعطیلات آموزشگاه و رویدادهای ویژه، همگی در یک نگاه براتون
+                    مشخص شده.
+                </p>
+
+                <ul class="calendar-points">
+                    <li>مشاهده دقیق تاریخ شروع و پایان ترم‌ها</li>
+                    <li>اطلاع از زمان برگزاری آزمون‌های تعیین سطح</li>
+                    <li>آگاهی از تعطیلات و رویدادهای ویژه آموزشگاه</li>
+                </ul>
+
+                <a href="calender.jpg" target="_blank" class="btn">مشاهده تقویم کامل</a>
+
+            </div>
+
+            <!-- تصویر تقویم (سمت چپ) -->
+            <div class="calendar-image">
+                <div class="image-frame">
+                    <img src="calender.jpg" alt="تقویم آموزشی">
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- ================= FOOTER ========================= -->
+    <!-- ================================================= -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-inner">
+
+            <!-- شعبه مرکزی -->
+            <div class="branch-box">
+                <h3 class="branch-name">شعبه مرکزی</h3>
+                <p class="branch-info">
+                    <span class="info-label">تلفن:</span> ۰۲۱-۱۲۳۴۵۶۷۸
+                </p>
+                <p class="branch-info">
+                    <span class="info-label">آدرس:</span> تهران، خیابان ..........، پلاک ...
+                </p>
+                <div class="branch-icons">
+                    <a href="https://maps.google.com/?q=LOCATION_MARKAZI" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon map" aria-label="موقعیت شعبه مرکزی روی نقشه">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                            <path
+                                d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.5 11.5 7.05 12 .27.24.68.24.95 0 .55-.5 7.05-6.75 7.05-12C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z" />
+                        </svg>
+                    </a>
+                    <a href="https://eitaa.com/ID_MARKAZI" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon eitaa" aria-label="ایتای شعبه مرکزی">
+                        <img src="eitaa.svg" alt="ایتا" class="mini-eitaa-img">
+                    </a>
+                </div>
+            </div>
+
+            <!-- شعبه آسمان -->
+            <div class="branch-box">
+                <h3 class="branch-name">شعبه آسمان</h3>
+                <p class="branch-info">
+                    <span class="info-label">تلفن:</span> ۰۲۱-۱۲۳۴۵۶۷۸
+                </p>
+                <p class="branch-info">
+                    <span class="info-label">آدرس:</span> تهران، خیابان ..........، پلاک ...
+                </p>
+                <div class="branch-icons">
+                    <a href="https://maps.google.com/?q=LOCATION_ASEMAN" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon map" aria-label="موقعیت شعبه آسمان روی نقشه">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                            <path
+                                d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.5 11.5 7.05 12 .27.24.68.24.95 0 .55-.5 7.05-6.75 7.05-12C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z" />
+                        </svg>
+                    </a>
+                    <a href="https://eitaa.com/ID_ASEMAN" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon eitaa" aria-label="ایتای شعبه آسمان">
+                        <img src="eitaa.svg" alt="ایتا" class="mini-eitaa-img">
+                    </a>
+                </div>
+            </div>
+
+            <!-- شعبه باقری -->
+            <div class="branch-box">
+                <h3 class="branch-name">شعبه باقری</h3>
+                <p class="branch-info">
+                    <span class="info-label">تلفن:</span> ۰۲۱-۱۲۳۴۵۶۷۸
+                </p>
+                <p class="branch-info">
+                    <span class="info-label">آدرس:</span> تهران، خیابان ..........، پلاک ...
+                </p>
+                <div class="branch-icons">
+                    <a href="https://maps.google.com/?q=LOCATION_BAGHERI" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon map" aria-label="موقعیت شعبه باقری روی نقشه">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                            <path
+                                d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.5 11.5 7.05 12 .27.24.68.24.95 0 .55-.5 7.05-6.75 7.05-12C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z" />
+                        </svg>
+                    </a>
+                    <a href="https://eitaa.com/ID_BAGHERI" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon eitaa" aria-label="ایتای شعبه باقری">
+                        <img src="eitaa.svg" alt="ایتا" class="mini-eitaa-img">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© تمامی حقوق این سایت برای آموزشگاه راهبرد گویش ملل محفوظ است.</p>
+            <p class="credit">
+                تهیه شده توسط سپنتا حیدری |
+                <a href="https://eitaa.com/SEPANTA765" target="_blank" rel="noopener noreferrer">Sepanta@</a>
+            </p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
