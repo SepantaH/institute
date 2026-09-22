@@ -1,0 +1,707 @@
+/* ===================================================== */
+/* ==================== RESET عمومی ===================== */
+/* ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Vazirmatn", sans-serif;
+}
+
+
+/* ===================================================== */
+/* ==================== BODY (پایه) ===================== */
+/* ===================================================== */
+
+body {
+    background: #FFF8F0;
+    color: #333;
+    line-height: 1.8;
+    /* آفست بدنه برای جبران ارتفاع هدر ثابت (fixed) */
+    padding-top: 82px; /* همون عددی که از Console گرفته شده */
+}
+
+
+/* ===================================================== */
+/* ==================== CONTAINER ======================= */
+/* ===================================================== */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* ===================================================== */
+/* ================ HEADER & NAVIGATION ================= */
+/* ===================================================== */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    position: relative; /* لازم برای اینکه منوی موبایل زیر همین باکس باز بشه */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+}
+
+.logo h1 {
+    color: #8E2FA8;
+}
+
+.logo span {
+    color: #888;
+    font-size: 14px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #444;
+    transition: .3s;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #8E2FA8;
+}
+
+/* ---------- دکمه همبرگری (پیش‌فرض در دسکتاپ مخفیه) ---------- */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #8E2FA8;
+    border-radius: 3px;
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+/* وقتی منو بازه، سه خط تبدیل به ضربدر می‌شن */
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+
+/* ===================================================== */
+/* ===================== HERO ============================ */
+/* ===================================================== */
+
+.hero {
+    height: 100vh;
+    background-image: url('hero-bg.png');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 22px;
+    margin-bottom: 35px;
+}
+
+.hero-content {
+    position: absolute;
+    left: 5%;
+    width: 45%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+
+/* ===================================================== */
+/* ==================== دکمه‌ها (BTN) ==================== */
+/* ===================================================== */
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #8E2FA8;
+    color: white;
+    border-radius: 40px;
+    text-decoration: none;
+    margin: 10px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #D4AF37;
+    transform: translateY(-5px);
+}
+
+
+/* ===================================================== */
+/* ============= خدمات آموزشگاه (SERVICES / CARDS) ======= */
+/* ===================================================== */
+
+.services {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.cards {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-decoration: none;
+    color: #333;
+    transition: .35s;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .08);
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(142, 47, 168, .25);
+}
+
+.icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #8E2FA8;
+    margin-bottom: 15px;
+}
+
+
+/* ===================================================== */
+/* ============= اسلایدر عمومی (SLIDER عمومی/قدیمی) ====== */
+/* توجه: این کلاس‌ها (.slider / .slide / .prev / .next) در      */
+/* HTML فعلی صفحه استفاده نشدن (کد مرده / بلااستفاده هستن).    */
+/* اگر جایی ازشون استفاده نمی‌کنید، بهتره کلاً حذفشون کنید.     */
+/* ===================================================== */
+
+.slider {
+    width: 700px;
+    height: 600px;
+    position: absolute;
+    left: 3%;
+    top: 57%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* دکمه‌های اسلایدر عمومی */
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover,
+.next:hover {
+    background: rgba(142, 47, 168, 0.9);
+}
+
+
+/* ===================================================== */
+/* ========= آیکون‌های شناور شبکه‌های اجتماعی (SOCIAL FLOAT) === */
+/* ===================================================== */
+
+.social-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-btn {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    text-decoration: none;
+    overflow: hidden;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.social-btn:hover {
+    transform: scale(1.18);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.social-btn.instagram {
+    background: radial-gradient(circle at 30% 110%,
+            #fdf497 0%, #fdf497 5%,
+            #fd5949 45%, #d6249f 60%,
+            #285AEB 90%);
+}
+
+.social-btn.eitaa {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+}
+
+.eitaa-img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+}
+.bale-img {
+    width: 72%;
+    height: 72%;
+    object-fit: contain;
+    display: block;
+    transform: scale(0.94);
+}
+
+/* تولتیپ */
+
+.tooltip {
+    position: absolute;
+    left: 52px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-8px);
+    background: rgba(20, 20, 20, 0.9);
+    color: #fff;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.social-btn:hover .tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* منوی شعبه‌ها */
+
+.social-btn-wrapper {
+    position: relative;
+}
+
+.branch-menu {
+    position: absolute;
+    bottom: 0;
+    left: 52px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.branch-menu.open {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.branch-menu a {
+    padding: 10px 14px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 14px;
+    color: #222;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: right;
+    transition: background 0.15s ease;
+}
+
+.branch-menu a:last-child {
+    border-bottom: none;
+}
+
+.branch-menu a:hover {
+    background: #f5f5f5;
+}
+
+
+/* ===================================================== */
+/* =================== سکشن پوستر (POSTER) =============== */
+/* ===================================================== */
+
+.poster-section {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+    background-color: #1c1030;
+}
+
+/* بک‌گراند نورانی متحرک */
+
+.poster-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.poster-bg .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.55;
+}
+
+.poster-bg .glow1 {
+    width: 380px;
+    height: 380px;
+    background: #7b3fb5;
+    top: -100px;
+    right: -80px;
+    animation: floatGlow 12s ease-in-out infinite;
+}
+
+.poster-bg .glow2 {
+    width: 300px;
+    height: 300px;
+    background: #d9b8ff;
+    bottom: -80px;
+    left: -60px;
+    animation: floatGlow 15s ease-in-out infinite reverse;
+}
+
+.poster-bg .glow3 {
+    width: 250px;
+    height: 250px;
+    background: #a06cd5;
+    top: 40%;
+    left: 45%;
+    animation: floatGlow 18s ease-in-out infinite;
+}
+
+/* محتوای اصلی پوستر */
+
+.poster-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.poster-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.poster-heading h2 {
+    color: #fff;
+    font-size: 32px;
+    margin-top: 8px;
+}
+
+.poster-heading h2 span {
+    color: #c79dff;
+}
+
+/* اسلایدر پوستر */
+
+.poster-slider {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: 550px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.poster-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+.poster-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.poster-prev,
+.poster-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s ease;
+}
+
+.poster-prev:hover,
+.poster-next:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.poster-prev {
+    right: 16px;
+}
+
+.poster-next {
+    left: 16px;
+}
+
+
+/* ======================================================================= */
+/* ==================  ریسپانسیو / MEDIA QUERIES  ========================= */
+/* از عریض به باریک: تبلت بزرگ (992px) → تبلت (768px) → موبایل (480px)      */
+/* ======================================================================= */
+
+/* ---------- تبلت بزرگ و پایین‌تر: منو تبدیل به همبرگری می‌شه ---------- */
+@media (max-width: 992px) {
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul {
+        position: absolute;
+        top: calc(100% + 15px);
+        right: 0;
+        left: 0;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .35s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .08);
+        border-radius: 0 0 12px 12px;
+    }
+
+    nav ul.open {
+        max-height: 500px;
+    }
+
+    nav ul li {
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 15px 20px;
+    }
+
+    .hero-content {
+        position: static;
+        width: 90%;
+        max-width: 600px;
+        margin: 0 auto;
+        left: auto;
+        top: auto;
+        transform: none;
+    }
+}
+
+/* ---------- تبلت / موبایل بزرگ ---------- */
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 72px;
+    }
+
+    .logo img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .logo h1 {
+        font-size: 18px;
+    }
+
+    .logo span {
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .services {
+        padding: 60px 0;
+    }
+
+    .poster-heading h2 {
+        font-size: 24px;
+    }
+
+    .poster-slider {
+        height: 400px;
+    }
+}
+
+/* ---------- موبایل ---------- */
+@media (max-width: 480px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .btn {
+        padding: 12px 22px;
+        font-size: 14px;
+        margin: 6px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .icon {
+        font-size: 38px;
+    }
+
+    .social-float {
+        bottom: 15px;
+        left: 12px;
+        gap: 10px;
+    }
+
+    .social-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .branch-menu {
+        min-width: 130px;
+    }
+
+    .poster-slider {
+        height: 300px;
+    }
+}
