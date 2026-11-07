@@ -1,0 +1,129 @@
+.calendar-section {
+    position: relative;
+    background-color: #FFF8F0;
+    padding: 90px 0;
+    overflow: hidden;
+}
+
+/* افکت‌های محو یاسی و طلایی */
+.calendar-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.soft-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+}
+
+.blob-gold {
+    width: 340px;
+    height: 340px;
+    background: rgba(212, 175, 90, 0.22);
+    top: -60px;
+    left: -60px;
+}
+
+.blob-lilac {
+    width: 380px;
+    height: 380px;
+    background: rgba(190, 150, 230, 0.22);
+    bottom: -80px;
+    right: -60px;
+}
+
+/* محتوا */
+.calendar-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.calendar-text {
+    flex: 1 1 420px;
+}
+
+.calendar-text h2 {
+    font-size: 32px;
+    color: #2e1a47;
+    margin-top: 8px;
+    margin-bottom: 18px;
+}
+
+.calendar-text h2 span {
+    color: #a06cd5;
+}
+
+.calendar-text p {
+    color: #555;
+    line-height: 2;
+    font-size: 15px;
+    margin-bottom: 22px;
+}
+
+.calendar-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.calendar-points li {
+    position: relative;
+    padding-right: 26px;
+    color: #3a3a3a;
+    font-size: 14.5px;
+}
+
+.calendar-points li::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4af5a, #a06cd5);
+}
+
+.calendar-image {
+    flex: 1 1 420px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-frame {
+    position: relative;
+    max-width: 460px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(160, 108, 213, 0.25);
+    border: 1px solid rgba(212, 175, 90, 0.35);
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* واکنش‌گرا */
+@media (max-width: 900px) {
+    .calendar-inner {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .calendar-points li {
+        text-align: right;
+    }
+}

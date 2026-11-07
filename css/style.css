@@ -1,0 +1,867 @@
+
+/* =========================================================
+   GOYESH MELAL
+   MAIN STYLESHEET
+   Desktop + Tablet + Mobile
+========================================================= */
+
+
+/* =========================================================
+   01. VARIABLES & RESET
+========================================================= */
+
+:root {
+    --purple: #8E2FA8;
+    --purple-dark: #6F277F;
+    --gold: #D4AF37;
+    --cream: #FFF8F0;
+    --text: #333;
+    --muted: #888;
+    --white: #fff;
+    --header-height: 85px;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Vazirmatn", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* =========================================================
+   02. CONTAINER
+========================================================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   03. HEADER & NAVIGATION
+========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+    background: var(--cream);
+}
+
+    .site-header .container.nav {
+        position: relative;
+        min-height: var(--header-height);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+    }
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+    .logo img {
+        width: 85px;
+        height: 85px;
+        object-fit: contain;
+        border-radius: 50%;
+    }
+
+    .logo h1 {
+        color: var(--purple);
+    }
+
+    .logo span {
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+/* DESKTOP MENU */
+
+.site-header nav {
+    position: static;
+    display: block;
+}
+
+    .site-header nav ul {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        list-style: none;
+    }
+
+    .site-header nav a {
+        display: block;
+        color: #444;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color .25s ease, background .25s ease;
+    }
+
+        .site-header nav a:hover,
+        .site-header nav a.active {
+            color: var(--purple);
+        }
+
+/* HAMBURGER */
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+    .menu-toggle span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        background: var(--purple);
+        border-radius: 3px;
+        transition: transform .3s ease, opacity .3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+
+/* =========================================================
+   04. HERO
+========================================================= */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 5% 50px;
+    background-color: #B77BC2;
+    background-image: url("/images/hero-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 45%;
+    max-width: 650px;
+    margin-right: auto;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(26px, 2.5vw, 38px);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: clamp(16px, 1.5vw, 22px);
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   05. BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    margin: 10px;
+    color: var(--white);
+    background: var(--purple);
+    border-radius: 40px;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+    .btn:hover {
+        background: var(--gold);
+        transform: translateY(-5px);
+    }
+
+.btn2 {
+    background: var(--purple-dark);
+}
+
+
+/* =========================================================
+   06. SERVICES
+========================================================= */
+
+.services {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.card {
+    padding: 40px;
+    color: var(--text);
+    background: var(--white);
+    border-radius: 20px;
+    text-decoration: none;
+    box-shadow: 0 15px 30px rgba(0,0,0,.08);
+    transition: .35s ease;
+}
+
+    .card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba(142,47,168,.25);
+    }
+
+.icon {
+    margin-bottom: 20px;
+    font-size: 50px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--purple);
+}
+
+
+/* =========================================================
+   07. OLD SLIDER
+========================================================= */
+
+.slider {
+    position: absolute;
+    top: 57%;
+    left: 3%;
+    width: 700px;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 15px;
+    background: rgba(255,255,255,.15);
+    transform: translateY(-50%);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transform: translateX(100%);
+    transition: transform .5s ease;
+}
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    width: 45px;
+    height: 45px;
+    border: 0;
+    border-radius: 50%;
+    color: var(--white);
+    background: rgba(0,0,0,.5);
+    font-size: 25px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+    .prev:hover,
+    .next:hover {
+        background: rgba(142,47,168,.9);
+    }
+
+
+/* =========================================================
+   08. SOCIAL FLOAT
+========================================================= */
+
+.social-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 50%;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+    .social-btn:hover {
+        transform: scale(1.18);
+        box-shadow: 0 4px 14px rgba(0,0,0,.35);
+    }
+
+    .social-btn.instagram {
+        background: radial-gradient( circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90% );
+    }
+
+    .social-btn.eitaa {
+        background: var(--white);
+        border: 1px solid #e0e0e0;
+    }
+
+.eitaa-img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+}
+
+.bale-img {
+    width: 72%;
+    height: 72%;
+    object-fit: contain;
+    transform: scale(.94);
+}
+
+.tooltip {
+    position: absolute;
+    top: 50%;
+    left: 52px;
+    padding: 5px 10px;
+    color: var(--white);
+    background: rgba(20,20,20,.9);
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%) translateX(-8px);
+    transition: .25s ease;
+}
+
+.social-btn:hover .tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+
+/* =========================================================
+   09. BRANCH MENU
+========================================================= */
+
+.social-btn-wrapper {
+    position: relative;
+}
+
+.branch-menu {
+    position: absolute;
+    bottom: 0;
+    left: 52px;
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    overflow: hidden;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.2);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-10px);
+    transition: .2s ease;
+}
+
+    .branch-menu.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(0);
+    }
+
+    .branch-menu a {
+        padding: 10px 14px;
+        color: #222;
+        font-size: 14px;
+        text-align: right;
+        text-decoration: none;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+        .branch-menu a:last-child {
+            border-bottom: 0;
+        }
+
+        .branch-menu a:hover {
+            background: #f5f5f5;
+        }
+
+
+/* =========================================================
+   10. POSTER SECTION
+========================================================= */
+
+.poster-section {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+    background: #1c1030;
+}
+
+.poster-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+    .poster-bg .glow {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: .55;
+    }
+
+    .poster-bg .glow1 {
+        top: -100px;
+        right: -80px;
+        width: 380px;
+        height: 380px;
+        background: #7b3fb5;
+        animation: floatGlow 12s ease-in-out infinite;
+    }
+
+    .poster-bg .glow2 {
+        bottom: -80px;
+        left: -60px;
+        width: 300px;
+        height: 300px;
+        background: #d9b8ff;
+        animation: floatGlow 15s ease-in-out infinite reverse;
+    }
+
+    .poster-bg .glow3 {
+        top: 40%;
+        left: 45%;
+        width: 250px;
+        height: 250px;
+        background: #a06cd5;
+        animation: floatGlow 18s ease-in-out infinite;
+    }
+
+.poster-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.poster-heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+    .poster-heading h2 {
+        margin-top: 8px;
+        color: var(--white);
+        font-size: 32px;
+    }
+
+        .poster-heading h2 span {
+            color: #c79dff;
+        }
+
+.poster-slider {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: 550px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: rgba(255,255,255,.06);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.45);
+}
+
+.poster-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform .5s ease;
+}
+
+    .poster-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+.poster-prev,
+.poster-next {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    color: var(--white);
+    background: rgba(0,0,0,.4);
+    border: 0;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.poster-prev {
+    right: 16px;
+}
+
+.poster-next {
+    left: 16px;
+}
+
+    .poster-prev:hover,
+    .poster-next:hover {
+        background: rgba(0,0,0,.7);
+    }
+
+
+/* =========================================================
+   11. TABLET NAVIGATION
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .site-header .container.nav {
+        min-height: 72px;
+    }
+
+    .menu-toggle {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        z-index: 10002;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        padding: 8px;
+        transform: translateY(-50%);
+    }
+
+    .site-header nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        z-index: 10001;
+        width: 100%;
+    }
+
+        .site-header nav ul#navMenu {
+            display: none;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+            width: 100%;
+            max-height: min(75vh, 560px);
+            margin: 0;
+            padding: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            list-style: none;
+            background: var(--white);
+            border-top: 1px solid rgba(74,20,90,.1);
+            border-radius: 0 0 14px 14px;
+            box-shadow: 0 14px 28px rgba(53,16,63,.18);
+        }
+
+            .site-header nav ul#navMenu.open {
+                display: flex;
+            }
+
+            .site-header nav ul#navMenu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(74,20,90,.1);
+            }
+
+                .site-header nav ul#navMenu li:last-child {
+                    border-bottom: 0;
+                }
+
+            .site-header nav ul#navMenu a {
+                display: block;
+                width: 100%;
+                padding: 13px 20px;
+                color: #444;
+                font-size: 14px;
+                font-weight: 600;
+                text-align: right;
+                background: var(--white);
+            }
+
+                .site-header nav ul#navMenu a:hover,
+                .site-header nav ul#navMenu a.active {
+                    color: var(--purple);
+                    background: #fbf5fd;
+                }
+
+    .logo img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .hero-content {
+        position: static;
+        width: 90%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .services {
+        padding: 60px 0;
+    }
+
+    .poster-heading h2 {
+        font-size: 24px;
+    }
+
+    .poster-slider {
+        height: 400px;
+    }
+}
+
+
+/* =========================================================
+   12. MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .site-header .container.nav {
+        min-height: 72px;
+        padding: 8px 0;
+    }
+
+    .logo img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .site-header nav ul#navMenu {
+        max-height: calc(100dvh - 72px);
+    }
+
+        .site-header nav ul#navMenu a {
+            padding: 13px 18px;
+        }
+
+    /* HERO POSTER */
+
+    .hero {
+        width: 100%;
+        min-height: 100svh;
+        height: auto;
+        margin: 0;
+        padding: 40px 20px;
+        background-color: #B77BC2;
+        background-image: url("/images/mobile-poster.png");
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 100% auto;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(23px, 6vw, 30px);
+        line-height: 1.7;
+        margin-bottom: 14px;
+    }
+
+    .hero p {
+        font-size: clamp(15px, 4vw, 18px);
+        line-height: 1.9;
+        margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 20px;
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .services {
+        padding: 60px 20px;
+    }
+
+    .cards {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .card {
+        padding: 28px 22px;
+    }
+
+    .icon {
+        font-size: 42px;
+    }
+
+    .poster-slider {
+        height: 300px;
+    }
+
+    .social-float {
+        bottom: 15px;
+        left: 12px;
+        gap: 10px;
+    }
+
+    .social-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .branch-menu {
+        min-width: 130px;
+    }
+}
+
+
+/* =========================================================
+   13. ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آرشیو اخبار | گویش ملل</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{ margin:0; padding:0; box-sizing:border-box; font-family:"Vazirmatn",sans-serif; }
+        body{ background:#FFF8F0; color:#333; line-height:1.8; }
+        .container{ width:90%; max-width:900px; margin:auto; }
+
+        header{
+            position:fixed; top:0; width:100%; background:white;
+            box-shadow:0 5px 15px rgba(0,0,0,.08); z-index:100;
+        }
+
+        .nav{ display:flex; justify-content:space-between; align-items:center; padding:15px 0; }
+        .logo{ display:flex; align-items:center; gap:15px; }
+        .logo img{ width:85px; height:85px; border-radius:50%; }
+        .logo h1{ color:#8E2FA8; }
+        .logo span{ color:#888; font-size:14px; }
+        nav ul{ list-style:none; display:flex; gap:30px; }
+        nav a{ text-decoration:none; color:#444; transition:.3s; font-weight:600; }
+        nav a:hover, nav a.active{ color:#8E2FA8; }
+
+        /* =========================================================
+           صفحه آرشیو اخبار
+        ========================================================= */
+
+        .archive-hero{
+            margin-top:115px;
+            padding:60px 0 40px;
+            text-align:center;
+            background:linear-gradient(135deg,#8E2FA8,#5b1f6e);
+            color:white;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .archive-hero::before{
+            content:"";
+            position:absolute;
+            inset:0;
+            background-image:repeating-linear-gradient(45deg,
+                rgba(255,255,255,.04) 0px,rgba(255,255,255,.04) 2px,
+                transparent 2px,transparent 30px);
+        }
+
+        .archive-hero h1{ font-size:32px; font-weight:900; margin-bottom:10px; position:relative; }
+        .archive-hero p{ color:rgba(255,255,255,.85); font-size:15px; position:relative; }
+
+        .archive-back{
+            display:inline-block;
+            color:white;
+            text-decoration:none;
+            font-size:13.5px;
+            font-weight:600;
+            margin-bottom:18px;
+            position:relative;
+            opacity:.85;
+        }
+
+        .archive-back:hover{ opacity:1; }
+
+        /* ---------- تایم‌لاین اخبار ---------- */
+
+        .archive-timeline{
+            position:relative;
+            padding:70px 0 100px;
+        }
+
+        /* خط اتصال عمودی سمت راست تایم‌لاین */
+        .archive-timeline::before{
+            content:"";
+            position:absolute;
+            right:9px;
+            top:70px;
+            bottom:100px;
+            width:2px;
+            background:linear-gradient(to bottom, #D4AF37, rgba(142,47,168,.15));
+        }
+
+        .archive-item{
+            position:relative;
+            padding-right:38px;
+            margin-bottom:34px;
+        }
+
+        .archive-item::before{
+            content:"";
+            position:absolute;
+            right:0;
+            top:6px;
+            width:20px;
+            height:20px;
+            border-radius:50%;
+            background:white;
+            border:4px solid #8E2FA8;
+            z-index:1;
+        }
+
+        .archive-card{
+            background:white;
+            border-radius:18px;
+            padding:22px 26px;
+            box-shadow:0 12px 30px rgba(0,0,0,.06);
+            transition:.3s;
+        }
+
+        .archive-card:hover{
+            box-shadow:0 18px 38px rgba(142,47,168,.15);
+            transform:translateY(-4px);
+        }
+
+        .archive-date{
+            display:inline-block;
+            background:rgba(212,175,55,.15);
+            color:#a3821c;
+            font-size:12px;
+            font-weight:700;
+            padding:4px 14px;
+            border-radius:20px;
+            margin-bottom:10px;
+        }
+
+        .archive-title{
+            font-size:17px;
+            font-weight:700;
+            color:#3a1046;
+        }
+
+        /* گروه‌بندی ماهانه */
+        .archive-month{
+            position:relative;
+            font-size:15px;
+            font-weight:800;
+            color:#8E2FA8;
+            margin:40px 0 22px;
+            padding-right:38px;
+        }
+
+        .archive-month:first-child{ margin-top:0; }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="container nav" style="max-width:1300px;">
+            <div class="logo">
+                <img src="image1.jpg" alt="Logo">
+                <div>
+                    <h1>
+                        <sup> <small> راهبرد </small> </sup>
+                        <b> گـــویش ملل </b>
+                    </h1>
+
+                    <span>Learning Without Borders</span>
+
+                </div>
+
+            </div>
+
+            <nav>
+
+                <ul>
+
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="courses.html" target="_blank">دوره‌ها</a></li>
+                    <li><a href="calender.html" target="_blank">تقویم</a></li>
+                    <li><a href="news.html" class="active" target="_blank">اخبار</a></li>
+                    <li><a href="library.html">کتابخانه</a></li>
+                    <li><a href="careers.html" >همکاری با ما</a></li>
+                    <li><a href="about us.html" target="_blank">درباره ما</a></li>
+                    <li><a href="contact us.html" target="_blank">تماس با ما</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ================= ARCHIVE HERO ================= -->
+
+    <section class="archive-hero">
+        <div class="container">
+            <a href="news.html" class="archive-back">→ بازگشت به اخبار</a>
+            <h1>آرشیو کامل اخبار</h1>
+            <p>همه‌ی اخبار و اطلاعیه‌های آموزشگاه از روز اول، جدیدترین در بالا</p>
+        </div>
+    </section>
+
+    <!-- ================= TIMELINE ================= -->
+
+    <section class="archive-timeline">
+        <div class="container" id="archiveContainer">
+            <!-- محتوا با جاوااسکریپت ساخته می‌شه -->
+        </div>
+    </section>
+
+    <script>
+
+        /* =========================================================
+           داده کامل اخبار (آرشیو)
+           این آرایه رو با همون داده‌ای که در news.html داری هماهنگ نگه دار
+           (یا بعداً هر دو صفحه رو از یک فایل js مشترک بخون تا تکراری نشه).
+
+           برای افزودن خبر جدید، یک آبجکت جدید اضافه کن؛ صفحه خودش
+           بر اساس تاریخ مرتب و بر اساس ماه گروه‌بندی می‌کنه.
+        ========================================================= */
+
+        const allNews = [
+            { title:"شروع ثبت‌نام ترم زمستان با تخفیف ویژه", date:"2026-09-05", dateFa:"۱۴۰۵/۰۶/۱۴", monthFa:"شهریور ۱۴۰۵" },
+            { title:"برگزاری آزمون بین‌المللی آیلتس در آموزشگاه", date:"2026-08-28", dateFa:"۱۴۰۵/۰۶/۰۶", monthFa:"شهریور ۱۴۰۵" },
+            { title:"جشن فارغ‌التحصیلی دوره‌های بزرگسال", date:"2026-08-15", dateFa:"۱۴۰۵/۰۵/۲۴", monthFa:"مرداد ۱۴۰۵" },
+            { title:"افتتاح کلاس‌های ویژه کودکان ۵ تا ۷ سال", date:"2026-08-02", dateFa:"۱۴۰۵/۰۵/۱۱", monthFa:"مرداد ۱۴۰۵" },
+            { title:"کارگاه رایگان تلفظ و مکالمه با استاد مهمان", date:"2026-07-20", dateFa:"۱۴۰۵/۰۴/۲۹", monthFa:"تیر ۱۴۰۵" },
+            { title:"معرفی کتاب‌های جدید کتابخانه آموزشگاه", date:"2026-07-05", dateFa:"۱۴۰۵/۰۴/۱۴", monthFa:"تیر ۱۴۰۵" },
+            { title:"مصاحبه با زبان‌آموزان برتر ترم بهار", date:"2026-06-18", dateFa:"۱۴۰۵/۰۳/۲۸", monthFa:"خرداد ۱۴۰۵" },
+            { title:"روز اول: افتتاح رسمی آموزشگاه گویش ملل", date:"2024-01-15", dateFa:"۱۴۰۲/۱۰/۲۵", monthFa:"دی ۱۴۰۲" },
+        ];
+
+        function renderArchive() {
+
+            const sorted = [...allNews].sort((a, b) => new Date(b.date) - new Date(a.date));
+            const container = document.getElementById("archiveContainer");
+
+            let html = "";
+            let lastMonth = "";
+
+            sorted.forEach(item => {
+
+                // هر وقت ماه عوض شد، یک عنوان گروه ماه اضافه کن
+                if (item.monthFa !== lastMonth) {
+
+                    html += `<div class="archive-month">${item.monthFa}</div>`;
+                    lastMonth = item.monthFa;
+                }
+
+                html += `
+                    <div class="archive-item">
+                        <div class="archive-card">
+                            <span class="archive-date">${item.dateFa}</span>
+                            <div class="archive-title">${item.title}</div>
+                        </div>
+                    </div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        renderArchive();
+
+    </script>
+
+</body>
+</html>

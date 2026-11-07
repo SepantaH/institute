@@ -1,0 +1,321 @@
+/* =================================
+   BOOKS PAGE
+================================= */
+
+.books-page {
+
+    min-height: 100vh;
+
+    padding: 100px 8% 120px;
+
+    background: rgba(142,47,168,.65);
+
+    font-family: "Vazirmatn", sans-serif;
+
+}
+
+
+/* =================================
+   PAGE TITLE
+================================= */
+
+.books-title {
+
+    text-align: center;
+
+    color: #4a145a;
+
+    font-size: 42px;
+
+    font-weight: 900;
+
+    margin: 20px 0 15px;
+
+}
+
+
+.books-intro {
+
+    text-align: center;
+
+    direction: rtl;
+
+    color: #4a145a;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    margin-bottom: 90px;
+
+}
+
+
+
+/* =================================
+   BOOK SECTION
+================================= */
+
+.book-detail {
+
+    max-width: 1050px;
+
+    min-height: 280px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 100px;
+
+}
+
+
+/* =================================
+   BOOK IMAGE
+================================= */
+
+.book-image {
+
+    flex: 0 0 200px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.book-image img {
+
+    height: 300px;
+
+    width: auto;
+
+    max-width: 240px;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    background: white;
+
+    padding: 5px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 8px 20px rgba(70, 30, 90, 0.25);
+
+    transition: 0.3s;
+
+}
+
+
+.book-image img:hover {
+
+    transform: scale(1.04);
+
+    box-shadow:
+        0 12px 25px rgba(70, 30, 90, 0.35);
+
+}
+
+
+
+/* =================================
+   BOOK INFORMATION
+================================= */
+
+.book-info {
+
+    flex: 1;
+
+    direction: rtl;
+
+    text-align: right;
+
+}
+
+
+.book-category {
+
+    direction: ltr;
+
+    text-align: left;
+
+    color: #8f6d00;
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+    margin-bottom: 10px;
+
+}
+
+
+.english-title {
+
+    direction: ltr;
+
+    text-align: left;
+
+    color: #4a145a;
+
+    font-size: 34px;
+
+    font-weight: 900;
+
+    margin: 0 0 20px;
+
+}
+
+
+.book-info p {
+
+    direction: rtl;
+
+    text-align: right;
+
+    color: #360e4d;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    line-height: 2.2;
+
+    margin: 10px 0;
+
+}
+
+
+.book-info strong {
+
+    font-weight: 900;
+
+}
+
+
+
+/* =================================
+   ALTERNATE SECTIONS
+================================= */
+
+.book-detail.reverse {
+
+    direction: ltr;
+
+}
+
+
+.book-detail.reverse .book-info {
+
+    direction: rtl;
+
+    text-align: right;
+
+}
+
+
+
+/* =================================
+   DOTTED DIVIDER
+================================= */
+
+.book-divider {
+
+    width: 70%;
+
+    border-top: 3px dashed rgba(74, 20, 90, 0.45);
+
+    margin: 75px auto;
+
+}
+
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 700px) {
+
+    .books-page {
+
+        padding: 70px 5% 80px;
+
+    }
+
+
+    .books-title {
+
+        font-size: 32px;
+
+    }
+
+
+    .books-intro {
+
+        font-size: 16px;
+
+        margin-bottom: 60px;
+
+    }
+
+
+    .book-detail,
+    .book-detail.reverse {
+
+        flex-direction: column;
+
+        gap: 30px;
+
+        text-align: center;
+
+    }
+
+
+    .book-info,
+    .book-detail.reverse .book-info {
+
+        text-align: right;
+
+    }
+
+
+    .book-category {
+
+        text-align: center;
+
+    }
+
+
+    .english-title {
+
+        text-align: center;
+
+    }
+
+
+    .book-info p {
+
+        text-align: right;
+
+    }
+
+
+    .book-divider {
+
+        width: 85%;
+
+        margin: 55px auto;
+
+    }
+
+}

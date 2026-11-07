@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8E2FA8">
+    <title>درباره ما | گویش ملل</title>
+
+    <!-- ================= FONT ================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- ================= MAIN CSS ================= -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* =========================================================
+           SHARED HEADER (same as the Library page)
+           Placed after style.css so these rules win.
+        ========================================================= */
+        
+        body {
+            margin: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        header {
+            margin-top: 0 !important;
+            top: 0 !important;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            right: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+            .logo img {
+                width: 85px;
+                height: 85px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .logo h1 {
+                color: #8E2FA8;
+            }
+
+            .logo span {
+                color: #888;
+                font-size: 14px;
+            }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+            nav a:hover,
+            nav a.active {
+                color: #8E2FA8;
+            }
+
+        /* Tablet */
+        @media screen and (max-width: 1024px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+        }
+
+        /* Mobile */
+        @media screen and (max-width: 600px) {
+
+            .logo img {
+                width: 65px;
+                height: 65px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            .logo span {
+                font-size: 12px;
+            }
+
+            nav ul {
+                gap: 8px 13px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+        }
+
+
+        /* =========================================================
+           ABOUT PAGE
+           رنگ‌بندی هماهنگ با سایت گویش ملل
+        ========================================================= */
+
+        .about-page {
+            --purple: #8E2FA8;
+            --purple-dark: #4A145A;
+            --purple-deep: #32103F;
+            --purple-light: #B96BC9;
+            --lilac: #E9D5F0;
+            --lilac-light: #F8F1FA;
+            --gold: #D8A857;
+            --gold-light: #E9C888;
+            --text: #3F2850;
+            --white: #FFFFFF;
+            overflow: hidden;
+            background: #fff;
+        }
+
+            .about-page * {
+                box-sizing: border-box;
+            }
+
+            .about-page .container {
+                width: min(1120px, 92%);
+                margin: 0 auto;
+            }
+
+        /* =========================================================
+           HERO
+           Header is now sticky (in the page flow), so the hero
+           no longer needs a big top padding.
+        ========================================================= */
+
+        .about-hero {
+            position: relative;
+            margin-top: 0;
+            min-height: 520px;
+            padding: 90px 0 90px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            background: radial-gradient(circle at 15% 25%, rgba(216, 168, 87, .13), transparent 25%), radial-gradient(circle at 85% 75%, rgba(185, 107, 201, .20), transparent 28%), linear-gradient(145deg, #32103F 0%, #4A145A 38%, #7D278F 72%, #8E2FA8 100%);
+        }
+
+            .about-hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                opacity: .16;
+                background-image: linear-gradient(30deg, rgba(255, 255, 255, .12) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, .12) 87.5%, rgba(255, 255, 255, .12)), linear-gradient(150deg, rgba(255, 255, 255, .12) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, .12) 87.5%, rgba(255, 255, 255, .12));
+                background-size: 70px 120px;
+            }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .about-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 23px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, .28);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, .10);
+            color: #F1DFF5;
+            font-size: 14px;
+            font-weight: 500;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .10);
+        }
+
+        .about-hero h1 {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .hero-small-title {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 25px;
+            font-weight: 400;
+            color: #E9C888;
+        }
+
+        .hero-main-title {
+            display: block;
+            font-size: 64px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            text-shadow: 0 8px 35px rgba(0, 0, 0, .18);
+        }
+
+        .hero-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 270px;
+            margin: 25px auto 20px;
+        }
+
+            .hero-divider span {
+                height: 1px;
+                flex: 1;
+                background: linear-gradient(90deg, transparent, #D8A857);
+            }
+
+                .hero-divider span:last-child {
+                    background: linear-gradient(90deg, #D8A857, transparent);
+                }
+
+            .hero-divider i {
+                color: #D8A857;
+                font-style: normal;
+                font-size: 15px;
+            }
+
+        .about-hero p {
+            margin: 0;
+            color: #F1E5F5;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .hero-mini-stats {
+            width: min(620px, 100%);
+            margin: 55px auto 0;
+            padding: 20px 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, .08);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 18px 45px rgba(26, 5, 35, .16);
+        }
+
+            .hero-mini-stats div {
+                position: relative;
+            }
+
+                .hero-mini-stats div:not(:last-child)::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 10%;
+                    width: 1px;
+                    height: 80%;
+                    background: rgba(255, 255, 255, .16);
+                }
+
+            .hero-mini-stats strong {
+                display: block;
+                color: #E9C888;
+                font-size: 25px;
+                font-weight: 900;
+            }
+
+            .hero-mini-stats small {
+                display: block;
+                margin-top: 3px;
+                color: #EBDDF0;
+                font-size: 12px;
+            }
+
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(2px);
+        }
+
+        .hero-orb-one {
+            width: 260px;
+            height: 260px;
+            top: -110px;
+            right: -80px;
+            border: 1px solid rgba(255, 255, 255, .13);
+            box-shadow: inset 0 0 70px rgba(216, 168, 87, .06);
+        }
+
+        .hero-orb-two {
+            width: 340px;
+            height: 340px;
+            bottom: -210px;
+            left: -100px;
+            border: 1px solid rgba(255, 255, 255, .10);
+        }
+
+        .hero-line {
+            position: absolute;
+            width: 180px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(216, 168, 87, .45), transparent);
+            transform: rotate(-35deg);
+            opacity: .7;
+        }
+
+        .line-one {
+            top: 28%;
+            right: 3%;
+        }
+
+        .line-two {
+            bottom: 25%;
+            left: 4%;
+            transform: rotate(35deg);
+        }
+
+        /* =========================================================
+           SECTION COMMON
+        ========================================================= */
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--purple);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .3px;
+        }
+
+            .section-label::before {
+                content: "";
+                width: 25px;
+                height: 2px;
+                background: var(--gold);
+                border-radius: 5px;
+            }
+
+        .about-page h2 {
+            margin: 12px 0 20px;
+            color: var(--purple-dark);
+            font-size: 31px;
+            font-weight: 900;
+            line-height: 1.5;
+        }
+
+            .about-page h2 span {
+                color: var(--purple);
+            }
+
+        /* =========================================================
+           INTRO
+        ========================================================= */
+
+        .about-intro {
+            position: relative;
+            padding: 100px 0 85px;
+            background: radial-gradient(circle at 90% 20%, rgba(142, 47, 168, .06), transparent 28%), #fff;
+        }
+
+        .intro-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 75px;
+            align-items: center;
+        }
+
+        .intro-decoration {
+            position: relative;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 38px;
+            background: linear-gradient(145deg, #F8F1FA, #E9D5F0);
+            box-shadow: 18px 18px 45px rgba(74, 20, 90, .08);
+            overflow: hidden;
+        }
+
+            .intro-decoration::before {
+                content: "";
+                position: absolute;
+                width: 210px;
+                height: 210px;
+                border: 1px solid rgba(142, 47, 168, .15);
+                border-radius: 50%;
+            }
+
+            .intro-decoration::after {
+                content: "";
+                position: absolute;
+                width: 145px;
+                height: 145px;
+                border: 1px solid rgba(216, 168, 87, .22);
+                border-radius: 50%;
+            }
+
+        .intro-book-icon {
+            position: relative;
+            z-index: 2;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            background: linear-gradient(145deg, #8E2FA8, #4A145A);
+            font-size: 42px;
+            box-shadow: 0 20px 35px rgba(74, 20, 90, .25);
+        }
+
+        .intro-decoration > span {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+            .intro-decoration > span:nth-child(2) {
+                top: 42px;
+                right: 42px;
+            }
+
+            .intro-decoration > span:nth-child(3) {
+                bottom: 50px;
+                left: 45px;
+                width: 8px;
+                height: 8px;
+            }
+
+            .intro-decoration > span:nth-child(4) {
+                top: 95px;
+                left: 38px;
+            }
+
+        .intro-content {
+            max-width: 700px;
+        }
+
+            .intro-content h2 {
+                font-size: 36px;
+            }
+
+            .intro-content .lede {
+                margin: 0 0 20px;
+                color: var(--purple);
+                font-size: 19px;
+                font-weight: 700;
+            }
+
+            .intro-content p:not(.lede) {
+                max-width: 680px;
+                margin: 0 0 18px;
+                color: #5D4A67;
+                font-size: 15px;
+                line-height: 2.25;
+            }
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .about-stats {
+            padding: 30px 0;
+            background: linear-gradient(180deg, #fff, #F8F1FA);
+        }
+
+        .stats-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            overflow: hidden;
+            border: 1px solid rgba(142, 47, 168, .10);
+            border-radius: 26px;
+            background: #fff;
+            box-shadow: 0 20px 55px rgba(74, 20, 90, .09);
+        }
+
+        .stat-item {
+            position: relative;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+            .stat-item:not(:last-child)::after {
+                content: "";
+                position: absolute;
+                top: 22%;
+                left: 0;
+                width: 1px;
+                height: 56%;
+                background: #E9D5F0;
+            }
+
+        .stat-icon {
+            width: 38px;
+            height: 38px;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #F8F1FA;
+            color: var(--gold);
+            font-size: 17px;
+        }
+
+        .stat-num {
+            color: var(--purple);
+            font-size: 35px;
+            font-weight: 900;
+        }
+
+        .stat-label {
+            margin-top: 5px;
+            color: #6A5875;
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           PRINCIPLES
+        ========================================================= */
+
+        .about-principles {
+            padding: 105px 0;
+            background: #fff;
+        }
+
+        .principles-layout {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .principles-heading {
+            position: sticky;
+            top: 130px;
+        }
+
+            .principles-heading h2 {
+                font-size: 34px;
+            }
+
+        .gold-line {
+            width: 75px;
+            height: 3px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--gold), #E9C888);
+        }
+
+        .principles-text {
+            padding: 10px 0;
+        }
+
+            .principles-text p {
+                position: relative;
+                margin: 0 0 28px;
+                padding: 0 28px 0 0;
+                color: #5D4A67;
+                font-size: 15px;
+                line-height: 2.35;
+            }
+
+                .principles-text p::before {
+                    content: "";
+                    position: absolute;
+                    top: 9px;
+                    right: 0;
+                    width: 4px;
+                    height: 55px;
+                    border-radius: 10px;
+                    background: linear-gradient(180deg, var(--purple), var(--gold));
+                }
+
+        /* =========================================================
+           AGE GROUPS
+        ========================================================= */
+
+        .about-groups {
+            position: relative;
+            padding: 100px 0 110px;
+            background: radial-gradient(circle at 10% 90%, rgba(216, 168, 87, .09), transparent 25%), linear-gradient(180deg, #F8F1FA 0%, #F3E7F6 100%);
+        }
+
+        .groups-heading {
+            max-width: 650px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+            .groups-heading .section-label {
+                justify-content: center;
+            }
+
+            .groups-heading h2 {
+                margin-top: 13px;
+                font-size: 33px;
+            }
+
+            .groups-heading p {
+                margin: 0;
+                color: #6A5875;
+                font-size: 14px;
+                line-height: 2.1;
+            }
+
+        .groups-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .group-card {
+            position: relative;
+            min-height: 340px;
+            padding: 34px 30px 30px;
+            border: 1px solid rgba(142, 47, 168, .08);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, .90);
+            box-shadow: 0 15px 35px rgba(74, 20, 90, .07);
+            overflow: hidden;
+            transition: .35s ease;
+        }
+
+            .group-card::before {
+                content: "";
+                position: absolute;
+                width: 160px;
+                height: 160px;
+                top: -90px;
+                left: -80px;
+                border-radius: 50%;
+                background: rgba(142, 47, 168, .06);
+                transition: .35s;
+            }
+
+            .group-card:hover {
+                transform: translateY(-10px);
+                border-color: rgba(142, 47, 168, .18);
+                box-shadow: 0 25px 50px rgba(74, 20, 90, .14);
+            }
+
+                .group-card:hover::before {
+                    transform: scale(1.4);
+                }
+
+            .group-card.featured {
+                background: linear-gradient(145deg, #fff, #F5EAF8);
+                border-color: rgba(142, 47, 168, .20);
+            }
+
+        .card-number {
+            position: absolute;
+            top: 23px;
+            left: 25px;
+            color: #DCCBE4;
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .group-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-radius: 21px;
+            background: linear-gradient(145deg, #F1DDF5, #E4C7EB);
+            font-size: 30px;
+            box-shadow: 0 10px 20px rgba(142, 47, 168, .08);
+        }
+
+        .group-card-content > span {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .group-card h3 {
+            margin: 4px 0 10px;
+            color: var(--purple-dark);
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .group-card p {
+            margin: 0;
+            color: #66536F;
+            font-size: 13.5px;
+            line-height: 2;
+        }
+
+        .card-arrow {
+            position: absolute;
+            left: 28px;
+            bottom: 25px;
+            color: var(--purple);
+            font-size: 20px;
+            transition: .3s;
+        }
+
+        .group-card:hover .card-arrow {
+            transform: translateX(-6px);
+            color: var(--gold);
+        }
+
+        /* =========================================================
+           QUOTE
+        ========================================================= */
+
+        .about-quote {
+            position: relative;
+            padding: 110px 0;
+            text-align: center;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .quote-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: .35;
+            background: radial-gradient(circle at center, transparent 0 35%, rgba(142, 47, 168, .035) 36% 36.5%, transparent 37%);
+            background-size: 100px 100px;
+        }
+
+        .about-quote .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-mark {
+            height: 60px;
+            color: #D8A857;
+            font-family: Georgia, serif;
+            font-size: 85px;
+            line-height: 1;
+        }
+
+        .about-quote blockquote {
+            max-width: 750px;
+            margin: 5px auto 20px;
+            color: var(--purple-dark);
+            font-size: 28px;
+            font-weight: 900;
+            line-height: 1.7;
+        }
+
+            .about-quote blockquote span {
+                color: var(--purple);
+            }
+
+        .quote-line {
+            width: 60px;
+            height: 2px;
+            margin: 0 auto 18px;
+            background: var(--gold);
+        }
+
+        .about-quote p {
+            margin: 0;
+            color: #796580;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           TEACHER TRAINING
+        ========================================================= */
+
+        .about-split {
+            padding: 95px 0;
+            background: linear-gradient(180deg, #F8F1FA, #fff);
+        }
+
+        .split-heading {
+            margin-bottom: 45px;
+            text-align: center;
+        }
+
+            .split-heading .section-label {
+                justify-content: center;
+            }
+
+            .split-heading h2 {
+                margin-bottom: 0;
+            }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .split-card {
+            position: relative;
+            display: flex;
+            gap: 25px;
+            min-height: 260px;
+            padding: 35px;
+            border: 1px solid rgba(142, 47, 168, .10);
+            border-radius: 25px;
+            background: #fff;
+            box-shadow: 0 15px 40px rgba(74, 20, 90, .07);
+            overflow: hidden;
+            transition: .3s;
+        }
+
+            .split-card::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 4px;
+                background: linear-gradient(90deg, var(--gold), var(--purple));
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: .3s;
+            }
+
+            .split-card:hover {
+                transform: translateY(-7px);
+                box-shadow: 0 23px 50px rgba(74, 20, 90, .12);
+            }
+
+                .split-card:hover::after {
+                    transform: scaleX(1);
+                }
+
+        .split-icon {
+            flex: 0 0 62px;
+            width: 62px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 19px;
+            background: linear-gradient(145deg, #F2DFF5, #E6C8ED);
+            font-size: 26px;
+        }
+
+        .split-content > span {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .split-card h3 {
+            margin: 6px 0 13px;
+            color: var(--purple-dark);
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .split-card p {
+            margin: 0;
+            color: #62506B;
+            font-size: 13.5px;
+            line-height: 2.15;
+        }
+
+        /* =========================================================
+           VALUES
+        ========================================================= */
+
+        .about-values {
+            padding: 95px 0 105px;
+            background: #fff;
+        }
+
+        .values-heading {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+            .values-heading .section-label {
+                justify-content: center;
+            }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .value-item {
+            position: relative;
+            padding: 35px 28px;
+            text-align: center;
+            border-radius: 24px;
+            background: #FAF6FC;
+            border: 1px solid #F0E3F3;
+            transition: .3s;
+        }
+
+            .value-item:hover {
+                transform: translateY(-7px);
+                background: #fff;
+                box-shadow: 0 20px 40px rgba(74, 20, 90, .09);
+            }
+
+        .value-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            background: var(--purple-dark);
+            color: #E9C888;
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .value-item h3 {
+            margin: 0 0 10px;
+            color: var(--purple-dark);
+            font-size: 18px;
+        }
+
+        .value-item p {
+            margin: 0;
+            color: #6B5875;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        /* =========================================================
+           CLOSING
+        ========================================================= */
+
+        .about-closing {
+            position: relative;
+            padding: 105px 0 115px;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            background: radial-gradient(circle at 20% 20%, rgba(216, 168, 87, .14), transparent 25%), radial-gradient(circle at 80% 80%, rgba(185, 107, 201, .22), transparent 28%), linear-gradient(145deg, #4A145A, #7D278F 55%, #8E2FA8);
+        }
+
+            .about-closing::before {
+                content: "";
+                position: absolute;
+                inset: 20px;
+                border: 1px solid rgba(255, 255, 255, .10);
+                border-radius: 35px;
+                pointer-events: none;
+            }
+
+        .closing-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .closing-badge {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #E9C888;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .about-closing h2 {
+            max-width: 720px;
+            margin: 0 auto;
+            color: #fff;
+            font-size: 35px;
+            line-height: 1.7;
+        }
+
+            .about-closing h2 span {
+                color: #E9C888;
+            }
+
+        .about-closing p {
+            margin: 16px auto 0;
+            color: #F0DFF3;
+            font-size: 14px;
+        }
+
+        .closing-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 32px;
+            padding: 13px 30px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #E9C888, #D8A857);
+            color: #32103F;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 800;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
+            transition: .3s;
+        }
+
+            .closing-btn span {
+                font-size: 20px;
+                transition: .3s;
+            }
+
+            .closing-btn:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 18px 35px rgba(0, 0, 0, .25);
+            }
+
+                .closing-btn:hover span {
+                    transform: translateX(-5px);
+                }
+
+        .closing-glow {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .glow-one {
+            width: 300px;
+            height: 300px;
+            right: -130px;
+            top: -140px;
+        }
+
+        .glow-two {
+            width: 400px;
+            height: 400px;
+            left: -190px;
+            bottom: -230px;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .about-hero {
+                min-height: 500px;
+                padding-top: 80px;
+            }
+
+            .hero-main-title {
+                font-size: 54px;
+            }
+
+            .intro-layout {
+                grid-template-columns: 190px 1fr;
+                gap: 45px;
+            }
+
+            .intro-decoration {
+                height: 250px;
+            }
+
+            .principles-layout {
+                grid-template-columns: 280px 1fr;
+                gap: 45px;
+            }
+
+            .groups-grid,
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .group-card:last-child {
+                grid-column: 1 / -1;
+                max-width: calc(50% - 12px);
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .about-hero {
+                min-height: 520px;
+                padding: 70px 0 75px;
+            }
+
+            .hero-main-title {
+                font-size: 45px;
+                letter-spacing: -1px;
+            }
+
+            .hero-small-title {
+                font-size: 21px;
+            }
+
+            .about-hero p {
+                font-size: 15px;
+            }
+
+            .hero-mini-stats {
+                margin-top: 40px;
+            }
+
+                .hero-mini-stats strong {
+                    font-size: 22px;
+                }
+
+            .about-intro {
+                padding: 75px 0;
+            }
+
+            .intro-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .intro-decoration {
+                width: 180px;
+                height: 180px;
+                margin: 0 auto;
+                border-radius: 30px;
+            }
+
+                .intro-decoration::before {
+                    width: 135px;
+                    height: 135px;
+                }
+
+                .intro-decoration::after {
+                    width: 95px;
+                    height: 95px;
+                }
+
+            .intro-book-icon {
+                width: 70px;
+                height: 70px;
+                border-radius: 20px;
+                font-size: 30px;
+            }
+
+            .intro-content {
+                text-align: center;
+            }
+
+                .intro-content .section-label {
+                    justify-content: center;
+                }
+
+                .intro-content h2 {
+                    font-size: 29px;
+                }
+
+            .stats-box {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-item:not(:last-child)::after {
+                top: auto;
+                bottom: 0;
+                left: 10%;
+                width: 80%;
+                height: 1px;
+            }
+
+            .about-principles {
+                padding: 75px 0;
+            }
+
+            .principles-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .principles-heading {
+                position: static;
+                text-align: center;
+            }
+
+                .principles-heading .section-label {
+                    justify-content: center;
+                }
+
+            .gold-line {
+                margin: 0 auto;
+            }
+
+            .principles-text p {
+                text-align: right;
+            }
+
+            .about-groups {
+                padding: 75px 0;
+            }
+
+            .groups-heading h2 {
+                font-size: 28px;
+            }
+
+            .groups-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .group-card:last-child {
+                grid-column: auto;
+                max-width: none;
+            }
+
+            .about-quote {
+                padding: 80px 0;
+            }
+
+                .about-quote blockquote {
+                    font-size: 23px;
+                }
+
+            .about-split {
+                padding: 75px 0;
+            }
+
+            .split-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-values {
+                padding: 75px 0;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-closing {
+                padding: 80px 0 90px;
+            }
+
+                .about-closing h2 {
+                    font-size: 28px;
+                }
+        }
+
+        @media (max-width: 480px) {
+
+            .about-hero {
+                padding-top: 60px;
+            }
+
+            .hero-main-title {
+                font-size: 39px;
+            }
+
+            .hero-mini-stats {
+                padding: 15px 5px;
+            }
+
+                .hero-mini-stats strong {
+                    font-size: 19px;
+                }
+
+                .hero-mini-stats small {
+                    font-size: 10px;
+                }
+
+            .about-page h2 {
+                font-size: 27px;
+            }
+
+            .split-card {
+                flex-direction: column;
+                padding: 28px;
+            }
+
+            .split-icon {
+                flex-basis: auto;
+            }
+
+            .about-closing h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         HEADER (same as the Library page)
+    ========================================================= -->
+
+    <header>
+        <div class="container nav">
+
+            <div class="logo">
+                <img src="/images/logo.jfif" alt="لوگوی گویش ملل">
+
+                <div>
+                    <h1>
+                        <sup><small>راهبرد</small></sup>
+                        <b>گـــویش ملل</b>
+                    </h1>
+
+                    <span>Learning Without Borders</span>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="courses.html" target="_blank">دوره‌ها</a></li>
+                    <li><a href="calender.html" target="_blank">تقویم</a></li>
+                    <li><a href="news.html" target="_blank">اخبار</a></li>
+                    <li><a href="library.html">کتابخانه</a></li>
+                    <li><a href="careers.html">همکاری با ما</a></li>
+                    <li><a href="about us.html" class="active">درباره ما</a></li>
+                    <li><a href="contact us.html" target="_blank">تماس با ما</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ================= ABOUT PAGE ================= -->
+
+    <main class="about-page">
+
+        <!-- ================= HERO ================= -->
+
+        <section class="about-hero">
+            <div class="hero-orb hero-orb-one"></div>
+            <div class="hero-orb hero-orb-two"></div>
+            <div class="hero-line line-one"></div>
+            <div class="hero-line line-two"></div>
+
+            <div class="container about-hero-content">
+                <div class="about-badge">✦ درباره ما</div>
+
+                <h1>
+                    <span class="hero-small-title">راهبرد</span>
+                    <span class="hero-main-title">گویش ملل</span>
+                </h1>
+
+                <div class="hero-divider">
+                    <span></span>
+                    <i>✦</i>
+                    <span></span>
+                </div>
+
+                <p>
+                    همراه شما در مسیر یادگیری، پیشرفت و توانمندسازی
+                </p>
+
+                <div class="hero-mini-stats">
+                    <div>
+                        <strong>۱۳۹۵</strong>
+                        <small>سال تأسیس</small>
+                    </div>
+                    <div>
+                        <strong>۳</strong>
+                        <small>شعبه</small>
+                    </div>
+                    <div>
+                        <strong>+۱۰</strong>
+                        <small>مدرس تربیت‌شده</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= INTRO ================= -->
+
+        <section class="about-intro">
+            <div class="container intro-layout">
+
+                <div class="intro-decoration">
+                    <div class="intro-book-icon">📚</div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="intro-content">
+                    <div class="section-label">داستان ما</div>
+
+                    <h2>
+                        آموزش زبان،
+                        <span>فراتر از کلاس</span>
+                    </h2>
+
+                    <p class="lede">
+                        آموزش زبان را فراتر از انتقال صرف مطالب می‌بینیم.
+                    </p>
+
+                    <p>
+                        مؤسسه آموزش زبان راهبرد گویش ملل با هدف ارائه آموزش تخصصی، اصولی و باکیفیت
+                        زبان‌های خارجی، در سال ۱۳۹۵ تأسیس شد و تحت مجوز آموزش و پرورش به فعالیت
+                        آموزشی خود ادامه می‌دهد.
+                    </p>
+
+                    <p>
+                        از ابتدای فعالیت، تلاش ما بر این بوده است که با ایجاد یک مسیر منظم و هدفمند،
+                        زمینه‌ای فراهم کنیم تا زبان‌آموزان بتوانند مهارت‌های زبانی خود را به‌صورت
+                        اصولی و متناسب با نیازهایشان توسعه دهند.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= STATS ================= -->
+
+        <section class="about-stats">
+            <div class="container stats-box">
+
+                <div class="stat-item">
+                    <div class="stat-icon">✦</div>
+                    <div class="stat-num">۱۳۹۵</div>
+                    <div class="stat-label">سال تأسیس مؤسسه</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-icon">⌂</div>
+                    <div class="stat-num">۳</div>
+                    <div class="stat-label">شعبه در منطقه ۲۲ تهران</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-icon">♟</div>
+                    <div class="stat-num">+۱۰</div>
+                    <div class="stat-label">مدرس تربیت‌شده از دل مؤسسه</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= PRINCIPLES ================= -->
+
+        <section class="about-principles">
+            <div class="container principles-layout">
+
+                <div class="principles-heading">
+                    <div class="section-label">نگاه ما به آموزش</div>
+                    <h2>
+                        هر زبان‌آموز،
+                        <span>یک مسیر متفاوت</span>
+                    </h2>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="principles-text">
+                    <p>
+                        یکی از مهم‌ترین اصول آموزشی در مؤسسه راهبرد گویش ملل، توجه به تفاوت‌های
+                        فردی و سنی زبان‌آموزان است. حضور اساتید مجرب و توانمند نیز یکی از ارکان
+                        اصلی فرآیند آموزش به شمار می‌رود؛ انتخاب و همراهی مدرسین توانمند، در کنار
+                        نظارت بر روند آموزشی، با هدف ایجاد محیطی پویا، منظم و مؤثر برای یادگیری
+                        زبان انجام می‌شود.
+                    </p>
+
+                    <p>
+                        همچنین سیستم ارزیابی منحصربه‌فرد مؤسسه یکی از بخش‌های مهم فرآیند آموزشی
+                        است. ارزیابی منظم و هدفمند به ما کمک می‌کند میزان پیشرفت زبان‌آموزان را
+                        بهتر بررسی کرده و نقاط قوت و زمینه‌های نیازمند بهبود را شناسایی کنیم.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= AGE GROUPS ================= -->
+
+        <section class="about-groups">
+            <div class="container">
+
+                <div class="groups-heading">
+                    <div class="section-label">برای همه سنین</div>
+                    <h2>یادگیری، متناسب با <span>دنیای شما</span></h2>
+                    <p>
+                        دوره‌های آموزشی برای دختران و پسران، در گروه‌های سنی کودکان، نوجوانان و
+                        بزرگسالان به‌صورت تفکیک‌شده برگزار می‌شود.
+                    </p>
+                </div>
+
+                <div class="groups-grid">
+
+                    <div class="group-card">
+                        <div class="card-number">01</div>
+                        <div class="group-icon">👧</div>
+                        <div class="group-card-content">
+                            <span>CHILDREN</span>
+                            <h3>کودکان</h3>
+                            <p>
+                                آموزش زبان از طریق بازی، فعالیت‌های شنیداری و تعامل کلاسی،
+                                متناسب با دنیای کودکان.
+                            </p>
+                        </div>
+                        <div class="card-arrow">←</div>
+                    </div>
+
+                    <div class="group-card featured">
+                        <div class="card-number">02</div>
+                        <div class="group-icon">🧑</div>
+                        <div class="group-card-content">
+                            <span>TEENAGERS</span>
+                            <h3>نوجوانان</h3>
+                            <p>
+                                تقویت مهارت‌های چهارگانه زبانی همراه با آماده‌سازی برای
+                                آزمون‌های بین‌المللی و تحصیلی.
+                            </p>
+                        </div>
+                        <div class="card-arrow">←</div>
+                    </div>
+
+                    <div class="group-card">
+                        <div class="card-number">03</div>
+                        <div class="group-icon">👨</div>
+                        <div class="group-card-content">
+                            <span>ADULTS</span>
+                            <h3>بزرگسالان</h3>
+                            <p>
+                                دوره‌های کاربردی و تخصصی برای نیازهای شغلی، تحصیلی و مهاجرتی،
+                                با برنامه‌ریزی منعطف.
+                            </p>
+                        </div>
+                        <div class="card-arrow">←</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= QUOTE ================= -->
+
+        <section class="about-quote">
+            <div class="quote-pattern"></div>
+
+            <div class="container">
+                <div class="quote-mark">“</div>
+
+                <blockquote>
+                    یک آموزشگاه موفق،
+                    <span>تنها محلی برای برگزاری کلاس نیست.</span>
+                </blockquote>
+
+                <div class="quote-line"></div>
+
+                <p>
+                    ما تلاش می‌کنیم محیطی برای رشد، تجربه و ساختن آینده‌ای بهتر باشیم.
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= TEACHER TRAINING ================= -->
+
+        <section class="about-split">
+            <div class="container">
+
+                <div class="split-heading">
+                    <div class="section-label">فراتر از یادگیری</div>
+                    <h2>ساختن <span>آینده حرفه‌ای</span></h2>
+                </div>
+
+                <div class="split-grid">
+
+                    <div class="split-card">
+                        <div class="split-icon">🎓</div>
+                        <div class="split-content">
+                            <span>TEACHER TRAINING</span>
+                            <h3>مربیگری و تربیت مدرس</h3>
+                            <p>
+                                در کنار دوره‌های ترمیک زبان، مؤسسه برگزارکننده دوره‌های مربیگری و
+                                تربیت مدرس نیز هست. یکی از دستاوردهای ارزشمند ما، تربیت مدرسین
+                                توانمند از میان زبان‌آموزان و فارغ‌التحصیلان خود مؤسسه است.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="split-card">
+                        <div class="split-icon">🚀</div>
+                        <div class="split-content">
+                            <span>PROFESSIONAL PATH</span>
+                            <h3>مسیر حرفه‌ای فارغ‌التحصیلان</h3>
+                            <p>
+                                طی سال‌های فعالیت، ده‌ها نفر از فارغ‌التحصیلان مؤسسه را در مسیر
+                                حرفه‌ای تدریس زبان همراهی کرده و به‌عنوان مدرس وارد جامعه آموزشی
+                                کشور کرده‌ایم.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VALUES ================= -->
+
+        <section class="about-values">
+            <div class="container">
+
+                <div class="values-heading">
+                    <div class="section-label">آنچه برای ما مهم است</div>
+                    <h2>سه اصل، یک <span>مسیر مشترک</span></h2>
+                </div>
+
+                <div class="values-grid">
+
+                    <div class="value-item">
+                        <div class="value-icon">01</div>
+                        <h3>کیفیت</h3>
+                        <p>آموزش اصولی، هدفمند و مبتنی بر نیاز واقعی زبان‌آموز.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">02</div>
+                        <h3>پیشرفت</h3>
+                        <p>ارزیابی مستمر برای شناخت نقاط قوت و مسیرهای قابل بهبود.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">03</div>
+                        <h3>همراهی</h3>
+                        <p>ساختن محیطی پویا که زبان‌آموز در آن تنها نباشد.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= CLOSING ================= -->
+
+        <section class="about-closing">
+            <div class="closing-glow glow-one"></div>
+            <div class="closing-glow glow-two"></div>
+
+            <div class="container closing-content">
+                <div class="closing-badge">LEARNING WITHOUT BORDERS</div>
+
+                <h2>
+                    رشد مهارت‌ها،
+                    <span>ارزیابی دقیق و انگیزه برای ادامه مسیر</span>
+                </h2>
+
+                <p>
+                    با تکیه بر تجربه، دانش آموزشی و برنامه‌ریزی منسجم، در کنار شما هستیم.
+                </p>
+
+                <a href="contact us.html" class="closing-btn">
+                    تماس با ما
+                    <span>←</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

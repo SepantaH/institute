@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8E2FA8">
+    <title>گالری | گویش ملل</title>
+
+    <!-- ================= FONT ================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           1. BASE
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        :root {
+            --purple: #8E2FA8;
+            --purple-dark: #4A145A;
+            --purple-deep: #32103F;
+            --gold: #D4AF37;
+            --gold-light: #E9C888;
+            --cream: #FFF8F0;
+            --muted: #786681;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: #333;
+            line-height: 1.8;
+        }
+
+            body.lightbox-open {
+                overflow: hidden;
+            }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* =========================================================
+           2. HEADER (same as the Library page)
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            right: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+            .logo img {
+                width: 85px;
+                height: 85px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .logo h1 {
+                color: #8E2FA8;
+            }
+
+            .logo span {
+                color: #888;
+                font-size: 14px;
+            }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+            nav a:hover,
+            nav a.active {
+                color: #8E2FA8;
+            }
+
+        @media screen and (max-width: 1024px) {
+            .container {
+                width: 92%;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .logo img {
+                width: 65px;
+                height: 65px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            .logo span {
+                font-size: 12px;
+            }
+
+            nav ul {
+                gap: 8px 13px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+        }
+
+
+        /* =========================================================
+           3. HERO
+        ========================================================= */
+
+        .gallery-hero {
+            position: relative;
+            padding: 80px 0 90px;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            background: radial-gradient(circle at 15% 25%, rgba(212, 175, 55, .14), transparent 25%), radial-gradient(circle at 85% 75%, rgba(185, 107, 201, .22), transparent 28%), linear-gradient(145deg, #32103F 0%, #4A145A 38%, #76258A 72%, #8E2FA8 100%);
+        }
+
+            .gallery-hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                opacity: .15;
+                background-image: linear-gradient(30deg, rgba(255, 255, 255, .12) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, .12) 87.5%, rgba(255, 255, 255, .12)), linear-gradient(150deg, rgba(255, 255, 255, .12) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, .12) 87.5%, rgba(255, 255, 255, .12));
+                background-size: 70px 120px;
+            }
+
+        .hero-circle {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 50%;
+        }
+
+        .circle-one {
+            width: 320px;
+            height: 320px;
+            top: -170px;
+            right: -90px;
+        }
+
+        .circle-two {
+            width: 420px;
+            height: 420px;
+            bottom: -270px;
+            left: -150px;
+        }
+
+        .gallery-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 9px 23px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(255, 255, 255, .25);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, .09);
+            color: #F1DFF5;
+            font-size: 14px;
+            font-weight: 500;
+            backdrop-filter: blur(8px);
+        }
+
+        .gallery-hero h1 {
+            font-size: 50px;
+            font-weight: 900;
+            line-height: 1.5;
+            text-shadow: 0 8px 30px rgba(0, 0, 0, .15);
+        }
+
+            .gallery-hero h1 span {
+                color: var(--gold-light);
+            }
+
+        .gallery-hero p {
+            max-width: 620px;
+            margin: 16px auto 0;
+            color: #EEDFF2;
+            font-size: 16px;
+            line-height: 2;
+        }
+
+
+        /* =========================================================
+           4. FILTER BUTTONS
+        ========================================================= */
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 45px auto 50px;
+        }
+
+        .filter-btn {
+            background: #fff;
+            border: 2px solid transparent;
+            color: var(--purple);
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+            .filter-btn:hover {
+                border-color: var(--gold);
+                transform: translateY(-2px);
+            }
+
+            .filter-btn.active {
+                background: var(--purple);
+                color: #fff;
+                border-color: var(--purple);
+            }
+
+            .filter-btn:focus-visible {
+                outline: 3px solid var(--gold);
+                outline-offset: 2px;
+            }
+
+
+        /* =========================================================
+           5. GALLERY GRID
+        ========================================================= */
+
+        .gallery-section {
+            padding-bottom: 100px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            padding: 0;
+            border: none;
+            border-radius: 22px;
+            overflow: hidden;
+            cursor: zoom-in;
+            background: linear-gradient(145deg, #F3E4F7, #E0BFEA);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+            transition: transform .3s, box-shadow .3s;
+        }
+
+            .gallery-item[hidden] {
+                display: none !important;
+            }
+
+            .gallery-item:hover {
+                transform: translateY(-7px);
+                box-shadow: 0 22px 45px rgba(142, 47, 168, .22);
+            }
+
+            .gallery-item:focus-visible {
+                outline: 3px solid var(--gold);
+                outline-offset: 3px;
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: transform .5s;
+            }
+
+            .gallery-item:hover img {
+                transform: scale(1.07);
+            }
+
+        /* placeholder when the photo is not added yet */
+
+        .item-placeholder {
+            display: none;
+            position: absolute;
+            inset: 0;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--purple-dark);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+            .item-placeholder b {
+                width: 62px;
+                height: 62px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, .75);
+                box-shadow: 0 10px 25px rgba(74, 20, 90, .08);
+                font-size: 26px;
+            }
+
+        .gallery-item.no-image img {
+            display: none;
+        }
+
+        .gallery-item.no-image .item-placeholder {
+            display: flex;
+        }
+
+        /* caption overlay */
+
+        .item-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 18px;
+            text-align: right;
+            color: #fff;
+            background: linear-gradient(180deg, transparent 45%, rgba(50, 16, 63, .88));
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        .gallery-item:hover .item-overlay,
+        .gallery-item:focus-visible .item-overlay {
+            opacity: 1;
+        }
+
+        .item-overlay strong {
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        .item-overlay i {
+            width: 38px;
+            height: 38px;
+            flex: 0 0 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--purple-deep);
+            font-style: normal;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        /* category tag */
+
+        .item-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            padding: 4px 14px;
+            border-radius: 20px;
+            background: var(--gold);
+            color: #3a1046;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .12);
+        }
+
+        .gallery-empty {
+            display: none;
+            padding: 60px 0;
+            text-align: center;
+            color: var(--muted);
+        }
+
+            .gallery-empty.show {
+                display: block;
+            }
+
+
+        /* =========================================================
+           6. LIGHTBOX
+        ========================================================= */
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(30, 8, 40, .92);
+            backdrop-filter: blur(6px);
+        }
+
+            .lightbox.open {
+                display: flex;
+            }
+
+        .lightbox-figure {
+            max-width: min(1000px, 100%);
+            max-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: 16px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, .4);
+            object-fit: contain;
+        }
+
+        .lightbox-placeholder {
+            display: none;
+            width: min(560px, 90vw);
+            aspect-ratio: 4 / 3;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #F3E4F7, #E0BFEA);
+            color: var(--purple-dark);
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+            .lightbox-placeholder b {
+                font-size: 42px;
+            }
+
+        .lightbox-caption {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .lightbox-counter {
+            color: var(--gold-light);
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .lightbox-btn {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, .25);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .1);
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+            .lightbox-btn:hover {
+                background: var(--gold);
+                color: var(--purple-deep);
+                border-color: var(--gold);
+            }
+
+            .lightbox-btn:focus-visible {
+                outline: 3px solid var(--gold);
+                outline-offset: 2px;
+            }
+
+        .lightbox-close {
+            top: 20px;
+            right: 20px;
+        }
+
+        .lightbox-prev {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-next {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+        }
+
+
+        /* =========================================================
+           7. RESPONSIVE
+        ========================================================= */
+
+        @media screen and (max-width: 1024px) {
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+            }
+
+            .gallery-hero h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .gallery-hero {
+                padding: 55px 0 65px;
+            }
+
+                .gallery-hero h1 {
+                    font-size: 32px;
+                }
+
+                .gallery-hero p {
+                    font-size: 14px;
+                }
+
+            .gallery-filters {
+                margin: 30px auto 35px;
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            /* no hover on phones: always show the caption */
+            .item-overlay {
+                opacity: 1;
+                padding: 14px;
+            }
+
+            .lightbox {
+                padding: 12px;
+            }
+
+            .lightbox-btn {
+                width: 42px;
+                height: 42px;
+            }
+
+            .lightbox-close {
+                top: 12px;
+                right: 12px;
+            }
+
+            .lightbox-prev {
+                right: 8px;
+            }
+
+            .lightbox-next {
+                left: 8px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         HEADER (same as the Library page)
+    ========================================================= -->
+
+    <header>
+        <div class="container nav">
+
+            <div class="logo">
+                <img src="/images/logo.jfif" alt="لوگوی گویش ملل">
+
+                <div>
+                    <h1>
+                        <sup><small>راهبرد</small></sup>
+                        <b>گـــویش ملل</b>
+                    </h1>
+
+                    <span>Learning Without Borders</span>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="courses.html" target="_blank">دوره‌ها</a></li>
+                    <li><a href="calender.html" target="_blank">تقویم</a></li>
+                    <li><a href="news.html" target="_blank">اخبار</a></li>
+                    <li><a href="library.html">کتابخانه</a></li>
+                    <li><a href="gallery.html" class="active">گالری</a></li>
+                    <li><a href="careers.html">همکاری با ما</a></li>
+                    <li><a href="about us.html" target="_blank">درباره ما</a></li>
+                    <li><a href="contact us.html" target="_blank">تماس با ما</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <section class="gallery-hero">
+        <div class="hero-circle circle-one"></div>
+        <div class="hero-circle circle-two"></div>
+
+        <div class="container gallery-hero-content">
+            <div class="gallery-badge">📸 لحظه‌های ماندگار</div>
+
+            <h1>گالری <span>گویش ملل</span></h1>
+
+            <p>
+                نگاهی به فضای شعبه‌ها، کلاس‌ها و برنامه‌های آموزشگاه؛
+                تصویری از مسیر یادگیری در کنار هم.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         GALLERY
+    ========================================================= -->
+
+    <main class="gallery-section">
+        <div class="container">
+
+            <!-- ---------- FILTERS ---------- -->
+
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">همه</button>
+                <button class="filter-btn" data-filter="branches" aria-pressed="false">🏫 شعبه‌ها</button>
+                <button class="filter-btn" data-filter="classes" aria-pressed="false">📚 کلاس‌ها</button>
+                <button class="filter-btn" data-filter="events" aria-pressed="false">🎉 مراسم‌ها</button>
+                <button class="filter-btn" data-filter="teachers" aria-pressed="false">🎓 اساتید</button>
+            </div>
+
+
+            <!-- ---------- GRID ----------
+                 برای افزودن عکس جدید، یک بلوک button مثل نمونه‌ها کپی کن:
+                 data-category : branches | classes | events | teachers
+                 data-caption  : توضیح زیر عکس
+                 src           : مسیر عکس
+            ------------------------------------------------ -->
+
+            <div class="gallery-grid" id="galleryGrid">
+
+                <!-- ===== BRANCHES ===== -->
+
+                <button type="button" class="gallery-item" data-category="branches" data-caption="ورودی شعبه مرکزی">
+                    <span class="item-tag">شعبه‌ها</span>
+                    <img src="/images/gallery/branch-central.jpg" alt="ورودی شعبه مرکزی" loading="lazy">
+                    <span class="item-placeholder"><b>📷</b>ورودی شعبه مرکزی</span>
+                    <span class="item-overlay"><strong>ورودی شعبه مرکزی</strong><i>+</i></span>
+                </button>
+
+                <button type="button" class="gallery-item" data-category="branches" data-caption="شعبه آسمان">
+                    <span class="item-tag">شعبه‌ها</span>
+                    <img src="/images/gallery/branch-aseman.jpg" alt="شعبه آسمان" loading="lazy">
+                    <span class="item-placeholder"><b>📷</b>شعبه آسمان</span>
+                    <span class="item-overlay"><strong>شعبه آسمان</strong><i>+</i></span>
+                </button>
+
+                <button type="button" class="gallery-item" data-category="branches" data-caption="شعبه باقری">
+                    <span class="item-tag">شعبه‌ها</span>
+                    <img src="/images/gallery/branch-bagheri.jpg" alt="شعبه باقری" loading="lazy">
+                    <span class="item-placeholder"><b>📷</b>شعبه باقری</span>
+                    <span class="item-overlay"><strong>شعبه باقری</strong><i>+</i></span>
+                </button>
+
+                <!-- ===== CLASSES ===== -->
+
+                <button type="button" class="gallery-item" data-category="classes" data-caption="کلاس کودکان">
+                    <span class="item-tag">کلاس‌ها</span>
+                    <img src="/images/gallery/class-kids.jpg" alt="کلاس کودکان" loading="lazy">
+                    <span class="item-placeholder"><b>📷</b>کلاس کودکان</span>
+                    <span class="item-overlay"><strong>کلاس کودکان</strong><i>+</i></span>
+                </button>
+
+                <button type="button" class="gallery-item" data-category="classes" data-caption="کلاس نوجوانان">
+                    <span class="item-tag">کلاس‌ها</span>
+                    <img src="/images/gallery/class-teens.jpg" alt="کلاس نوجوانان" loading="lazy">
+                    <span class="item-placeholder"><b>📷</b>کلاس نوجوانان</span>
+                    <span class="item-overlay"><strong>کلاس نوجوانان</strong><i>+</i></span>
+                </button>
+
+                <button type="button" class="gallery-item" data-category="classes" data-caption="کلاس بزرگسالان">
+                    <span class="item-tag">کلاس‌ها</span>
+                    <img src="/images/gallery/class-adults.jpg" alt="کلاس بزرگسالان" loading="lazy">
+                    <span class="item-placeholder"><b>📷</b>کلاس بزرگسالان</span>
+                    <span class="item-overlay"><strong>کلاس بزرگسالان</strong><i>+</i></span>
+                </button>
+
+                <!-- ===== EVENTS ===== -->
+
+                <button type="button" class="gallery-item"

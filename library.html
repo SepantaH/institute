@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8E2FA8">
+
+    <title>کتابخانه | گویش ملل</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/footer.css">
+
+    <style>
+        /* =========================================================
+           1. RESET & BASE
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #FFF8F0;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* =========================================================
+           2. HEADER
+           Sticky header stays in document flow and does not
+           cover the poster below it.
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            right: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+            .logo img {
+                width: 85px;
+                height: 85px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .logo h1 {
+                color: #8E2FA8;
+            }
+
+            .logo span {
+                color: #888;
+                font-size: 14px;
+            }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+            nav a:hover,
+            nav a.active {
+                color: #8E2FA8;
+            }
+
+
+        /* =========================================================
+           3. RESPONSIVE LIBRARY POSTER
+           Desktop: library.png
+           Tablet: library-poster-tablet.png
+           Mobile: library-poster-mobile.png
+        ========================================================= */
+
+        .library-poster {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+            .library-poster picture {
+                display: block;
+                width: 100%;
+            }
+
+            .library-poster img {
+                display: block;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+
+
+        /* =========================================================
+           4. FILTER BUTTONS
+        ========================================================= */
+
+        .library-filters {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 35px auto 60px;
+        }
+
+        .filter-btn {
+            background: #fff;
+            border: 2px solid transparent;
+            color: #8E2FA8;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+            .filter-btn:hover {
+                border-color: #D4AF37;
+                transform: translateY(-2px);
+            }
+
+            .filter-btn.active {
+                background: #8E2FA8;
+                color: #fff;
+                border-color: #8E2FA8;
+            }
+
+
+        /* =========================================================
+           5. AGE SECTIONS
+        ========================================================= */
+
+        .age-section {
+            margin-bottom: 75px;
+        }
+
+            .age-section[hidden] {
+                display: none !important;
+            }
+
+
+        /* =========================================================
+           6. SECTION TITLES
+        ========================================================= */
+
+        .age-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+            .age-title h2 {
+                display: inline-block;
+                color: #8E2FA8;
+                font-size: 28px;
+                font-weight: 900;
+                position: relative;
+                padding: 0 25px;
+            }
+
+                .age-title h2::before,
+                .age-title h2::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    width: 70px;
+                    height: 2px;
+                    background: #D4AF37;
+                }
+
+                .age-title h2::before {
+                    right: 100%;
+                }
+
+                .age-title h2::after {
+                    left: 100%;
+                }
+
+
+        /* =========================================================
+           7. BOOK GRID
+        ========================================================= */
+
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 35px;
+            padding-bottom: 20px;
+        }
+
+
+        /* =========================================================
+           8. BOOK CARDS
+        ========================================================= */
+
+        .book-card {
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+            transition: transform .3s, box-shadow .3s;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+            .book-card:hover {
+                transform: translateY(-7px);
+                box-shadow: 0 22px 45px rgba(142, 47, 168, .22);
+            }
+
+
+        /* =========================================================
+           9. BOOK COVERS
+        ========================================================= */
+
+        .book-cover {
+            position: relative;
+            height: 250px;
+            background: #eee;
+            overflow: hidden;
+        }
+
+            .book-cover img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: transform .4s;
+            }
+
+        .book-card:hover .book-cover img {
+            transform: scale(1.04);
+        }
+
+
+        /* =========================================================
+           10. BOOK SERIES LABEL
+        ========================================================= */
+
+        .book-series {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: #D4AF37;
+            color: #3a1046;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 20px;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .12);
+        }
+
+
+        /* =========================================================
+           11. BOOK INFORMATION
+        ========================================================= */
+
+        .book-body {
+            padding: 22px 22px 26px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .book-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #3a1046;
+            margin-bottom: 6px;
+        }
+
+        .book-desc {
+            font-size: 13.5px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================================================
+           12. DOWNLOAD BUTTONS
+        ========================================================= */
+
+        .book-downloads {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 600;
+            padding: 11px 16px;
+            border-radius: 12px;
+            transition: .3s;
+        }
+
+            .download-btn .icon {
+                font-size: 16px;
+            }
+
+        .btn-book {
+            background: rgba(142, 47, 168, .08);
+            color: #8E2FA8;
+        }
+
+            .btn-book:hover {
+                background: #8E2FA8;
+                color: #fff;
+            }
+
+        .btn-audio {
+            background: rgba(212, 175, 55, .12);
+            color: #a3821c;
+        }
+
+            .btn-audio:hover {
+                background: #D4AF37;
+                color: #fff;
+            }
+
+
+        /* =========================================================
+           13. TABLET RESPONSIVE
+        ========================================================= */
+
+        @media screen and (max-width: 1024px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+
+            .library-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 25px;
+            }
+
+            .age-title h2 {
+                font-size: 25px;
+            }
+        }
+
+
+        /* =========================================================
+           14. MOBILE RESPONSIVE
+        ========================================================= */
+
+        @media screen and (max-width: 600px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .logo img {
+                width: 65px;
+                height: 65px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            .logo span {
+                font-size: 12px;
+            }
+
+            nav ul {
+                gap: 8px 13px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .library-filters {
+                margin: 25px auto 45px;
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .library-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .book-cover {
+                height: 280px;
+            }
+
+            .age-title h2 {
+                font-size: 22px;
+                padding: 0 12px;
+            }
+
+                .age-title h2::before,
+                .age-title h2::after {
+                    width: 25px;
+                }
+
+            .book-body {
+                padding: 18px;
+            }
+        }
+
+
+        /* =========================================================
+           15. REDUCED MOTION ACCESSIBILITY
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         HEADER
+    ========================================================= -->
+
+    <header>
+        <div class="container nav">
+
+            <div class="logo">
+                <img src="/images/logo.jfif" alt="لوگوی گویش ملل">
+
+                <div>
+                    <h1>
+                        <sup><small>راهبرد</small></sup>
+                        <b>گـــویش ملل</b>
+                    </h1>
+
+                    <span>Learning Without Borders</span>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="courses.html" target="_blank">دوره‌ها</a></li>
+                    <li><a href="calender.html" target="_blank">تقویم</a></li>
+                    <li><a href="news.html" target="_blank">اخبار</a></li>
+                    <li><a href="library.html" class="active">کتابخانه</a></li>
+                    <li><a href="careers.html">همکاری با ما</a></li>
+                    <li><a href="about us.html" target="_blank">درباره ما</a></li>
+                    <li><a href="contact us.html" target="_blank">تماس با ما</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================================================
+         RESPONSIVE LIBRARY POSTER
+    ========================================================= -->
+
+    <section class="library-poster">
+        <picture>
+
+            <!-- Mobile poster -->
+            <source media="(max-width: 600px)"
+                    srcset="/images/library-poster-mobile.png">
+
+            <!-- Tablet poster -->
+            <source media="(max-width: 1024px)"
+                    srcset="/images/library-poster-tablet.png">
+
+            <!-- Desktop poster -->
+            <img src="/images/library.png"
+                 alt="کتابخانه گویش ملل"
+                 fetchpriority="high">
+
+        </picture>
+    </section>
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================= -->
+
+    <main>
+        <div class="container">
+
+            <!-- =====================================================
+                 AGE FILTERS
+            ===================================================== -->
+
+            <div class="library-filters">
+
+                <button class="filter-btn active" data-age="all" aria-pressed="true">
+                    همه
+                </button>
+
+                <button class="filter-btn" data-age="kids" aria-pressed="false">
+                    👧 کودکان
+                </button>
+
+                <button class="filter-btn" data-age="teens" aria-pressed="false">
+                    🧑 نوجوانان
+                </button>
+
+                <button class="filter-btn" data-age="adults" aria-pressed="false">
+                    👨 بزرگسالان
+                </button>
+
+            </div>
+
+
+            <!-- =====================================================
+                 KIDS
+            ===================================================== -->
+
+            <section class="age-section" data-section="kids">
+
+                <div class="age-title">
+                    <h2>👧 کتاب‌های کودکان</h2>
+                </div>
+
+                <div class="library-grid">
+
+
+                    <!-- PHONICS 1 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Phonics</span>
+                            <img src="/images/books/phonics-1.jpg" alt="Phonics 1" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Phonics 1</div>
+                            <div class="book-desc">آموزش پایه صداها و حروف زبان انگلیسی برای کودکان</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/phonics-1.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/phonics-1.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- PHONICS 2 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Phonics</span>
+                            <img src="/images/books/phonics-2.jpg" alt="Phonics 2" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Phonics 2</div>
+                            <div class="book-desc">ادامه آموزش Phonics برای تقویت خواندن و تلفظ کودکان</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/phonics-2.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/phonics-2.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- FIRST FRIENDS 1 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">First Friends</span>
+                            <img src="/images/books/first-friends-1.jpg" alt="First Friends 1" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">First Friends 1</div>
+                            <div class="book-desc">آموزش زبان انگلیسی برای کودکان در سطح مقدماتی</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/first-friends-1.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/first-friends-1.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- FIRST FRIENDS 2 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">First Friends</span>
+                            <img src="/images/books/first-friends-2.jpg" alt="First Friends 2" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">First Friends 2</div>
+                            <div class="book-desc">ادامه مسیر آموزشی کودکان با مجموعه First Friends</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/first-friends-2.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/first-friends-2.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- FIRST FRIENDS 3 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">First Friends</span>
+                            <img src="/images/books/first-friends-3.jpg" alt="First Friends 3" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">First Friends 3</div>
+                            <div class="book-desc">سطح بالاتر مجموعه First Friends برای کودکان</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/first-friends-3.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/first-friends-3.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- FAMILY AND FRIENDS 1 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Family and Friends</span>
+                            <img src="/images/books/family-and-friends-1.jpg" alt="Family and Friends 1" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Family and Friends 1</div>
+                            <div class="book-desc">سطح اول مجموعه Family and Friends</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/family-and-friends-1.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/family-and-friends-1.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- FAMILY AND FRIENDS 2 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Family and Friends</span>
+                            <img src="/images/books/family-and-friends-2.jpg" alt="Family and Friends 2" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Family and Friends 2</div>
+                            <div class="book-desc">سطح دوم مجموعه Family and Friends</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/family-and-friends-2.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/family-and-friends-2.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- FAMILY AND FRIENDS 3 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Family and Friends</span>
+                            <img src="/images/books/family-and-friends-3.jpg" alt="Family and Friends 3" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Family and Friends 3</div>
+                            <div class="book-desc">سطح سوم مجموعه Family and Friends</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/family-and-friends-3.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/family-and-friends-3.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- FAMILY AND FRIENDS 4 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Family and Friends</span>
+                            <img src="/images/books/family-and-friends-4.jpg" alt="Family and Friends 4" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Family and Friends 4</div>
+                            <div class="book-desc">سطح چهارم مجموعه Family and Friends</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/family-and-friends-4.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/family-and-friends-4.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- FAMILY AND FRIENDS 5 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Family and Friends</span>
+                            <img src="/images/books/family-and-friends-5.jpg" alt="Family and Friends 5" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Family and Friends 5</div>
+                            <div class="book-desc">سطح پنجم مجموعه Family and Friends</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/family-and-friends-5.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/family-and-friends-5.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- FAMILY AND FRIENDS 6 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Family and Friends</span>
+                            <img src="/images/books/family-and-friends-6.jpg" alt="Family and Friends 6" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Family and Friends 6</div>
+                            <div class="book-desc">سطح ششم مجموعه Family and Friends</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/family-and-friends-6.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/family-and-friends-6.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ENGLISH TIME 1 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">English Time</span>
+                            <img src="/images/books/english-time-1.jpg" alt="English Time 1" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">English Time 1</div>
+                            <div class="book-desc">سطح اول مجموعه English Time</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/english-time-1.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/english-time-1.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ENGLISH TIME 2 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">English Time</span>
+                            <img src="/images/books/english-time-2.jpg" alt="English Time 2" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">English Time 2</div>
+                            <div class="book-desc">سطح دوم مجموعه English Time</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/english-time-2.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/english-time-2.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ENGLISH TIME 3 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">English Time</span>
+                            <img src="/images/books/english-time-3.jpg" alt="English Time 3" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">English Time 3</div>
+                            <div class="book-desc">سطح سوم مجموعه English Time</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/english-time-3.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/english-time-3.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ENGLISH TIME 4 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">English Time</span>
+                            <img src="/images/books/english-time-4.jpg" alt="English Time 4" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">English Time 4</div>
+                            <div class="book-desc">سطح چهارم مجموعه English Time</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/english-time-4.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/english-time-4.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ENGLISH TIME 5 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">English Time</span>
+                            <img src="/images/books/english-time-5.jpg" alt="English Time 5" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">English Time 5</div>
+                            <div class="book-desc">سطح پنجم مجموعه English Time</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/english-time-5.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/english-time-5.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ENGLISH TIME 6 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">English Time</span>
+                            <img src="/images/books/english-time-6.jpg" alt="English Time 6" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">English Time 6</div>
+                            <div class="book-desc">سطح ششم مجموعه English Time</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/english-time-6.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/english-time-6.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- =====================================================
+                 TEENS
+            ===================================================== -->
+
+            <section class="age-section" data-section="teens">
+
+                <div class="age-title">
+                    <h2>🧑 کتاب‌های نوجوانان</h2>
+                </div>
+
+                <div class="library-grid">
+
+
+                    <!-- TEEN2TEEN 1 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Teen2Teen</span>
+                            <img src="/images/books/teen2teen-1.jpg" alt="Teen2Teen 1" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Teen2Teen 1</div>
+                            <div class="book-desc">سطح اول مجموعه Teen2Teen</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/teen2teen-1.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/teen2teen-1.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- TEEN2TEEN 2 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Teen2Teen</span>
+                            <img src="/images/books/teen2teen-2.jpg" alt="Teen2Teen 2" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Teen2Teen 2</div>
+                            <div class="book-desc">سطح دوم مجموعه Teen2Teen</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/teen2teen-2.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/library/books/Teen2Teen%202%20Audio.rar" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- TEEN2TEEN 3 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Teen2Teen</span>
+                            <img src="/images/books/teen2teen-3.jpg" alt="Teen2Teen 3" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Teen2Teen 3</div>
+                            <div class="book-desc">سطح سوم مجموعه Teen2Teen</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/teen2teen-3.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/teen2teen-3.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- TEEN2TEEN 4 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Teen2Teen</span>
+                            <img src="/images/books/teen2teen-4.jpg" alt="Teen2Teen 4" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Teen2Teen 4</div>
+                            <div class="book-desc">سطح چهارم مجموعه Teen2Teen</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/teen2teen-4.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/teen2teen-4.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ENGLISH IN MIND 1 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">English in Mind</span>
+                            <img src="/images/books/english-in-mind-1.jpg" alt="English in Mind 1" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">English in Mind 1</div>
+                            <div class="book-desc">سطح اول مجموعه English in Mind</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/english-in-mind-1.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/english-in-mind-1.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ENGLISH IN MIND 2 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">English in Mind</span>
+                            <img src="/images/books/english-in-mind-2.jpg" alt="English in Mind 2" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">English in Mind 2</div>
+                            <div class="book-desc">سطح دوم مجموعه English in Mind</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/english-in-mind-2.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/english-in-mind-2.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ENGLISH IN MIND 3 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">English in Mind</span>
+                            <img src="/images/books/english-in-mind-3.jpg" alt="English in Mind 3" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">English in Mind 3</div>
+                            <div class="book-desc">سطح سوم مجموعه English in Mind</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/english-in-mind-3.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/english-in-mind-3.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ENGLISH IN MIND 4 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">English in Mind</span>
+                            <img src="/images/books/english-in-mind-4.jpg" alt="English in Mind 4" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">English in Mind 4</div>
+                            <div class="book-desc">سطح چهارم مجموعه English in Mind</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/english-in-mind-4.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/english-in-mind-4.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ENGLISH IN MIND 5 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">English in Mind</span>
+                            <img src="/images/books/english-in-mind-5.jpg" alt="English in Mind 5" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">English in Mind 5</div>
+                            <div class="book-desc">سطح پنجم مجموعه English in Mind</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/english-in-mind-5.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/english-in-mind-5.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- OPD -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">OPD</span>
+                            <img src="/images/books/opd.jpg" alt="Oxford Picture Dictionary" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Oxford Picture Dictionary</div>
+                            <div class="book-desc">فرهنگ تصویری Oxford برای یادگیری واژگان زبان انگلیسی</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/opd.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/opd.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- TACTICS BASIC -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Tactics for Listening</span>
+                            <img src="/images/books/tactics-for-listening-basic.jpg" alt="Tactics for Listening Basic" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Tactics for Listening - Basic</div>
+                            <div class="book-desc">سطح پایه مجموعه Tactics for Listening</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/tactics-for-listening-basic.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/tactics-for-listening-basic.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- TACTICS DEVELOPING -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Tactics for Listening</span>
+                            <img src="/images/books/tactics-for-listening-developing.jpg" alt="Tactics for Listening Developing" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Tactics for Listening - Developing</div>
+                            <div class="book-desc">سطح متوسط مجموعه Tactics for Listening</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/tactics-for-listening-developing.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/tactics-for-listening-developing.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- TACTICS EXPANDING -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Tactics for Listening</span>
+                            <img src="/images/books/tactics-for-listening-expanding.jpg" alt="Tactics for Listening Expanding" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Tactics for Listening - Expanding</div>
+                            <div class="book-desc">سطح پیشرفته مجموعه Tactics for Listening</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/tactics-for-listening-expanding.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/tactics-for-listening-expanding.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- =====================================================
+                 ADULTS
+            ===================================================== -->
+
+            <section class="age-section" data-section="adults">
+
+                <div class="age-title">
+                    <h2>👨 کتاب‌های بزرگسالان</h2>
+                </div>
+
+                <div class="library-grid">
+
+
+                    <!-- HEADWAY 1 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Headway</span>
+                            <img src="/images/books/headway-1.jpg" alt="Headway 1" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Headway 1</div>
+                            <div class="book-desc">سطح اول مجموعه Headway</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/headway-1.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/headway-1.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- HEADWAY 2 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Headway</span>
+                            <img src="/images/books/headway-2.jpg" alt="Headway 2" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Headway 2</div>
+                            <div class="book-desc">سطح دوم مجموعه Headway</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/headway-2.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/headway-2.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- HEADWAY 3 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Headway</span>
+                            <img src="/images/books/headway-3.jpg" alt="Headway 3" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Headway 3</div>
+                            <div class="book-desc">سطح سوم مجموعه Headway</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/headway-3.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/headway-3.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- HEADWAY 4 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Headway</span>
+                            <img src="/images/books/headway-4.jpg" alt="Headway 4" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Headway 4</div>
+                            <div class="book-desc">سطح چهارم مجموعه Headway</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/headway-4.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/headway-4.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- HEADWAY 5 -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Headway</span>
+                            <img src="/images/books/headway-5.jpg" alt="Headway 5" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Headway 5</div>
+                            <div class="book-desc">سطح پنجم مجموعه Headway</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/headway-5.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/headway-5.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- OXFORD WORD SKILLS BASIC -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Oxford Word Skills</span>
+                            <img src="/images/books/oxford-word-skills-basic.jpg" alt="Oxford Word Skills Basic" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Oxford Word Skills - Basic</div>
+                            <div class="book-desc">سطح پایه برای تقویت و گسترش دایره واژگان</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/oxford-word-skills-basic.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/oxford-word-skills-basic.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- OXFORD WORD SKILLS INTERMEDIATE -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Oxford Word Skills</span>
+                            <img src="/images/books/oxford-word-skills-intermediate.jpg" alt="Oxford Word Skills Intermediate" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Oxford Word Skills - Intermediate</div>
+                            <div class="book-desc">سطح متوسط برای تقویت واژگان و کاربرد آن‌ها</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/oxford-word-skills-intermediate.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/oxford-word-skills-intermediate.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- OXFORD WORD SKILLS ADVANCED -->
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <span class="book-series">Oxford Word Skills</span>
+                            <img src="/images/books/oxford-word-skills-advanced.jpg" alt="Oxford Word Skills Advanced" loading="lazy">
+                        </div>
+
+                        <div class="book-body">
+                            <div class="book-title">Oxford Word Skills - Advanced</div>
+                            <div class="book-desc">سطح پیشرفته برای تسلط بیشتر بر واژگان انگلیسی</div>
+
+                            <div class="book-downloads">
+                                <a class="download-btn btn-book" href="/files/books/oxford-word-skills-advanced.pdf" download>
+                                    <span>دانلود کتاب</span><span class="icon">⬇</span>
+                                </a>
+
+                                <a class="download-btn btn-audio" href="/files/audio/oxford-word-skills-advanced.zip" download>
+                                    <span>دانلود فایل صوتی</span><span class="icon">⬇</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+
+    <!-- =========================================================
+         FILTER SCRIPT
+    ========================================================= -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const ageSections = document.querySelectorAll(".age-section");
+
+            filterButtons.forEach(function (button) {
+
+                button.addEventListener("click", function () {
+
+                    const selectedAge = button.dataset.age;
+
+                    // Update active filter button
+                    filterButtons.forEach(function (btn) {
+
+                        const isActive = btn === button;
+
+                        btn.classList.toggle("active", isActive);
+                        btn.setAttribute("aria-pressed", String(isActive));
+
+                    });
+
+                    // Show or hide age sections
+                    ageSections.forEach(function (section) {
+
+                        const sectionAge = section.dataset.section;
+
+                        section.hidden =
+                            selectedAge !== "all" &&
+                            selectedAge !== sectionAge;
+
+                    });
+
+                });
+
+            });
+
+        });
+    </script>
+
+    <footer class="site-footer">
+
+        <div class="container footer-inner">
+
+            <!-- شعبه مرکزی -->
+            <div class="branch-box">
+                <h3 class="branch-name">شعبه مرکزی</h3>
+                <p class="branch-info">
+                    <span class="info-label">تلفن:</span> 44769810 - 46085884
+                </p>
+                <p class="branch-info">
+                    <span class="info-label">آدرس:</span> شهرک گلستان/ بلوار علی مرادی / انتهای بلوار علیمرادی/ شهرک زیتون (رو به روی مجتمع طوبی)/ انتهای خیابان سهراب سپهری/ برج آریا جنوبی / طبقه همکف.
+                </p>
+                <div class="branch-icons">
+                    <a href="https://maps.app.goo.gl/zdPc5Vm2YprkgbNQ8?g_st=iw" target="_blank" rel="noopener noreferrer"
+                       class="mini-icon map" aria-label="موقعیت شعبه مرکزی روی نقشه">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                            <path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.5 11.5 7.05 12 .27.24.68.24.95 0 .55-.5 7.05-6.75 7.05-12C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z" />
+                        </svg>
+                    </a>
+                    <a href="https://eitaa.com/@Rahbordgouyeshmelal" target="_blank" rel="noopener noreferrer"
+                       class="mini-icon eitaa" aria-label="ایتای شعبه مرکزی">
+                        <img src="eitaa.svg" alt="ایتا" class="mini-eitaa-img">
+                    </a>
+                </div>
+            </div>
+
+            <!-- شعبه آسمان -->
+            <div class="branch-box">
+                <h3 class="branch-name">شعبه آسمان</h3>
+                <p class="branch-info">
+                    <span class="info-label">تلفن:</span> 44769835 - 46053768
+                </p>
+                <p class="branch-info">
+                    <span class="info-label">آدرس:</span> دریاچه چیتگر (منطقه ۲۲)، میدان دریاچه - خ جوزانی- خ هیرمند- خ هراز- برج آسمان 17 و 18 - داخل لابی برج 18 - آموزشگاه گویش ملل
+                </p>
+                <div class="branch-icons">
+                    <a href="https://share.google/ScFgq66tfix2D5GCZ" target="_blank" rel="noopener noreferrer"
+                       class="mini-icon map" aria-label="موقعیت شعبه آسمان روی نقشه">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                            <path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.5 11.5 7.05 12 .27.24.68.24.95 0 .55-.5 7.05-6.75 7.05-12C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z" />
+                        </svg>
+                    </a>
+                    <a href="https://eitaa.com/@Gouyesh_Melal_Aseman" target="_blank" rel="noopener noreferrer"
+                       class="mini-icon eitaa" aria-label="ایتای شعبه آسمان">
+                        <img src="eitaa.svg" alt="ایتا" class="mini-eitaa-img">
+                    </a>
+                </div>
+            </div>
+
+            <!-- شعبه باقری -->
+            <div class="branch-box">
+                <h3 class="branch-name">شعبه باقری</h3>
+                <p class="branch-info">
+                    <span class="info-label">تلفن:</span> 44759484 - 09391484341
+                </p>
+                <p class="branch-info">
+                    <span class="info-label">آدرس:</span> اتوبان خرازی ، شهرک شهید باقری ، خیابان بوستان ، سرای محله شهید باقری ...
+                </p>
+                <div class="branch-icons">
+                    <a href="https://share.google/pdkI3DRrQrtzLsZxH" target="_blank" rel="noopener noreferrer"
+                       class="mini-icon map" aria-label="موقعیت شعبه باقری روی نقشه">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                            <path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.5 11.5 7.05 12 .27.24.68.24.95 0 .55-.5 7.05-6.75 7.05-12C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z" />
+                        </svg>
+                    </a>
+                    <a href="https://eitaa.com/@gooyesh_94" target="_blank" rel="noopener noreferrer"
+                       class="mini-icon eitaa" aria-label="ایتای شعبه باقری">
+                        <img src="eitaa.svg" alt="ایتا" class="mini-eitaa-img">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© تمامی حقوق این سایت برای آموزشگاه راهبرد گویش ملل محفوظ است.</p>
+            <p class="credit">
+                تهیه شده توسط سپنتا حیدری |
+                <a href="https://eitaa.com/SEPANTA765" target="_blank" rel="noopener noreferrer">Sepanta@</a>
+            </p>
+        </div>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8E2FA8">
+    <title>اخبار | گویش ملل</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* ========================= پایه ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        body {
+            background: #FFF8F0;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =========================================================
+           هدر (دقیقاً مثل صفحه کتابخانه)
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            right: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+            .logo img {
+                width: 85px;
+                height: 85px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .logo h1 {
+                color: #8E2FA8;
+            }
+
+            .logo span {
+                color: #888;
+                font-size: 14px;
+            }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+            nav a:hover,
+            nav a.active {
+                color: #8E2FA8;
+            }
+
+        /* تبلت */
+        @media screen and (max-width: 1024px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+        }
+
+        /* موبایل */
+        @media screen and (max-width: 600px) {
+
+            .logo img {
+                width: 65px;
+                height: 65px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            .logo span {
+                font-size: 12px;
+            }
+
+            nav ul {
+                gap: 8px 13px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+        }
+
+        /* =========================================================
+           صفحه اخبار - NEWS PAGE
+           هدر دیگر fixed نیست، پس margin-top قدیمی حذف شد.
+        ========================================================= */
+
+        .news-page {
+            position: relative;
+            overflow: hidden;
+            padding: 55px 0 110px;
+        }
+
+            /* بک‌گراند تزئینی ملایم پشت کل صفحه */
+            .news-page::before {
+                content: "";
+                position: absolute;
+                width: 520px;
+                height: 520px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(142,47,168,.08), transparent 70%);
+                top: -200px;
+                left: -160px;
+                z-index: 0;
+            }
+
+            .news-page::after {
+                content: "";
+                position: absolute;
+                width: 420px;
+                height: 420px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(212,175,55,.12), transparent 70%);
+                bottom: -140px;
+                right: -120px;
+                z-index: 0;
+            }
+
+        /* چیدمان کلی: چون RTL هست، اولین فرزند (سایدبار) سمت راست می‌شینه
+           عرض این بخش از عرض هدر بیشتر است، پس جدا تنظیم شده. */
+        .news-layout {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 40px;
+            align-items: start;
+            width: 90%;
+            max-width: 1300px;
+        }
+
+        /* ---------------------------------------------------------
+           سایدبار پررنگ اخبار (سمت راست)
+        --------------------------------------------------------- */
+
+        .news-sidebar {
+            background: linear-gradient(160deg, #5b1f6e, #8E2FA8 65%, #a544c2);
+            border-radius: 24px;
+            padding: 32px 26px 24px;
+            color: white;
+            box-shadow: 0 25px 55px rgba(142,47,168,.3);
+            position: sticky;
+            top: 135px;
+            overflow: hidden;
+        }
+
+            /* بافت تزئینی داخل سایدبار */
+            .news-sidebar::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: radial-gradient(rgba(255,255,255,.06) 1.5px, transparent 1.5px);
+                background-size: 16px 16px;
+                pointer-events: none;
+            }
+
+        .sidebar-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 19px;
+            font-weight: 900;
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+            .sidebar-title .dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #D4AF37;
+                box-shadow: 0 0 0 5px rgba(212,175,55,.25);
+                animation: blink 1.6s infinite;
+            }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .4;
+            }
+        }
+
+        .sidebar-sub {
+            font-size: 12.5px;
+            color: rgba(255,255,255,.6);
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        /* لیست خبرها */
+        .sidebar-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+            .sidebar-list li a {
+                display: block;
+                text-decoration: none;
+                color: white;
+                padding: 14px 6px;
+                border-bottom: 1px solid rgba(255,255,255,.12);
+                transition: .3s;
+            }
+
+            .sidebar-list li:last-child a {
+                border-bottom: none;
+            }
+
+            .sidebar-list li a:hover {
+                padding-right: 14px;
+                color: #D4AF37;
+            }
+
+        .sidebar-news-date {
+            display: block;
+            font-size: 11.5px;
+            color: #D4AF37;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .sidebar-news-title {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        /* دکمه سه‌نقطه برای رفتن به آرشیو کامل */
+        .sidebar-more {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 14px;
+            padding: 12px;
+            background: rgba(255,255,255,.1);
+            border-radius: 14px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            transition: .3s;
+            position: relative;
+        }
+
+            .sidebar-more:hover {
+                background: #D4AF37;
+                color: #3a1046;
+            }
+
+            .sidebar-more span {
+                font-size: 18px;
+                letter-spacing: 2px;
+                line-height: 0;
+            }
+
+        /* ---------------------------------------------------------
+           محتوای اصلی (توضیحات + اسلایدر پوستر)
+        --------------------------------------------------------- */
+
+        .news-main-title {
+            display: inline-block;
+            background: rgba(142,47,168,.08);
+            color: #8E2FA8;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+
+        .news-main h2 {
+            font-size: 32px;
+            font-weight: 900;
+            color: #3a1046;
+            margin-bottom: 16px;
+        }
+
+            .news-main h2 span {
+                color: #8E2FA8;
+            }
+
+        .news-main p.desc {
+            color: #666;
+            font-size: 15.5px;
+            max-width: 640px;
+            margin-bottom: 45px;
+        }
+
+        /* ---------- اسلایدر پوستر اخبار ---------- */
+
+        .news-slider {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/8;
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 25px 55px rgba(0,0,0,.12);
+            background: #000;
+        }
+
+        .news-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity .8s ease;
+        }
+
+            .news-slide.active {
+                opacity: 1;
+                z-index: 1;
+            }
+
+            .news-slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+        /* کپشن روی پوستر */
+        .news-slide-caption {
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            padding: 35px 40px;
+            background: linear-gradient(to top, rgba(0,0,0,.75), transparent);
+            color: white;
+        }
+
+            .news-slide-caption .tag {
+                display: inline-block;
+                background: #D4AF37;
+                color: #3a1046;
+                font-size: 11.5px;
+                font-weight: 700;
+                padding: 4px 14px;
+                border-radius: 20px;
+                margin-bottom: 10px;
+            }
+
+            .news-slide-caption h3 {
+                font-size: 20px;
+                font-weight: 800;
+            }
+
+        /* دکمه‌های اسلایدر */
+        .news-slider .prev,
+        .news-slider .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,.18);
+            backdrop-filter: blur(6px);
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 2;
+            transition: .3s;
+        }
+
+            .news-slider .prev:hover,
+            .news-slider .next:hover {
+                background: #D4AF37;
+                color: #3a1046;
+            }
+
+        .news-slider .prev {
+            right: 18px;
+        }
+
+        .news-slider .next {
+            left: 18px;
+        }
+
+        /* نقاط زیر اسلایدر */
+        .news-slider-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+
+            .news-slider-dots span {
+                width: 9px;
+                height: 9px;
+                border-radius: 50%;
+                background: rgba(255,255,255,.5);
+                cursor: pointer;
+                transition: .3s;
+            }
+
+                .news-slider-dots span.active {
+                    background: #D4AF37;
+                    width: 24px;
+                    border-radius: 6px;
+                }
+
+        /* ---------- ریسپانسیو ---------- */
+
+        /* تبلت: هدر بلندتر می‌شود، پس سایدبار پایین‌تر می‌چسبد */
+        @media (max-width: 1024px) {
+
+            .news-layout {
+                width: 92%;
+            }
+
+            .news-sidebar {
+                top: 190px;
+            }
+        }
+
+        @media (max-width: 900px) {
+
+            .news-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .news-sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .news-main h2 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .news-page {
+                padding: 35px 0 80px;
+            }
+
+            .news-slide-caption {
+                padding: 20px 18px;
+            }
+
+                .news-slide-caption h3 {
+                    font-size: 15px;
+                }
+
+            .news-slider .prev,
+            .news-slider .next {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================================================
+         HEADER (دقیقاً مثل صفحه کتابخانه)
+    ========================================================= -->
+
+    <header>
+        <div class="container nav">
+
+            <div class="logo">
+                <img src="/images/logo.jfif" alt="لوگوی گویش ملل">
+
+                <div>
+                    <h1>
+                        <sup><small>راهبرد</small></sup>
+                        <b>گـــویش ملل</b>
+                    </h1>
+
+                    <span>Learning Without Borders</span>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="courses.html" target="_blank">دوره‌ها</a></li>
+                    <li><a href="calender.html" target="_blank">تقویم</a></li>
+                    <li><a href="news.html" class="active">اخبار</a></li>
+                    <li><a href="library.html">کتابخانه</a></li>
+                    <li><a href="careers.html">همکاری با ما</a></li>
+                    <li><a href="about us.html" target="_blank">درباره ما</a></li>
+                    <li><a href="contact us.html" target="_blank">تماس با ما</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- ================= NEWS PAGE ================= -->
+
+    <section class="news-page">
+        <div class="container news-layout">
+
+            <!-- ---------- سایدبار اخبار (راست) ---------- -->
+            <aside class="news-sidebar">
+
+                <div class="sidebar-title"><span class="dot"></span> تازه‌ترین‌ها</div>
+                <div class="sidebar-sub">آخرین اطلاعیه‌ها و اخبار آموزشگاه</div>
+
+                <ul class="sidebar-list" id="sidebarList">
+                    <!-- آیتم‌ها با جاوااسکریپت و بر اساس تاریخ ساخته می‌شن -->
+                </ul>
+
+                <a href="all-news.html" class="sidebar-more">مشاهده همه اخبار <span>⋯</span></a>
+
+            </aside>
+
+            <!-- ---------- محتوای اصلی ---------- -->
+            <div class="news-main">
+
+                <span class="news-main-title">📰 اخبار و اطلاعیه‌ها</span>
+
+                <h2>از دل <span>گویش ملل</span> باخبر شوید</h2>
+
+                <p class="desc">
+                    رویدادها، دوره‌های جدید، جشنواره‌ها و افتخارات آموزشگاه رو همین‌جا دنبال کن.
+                    برای دیدن آرشیو کامل اخبار از روز اول، کافیه از سایدبار کنارش وارد بشی.
+                </p>
+
+                <!-- اسلایدر پوستر اخبار -->
+                <div class="news-slider" id="newsSlider">
+
+                    <!-- اسلایدها با جاوااسکریپت ساخته می‌شن -->
+
+                    <button class="prev" onclick="changeSlide(-1)">❯</button>
+                    <button class="next" onclick="changeSlide(1)">❮</button>
+
+                    <div class="news-slider-dots" id="sliderDots"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+
+        /* =========================================================
+           داده اخبار
+           برای افزودن خبر جدید فقط یک آبجکت به این آرایه اضافه کن؛
+           لیست سایدبار و آرشیو خودکار بر اساس "date" مرتب می‌شن (جدید بالاتر).
+
+           title  → عنوان خبر
+           date   → تاریخ به فرمت "YYYY-MM-DD" (برای مرتب‌سازی صحیح)
+           dateFa → تاریخ نمایشی به شمسی (دلخواه)
+           link   → آدرس صفحه کامل خبر (وقتی صفحه اختصاصی خبر رو ساختی)
+        ========================================================= */
+
+        const newsList = [
+            { title: "شروع ثبت‌نام ترم زمستان با تخفیف ویژه", date: "2026-09-05", dateFa: "۱۴۰۵/۰۶/۱۴", link: "#" },
+            { title: "برگزاری آزمون بین‌المللی آیلتس در آموزشگاه", date: "2026-08-28", dateFa: "۱۴۰۵/۰۶/۰۶", link: "#" },
+            { title: "جشن فارغ‌التحصیلی دوره‌های بزرگسال", date: "2026-08-15", dateFa: "۱۴۰۵/۰۵/۲۴", link: "#" },
+            { title: "افتتاح کلاس‌های ویژه کودکان ۵ تا ۷ سال", date: "2026-08-02", dateFa: "۱۴۰۵/۰۵/۱۱", link: "#" },
+            { title: "کارگاه رایگان تلفظ و مکالمه با استاد مهمان", date: "2026-07-20", dateFa: "۱۴۰۵/۰۴/۲۹", link: "#" },
+            { title: "معرفی کتاب‌های جدید کتابخانه آموزشگاه", date: "2026-07-05", dateFa: "۱۴۰۵/۰۴/۱۴", link: "#" },
+            { title: "مصاحبه با زبان‌آموزان برتر ترم بهار", date: "2026-06-18", dateFa: "۱۴۰۵/۰۳/۲۸", link: "#" },
+        ];
+
+        // حداکثر تعداد خبری که در سایدبار نمایش داده می‌شه
+        const SIDEBAR_LIMIT = 6;
+
+        function renderSidebar() {
+
+            const sorted = [...newsList].sort((a, b) => new Date(b.date) - new Date(a.date));
+            const visibleItems = sorted.slice(0, SIDEBAR_LIMIT);
+
+            const listEl = document.getElementById("sidebarList");
+
+            listEl.innerHTML = visibleItems.map(item => `
+                    <li>
+                        <a href="${item.link}">
+                            <span class="sidebar-news-date">${item.dateFa}</span>
+                            <span class="sidebar-news-title">${item.title}</span>
+                        </a>
+                    </li>
+                `).join("");
+        }
+
+        renderSidebar();
+
+
+        /* =========================================================
+           اسلایدر پوستر اخبار
+           برای افزودن پوستر جدید، یک آبجکت به آرایه posterSlides اضافه کن.
+        ========================================================= */
+
+        const posterSlides = [
+            { image: "images/news/poster1.jpg", tag: "جشنواره", title: "جشن پایان ترم تابستان ۱۴۰۵" },
+            { image: "images/news/poster2.jpg", tag: "ثبت‌نام", title: "ثبت‌نام ترم زمستان آغاز شد" },
+            { image: "images/news/poster3.jpg", tag: "آزمون", title: "برگزاری آزمون تعیین سطح رایگان" },
+        ];
+
+        let currentSlide = 0;
+
+        function renderSlider() {
+
+            const sliderEl = document.getElementById("newsSlider");
+            const dotsEl = document.getElementById("sliderDots");
+
+            const slidesHtml = posterSlides.map((slide, index) => `
+                    <div class="news-slide ${index === 0 ? "active" : ""}" data-index="${index}">
+                        <img src="${slide.image}" alt="${slide.title}">
+                        <div class="news-slide-caption">
+                            <span class="tag">${slide.tag}</span>
+                            <h3>${slide.title}</h3>
+                        </div>
+                    </div>
+                `).join("");
+
+            // اسلایدها رو قبل از دکمه‌های prev/next اضافه می‌کنیم
+            sliderEl.insertAdjacentHTML("afterbegin", slidesHtml);
+
+            dotsEl.innerHTML = posterSlides.map((_, index) =>
+                `<span class="${index === 0 ? "active" : ""}" onclick="goToSlide(${index})"></span>`
+            ).join("");
+        }
+
+        function updateSlider() {
+
+            document.querySelectorAll(".news-slide").forEach((el, i) => {
+                el.classList.toggle("active", i === currentSlide);
+            });
+
+            document.querySelectorAll(".news-slider-dots span").forEach((el, i) => {
+                el.classList.toggle("active", i === currentSlide);
+            });
+        }
+
+        function changeSlide(direction) {
+
+            currentSlide = (currentSlide + direction + posterSlides.length) % posterSlides.length;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+
+            currentSlide = index;
+            updateSlider();
+        }
+
+        renderSlider();
+
+        // چرخش خودکار اسلایدر هر ۵ ثانیه
+        setInterval(() => changeSlide(1), 5000);
+
+    </script>
+
+</body>
+</html>

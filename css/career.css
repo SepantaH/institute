@@ -1,0 +1,413 @@
+/* =================================
+   CAREERS PAGE
+================================= */
+
+.careers-page {
+
+    min-height: 100vh;
+
+    background-image: url("pattern-bg.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    font-family: "Vazirmatn", sans-serif;
+
+}
+
+
+
+/* =================================
+   HERO
+================================= */
+
+.careers-hero {
+
+    padding: 75px 0 65px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(142, 47, 168, .92),
+            rgba(91, 31, 110, .92)
+        );
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.careers-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,.04) 0px,
+            rgba(255,255,255,.04) 2px,
+            transparent 2px,
+            transparent 30px
+        );
+
+}
+
+
+.careers-hero .container {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+
+/* =================================
+   BADGE
+================================= */
+
+.careers-badge {
+
+    display: inline-block;
+
+    background: rgba(212,175,55,.18);
+
+    color: #D4AF37;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    padding: 7px 20px;
+
+    border: 1px solid rgba(212,175,55,.35);
+
+    border-radius: 30px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+/* =================================
+   HERO TITLE
+================================= */
+
+.careers-hero h1 {
+
+    margin: 0 0 20px;
+
+    font-size: 38px;
+
+    font-weight: 900;
+
+    line-height: 1.5;
+
+}
+
+
+.careers-hero h1 span {
+
+    color: #D4AF37;
+
+}
+
+
+
+/* =================================
+   HERO DESCRIPTION
+================================= */
+
+.careers-hero p {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    color: rgba(255,255,255,.9);
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    line-height: 2;
+
+}
+
+
+
+/* =================================
+   CAREER OPTIONS
+================================= */
+
+.careers-options {
+
+    padding: 75px 0 110px;
+
+}
+
+
+
+/* =================================
+   GRID
+================================= */
+
+.careers-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+        );
+
+    gap: 40px;
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+
+
+/* =================================
+   CAREER CARD
+================================= */
+
+.career-card {
+
+    position: relative;
+
+    display: block;
+
+    padding: 45px 35px;
+
+    background: rgba(255,255,255,.94);
+
+    border-radius: 24px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #360e4d;
+
+    box-shadow:
+        0 15px 35px rgba(50,20,70,.15);
+
+    overflow: hidden;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+
+
+/* خط بالای کارت */
+
+.career-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    left: 0;
+
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8E2FA8,
+            #D4AF37
+        );
+
+}
+
+
+
+/* افکت Hover */
+
+.career-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 25px 50px rgba(142,47,168,.25);
+
+}
+
+
+
+/* =================================
+   ICON
+================================= */
+
+.career-icon {
+
+    width: 90px;
+
+    height: 90px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(142,47,168,.10);
+
+    border: 2px solid rgba(142,47,168,.15);
+
+    border-radius: 50%;
+
+    font-size: 45px;
+
+}
+
+
+
+/* =================================
+   CARD TITLE
+================================= */
+
+.career-card h3 {
+
+    margin: 0 0 15px;
+
+    color: #8E2FA8;
+
+    font-size: 23px;
+
+    font-weight: 900;
+
+}
+
+
+
+/* =================================
+   CARD DESCRIPTION
+================================= */
+
+.career-card p {
+
+    margin: 0 0 25px;
+
+    color: #555;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    line-height: 2;
+
+}
+
+
+
+/* =================================
+   CARD LINK
+================================= */
+
+.career-link {
+
+    color: #D4AF37;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+}
+
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 700px) {
+
+
+    .careers-hero {
+
+        padding: 55px 20px 50px;
+
+    }
+
+
+    .careers-hero h1 {
+
+        font-size: 29px;
+
+    }
+
+
+    .careers-hero p {
+
+        font-size: 14px;
+
+        line-height: 2;
+
+    }
+
+
+    .careers-options {
+
+        padding: 50px 20px 80px;
+
+    }
+
+
+    .careers-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+    }
+
+
+    .career-card {
+
+        padding: 35px 25px;
+
+    }
+
+
+    .career-icon {
+
+        width: 75px;
+
+        height: 75px;
+
+        font-size: 38px;
+
+    }
+
+}

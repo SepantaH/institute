@@ -1,0 +1,810 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8E2FA8">
+
+    <title>ثبت‌نام زبان‌آموز | گویش ملل</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* ==================== RESET ==================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #FFF8F0;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* ==================== HEADER ==================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+            .logo img {
+                width: 85px;
+                height: 85px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .logo h1 {
+                color: #8E2FA8;
+                font-size: 23px;
+            }
+
+            .logo span {
+                color: #888;
+                font-size: 14px;
+            }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            font-size: 14px;
+            transition: .3s;
+            white-space: nowrap;
+        }
+
+            nav a:hover,
+            nav a.active {
+                color: #8E2FA8;
+            }
+
+        /* ==================== REGISTRATION SECTION ==================== */
+
+        .register-section {
+            min-height: 85vh;
+            padding: 65px 20px 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: #FFF8F0;
+        }
+
+            .register-section::before,
+            .register-section::after {
+                content: "";
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(10px);
+                z-index: 0;
+                pointer-events: none;
+            }
+
+            .register-section::before {
+                width: 420px;
+                height: 420px;
+                background: radial-gradient(circle, rgba(142,47,168,.14), transparent 70%);
+                top: -120px;
+                right: -140px;
+            }
+
+            .register-section::after {
+                width: 380px;
+                height: 380px;
+                background: radial-gradient(circle, rgba(212,175,55,.18), transparent 70%);
+                bottom: -100px;
+                left: -120px;
+            }
+
+        /* ==================== FORM CARD ==================== */
+
+        .register-box {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 650px;
+            margin: auto;
+            background: rgba(255,255,255,.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(142,47,168,.08);
+            border-radius: 26px;
+            padding: 45px;
+            box-shadow: 0 25px 60px rgba(142,47,168,.15);
+            text-align: center;
+        }
+
+        .register-back {
+            display: inline-block;
+            color: #8E2FA8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 22px;
+            transition: .3s;
+        }
+
+            .register-back:hover {
+                color: #D4AF37;
+                transform: translateX(4px);
+            }
+
+        .register-icon {
+            font-size: 46px;
+            margin-bottom: 10px;
+        }
+
+        .register-box h1 {
+            color: #3a1046;
+            font-size: 27px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .register-subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        /* ==================== PLACEMENT TEST NOTICE ==================== */
+
+        .placement-notice {
+            background: rgba(142,47,168,.07);
+            border: 1px solid rgba(142,47,168,.18);
+            border-right: 4px solid #8E2FA8;
+            border-radius: 15px;
+            padding: 16px 18px;
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+            .placement-notice strong {
+                display: block;
+                color: #6c247e;
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .placement-notice p {
+                color: #666;
+                font-size: 13px;
+                line-height: 2;
+            }
+
+            .placement-notice a {
+                display: inline-block;
+                color: #8E2FA8;
+                font-weight: 800;
+                text-decoration: none;
+                margin-top: 7px;
+                border-bottom: 1px dashed #8E2FA8;
+            }
+
+                .placement-notice a:hover {
+                    color: #D4AF37;
+                }
+
+        /* ==================== FORM ==================== */
+
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            gap: 8px;
+        }
+
+            .register-form label {
+                font-size: 14px;
+                font-weight: 700;
+                color: #8E2FA8;
+                margin-top: 12px;
+            }
+
+            .register-form input,
+            .register-form select {
+                width: 100%;
+                border: 2px solid #eee;
+                background: #fff;
+                border-radius: 14px;
+                padding: 13px 16px;
+                font-family: "Vazirmatn", sans-serif;
+                font-size: 14px;
+                color: #333;
+                outline: none;
+                transition: .3s;
+            }
+
+                .register-form input:focus,
+                .register-form select:focus {
+                    border-color: #8E2FA8;
+                    box-shadow: 0 0 0 4px rgba(142,47,168,.1);
+                }
+
+                .register-form input::placeholder {
+                    color: #aaa;
+                }
+
+            .register-form select {
+                cursor: pointer;
+                appearance: auto;
+            }
+
+        .field-hint {
+            color: #999;
+            font-size: 11px;
+            margin-top: -3px;
+        }
+
+        /* ==================== SUBMIT BUTTON ==================== */
+
+        .register-submit {
+            margin-top: 25px;
+            border: none;
+            cursor: pointer;
+            font-family: "Vazirmatn", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            width: 100%;
+            padding: 15px 30px;
+            background: #8E2FA8;
+            color: white;
+            border-radius: 40px;
+            transition: .3s;
+        }
+
+            .register-submit:hover {
+                background: #D4AF37;
+                transform: translateY(-3px);
+                box-shadow: 0 12px 25px rgba(212,175,55,.3);
+            }
+
+        /* ==================== ERROR MESSAGE ==================== */
+
+        .register-message {
+            display: none;
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 13px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+            .register-message.show {
+                display: block;
+            }
+
+            .register-message.error {
+                background: rgba(220,60,60,.08);
+                color: #b52b2b;
+            }
+
+        /* ==================== SUCCESS SCREEN ==================== */
+
+        .register-success {
+            display: none;
+            text-align: center;
+            padding: 35px 15px;
+            animation: successFade .6s ease;
+        }
+
+            .register-success.show {
+                display: block;
+            }
+
+        .success-icon {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .register-success h2 {
+            color: #8E2FA8;
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 18px;
+        }
+
+        .register-success p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 10px;
+            line-height: 2.2;
+        }
+
+        .success-footer {
+            display: block;
+            color: #8E2FA8;
+            font-weight: 700;
+            margin: 25px 0;
+        }
+
+        .success-home {
+            display: inline-block;
+            text-decoration: none;
+            background: #8E2FA8;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+            .success-home:hover {
+                background: #D4AF37;
+                transform: translateY(-3px);
+            }
+
+        @keyframes successFade {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+
+        @media (max-width: 1024px) {
+            .container {
+                width: 92%;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 10px 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo img {
+                width: 65px;
+                height: 65px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            .logo span {
+                font-size: 12px;
+            }
+
+            nav ul {
+                gap: 8px 12px;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .register-section {
+                padding: 40px 14px 70px;
+            }
+
+            .register-box {
+                padding: 32px 22px;
+                border-radius: 22px;
+            }
+
+                .register-box h1 {
+                    font-size: 23px;
+                }
+
+            .register-subtitle {
+                font-size: 13px;
+            }
+
+            .placement-notice {
+                padding: 13px;
+            }
+
+            .register-success h2 {
+                font-size: 21px;
+            }
+
+            .register-success p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+
+    <header>
+        <div class="container nav">
+
+            <div class="logo">
+                <img src="/images/logo.jfif" alt="لوگوی گویش ملل">
+
+                <div>
+                    <h1>
+                        <sup><small>راهبرد</small></sup>
+                        <b>گـــویش ملل</b>
+                    </h1>
+                    <span>Learning Without Borders</span>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="courses.html">دوره‌ها</a></li>
+                    <li><a href="calender.html">تقویم</a></li>
+                    <li><a href="news.html">اخبار</a></li>
+                    <li><a href="library.html">کتابخانه</a></li>
+                    <li><a href="careers.html">همکاری با ما</a></li>
+                    <li><a href="register.html" class="active">ثبت‌نام</a></li>
+                    <li><a href="about us.html">درباره ما</a></li>
+                    <li><a href="contact us.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== REGISTRATION SECTION ==================== -->
+
+    <section class="register-section">
+
+        <div class="container register-box">
+
+            <a href="index.html" class="register-back">
+                → بازگشت به صفحه اصلی
+            </a>
+
+            <div class="register-icon">🎓</div>
+
+            <h1>ثبت‌نام زبان‌آموز</h1>
+
+            <p class="register-subtitle">
+                به خانواده گویش ملل خوش اومدی!
+                اطلاعات زیر رو تکمیل کن تا برای ثبت‌نام باهات تماس بگیریم.
+            </p>
+
+
+            <!-- PLACEMENT TEST NOTICE -->
+
+            <div class="placement-notice">
+
+                <strong>💡 هنوز از سطح زبانت مطمئن نیستی؟</strong>
+
+                <p>
+                    پیشنهاد می‌کنیم قبل از انتخاب سطح، در آزمون تعیین سطح
+                    رایگان گویش ملل شرکت کنی تا انتخاب دقیق‌تری داشته باشی.
+                </p>
+
+                <a href="placement-test.html" target="_blank">
+                    شرکت در آزمون تعیین سطح ←
+                </a>
+
+            </div>
+
+
+            <!-- REGISTRATION FORM -->
+
+            <form id="registrationForm" class="register-form">
+
+                <label for="fullName">نام و نام خانوادگی</label>
+
+                <input type="text"
+                       id="fullName"
+                       name="fullName"
+                       placeholder="مثلاً: سارا احمدی"
+                       minlength="3"
+                       maxlength="100"
+                       autocomplete="name"
+                       required>
+
+                <label for="age">سن</label>
+
+                <input type="number"
+                       id="age"
+                       name="age"
+                       placeholder="سن خود را وارد کنید"
+                       min="5"
+                       max="100"
+                       required>
+
+                <label for="phoneNumber">شماره تماس</label>
+
+                <input type="tel"
+                       id="phoneNumber"
+                       name="phoneNumber"
+                       placeholder="مثلاً: 09121234567"
+                       pattern="09[0-9]{9}"
+                       maxlength="11"
+                       inputmode="numeric"
+                       autocomplete="tel"
+                       required>
+
+                <span class="field-hint">
+                    شماره تماس باید با 09 شروع شود و ۱۱ رقم داشته باشد.
+                </span>
+
+                <label for="languageLevel">سطح زبان انگلیسی</label>
+
+                <select id="languageLevel"
+                        name="languageLevel"
+                        required>
+                    <option value="" disabled selected>
+                        سطح زبان خود را انتخاب کنید
+                    </option>
+
+                    <option value="Unknown">از سطح خودم مطمئن نیستم</option>
+                    <option value="A1">A1 - مبتدی</option>
+                    <option value="A2">A2 - مقدماتی</option>
+                    <option value="B1">B1 - متوسط</option>
+                    <option value="B2">B2 - متوسط رو به بالا</option>
+                    <option value="C1">C1 - پیشرفته</option>
+                </select>
+
+                <button type="submit" class="register-submit">
+                    ثبت اطلاعات
+                </button>
+
+            </form>
+
+
+            <!-- ERROR MESSAGE -->
+
+            <div id="registerMessage" class="register-message"></div>
+
+
+            <!-- SUCCESS SCREEN -->
+
+            <div id="registerSuccess" class="register-success">
+
+                <div class="success-icon">🎉</div>
+
+                <h2>زبان‌آموز عزیز، خوش اومدی!</h2>
+
+                <p>
+                    اطلاعات شما با موفقیت ثبت شد.
+                </p>
+
+                <p>
+                    همکاران ما برای تکمیل فرآیند ثبت‌نام
+                    در اولین فرصت با شما تماس خواهند گرفت.
+                </p>
+
+                <span class="success-footer">
+                    از انتخاب گویش ملل سپاسگزاریم 💜
+                </span>
+
+                <a href="index.html" class="success-home">
+                    بازگشت به صفحه اصلی
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script>
+
+        const registrationForm =
+            document.getElementById("registrationForm");
+
+        const registerMessage =
+            document.getElementById("registerMessage");
+
+        const registerSuccess =
+            document.getElementById("registerSuccess");
+
+        const submitButton =
+            registrationForm.querySelector(".register-submit");
+
+
+        registrationForm.addEventListener("submit", async function (event) {
+
+            event.preventDefault();
+
+            // دریافت اطلاعات فرم
+            const fullName =
+                document.getElementById("fullName").value.trim();
+
+            const age =
+                Number(document.getElementById("age").value);
+
+            const phoneNumber =
+                document.getElementById("phoneNumber").value.trim();
+
+            const languageLevel =
+                document.getElementById("languageLevel").value;
+
+
+            // اعتبارسنجی نام
+            if (fullName.length < 3) {
+                showError("لطفاً نام و نام خانوادگی را به‌درستی وارد کنید.");
+                return;
+            }
+
+            // اعتبارسنجی سن
+            if (!Number.isInteger(age) || age < 5 || age > 100) {
+                showError("لطفاً سن معتبر وارد کنید.");
+                return;
+            }
+
+            // اعتبارسنجی شماره تماس
+            const phonePattern = /^09[0-9]{9}$/;
+
+            if (!phonePattern.test(phoneNumber)) {
+                showError("شماره تماس واردشده معتبر نیست.");
+                return;
+            }
+
+            // اعتبارسنجی سطح زبان
+            if (!languageLevel) {
+                showError("لطفاً سطح زبان خود را انتخاب کنید.");
+                return;
+            }
+
+
+            // آماده‌سازی اطلاعات برای ارسال به API
+            const registrationData = {
+                fullName: fullName,
+                age: age,
+                phoneNumber: phoneNumber,
+                languageLevel: languageLevel
+            };
+
+
+            // نمایش وضعیت ارسال
+            registerMessage.className = "register-message";
+            submitButton.disabled = true;
+            submitButton.textContent = "در حال ثبت اطلاعات...";
+
+
+            try {
+
+                // ارسال اطلاعات به ASP.NET Core API
+                const response = await fetch("/api/StudentRegistrations", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+
+                    body: JSON.stringify(registrationData)
+
+                });
+
+
+                const result = await response.json().catch(() => ({}));
+
+
+                // بررسی نتیجه درخواست
+                if (!response.ok) {
+
+                    showError(
+                        result.message ||
+                        "ثبت اطلاعات انجام نشد. لطفاً دوباره تلاش کنید."
+                    );
+
+                    return;
+                }
+
+
+                // فقط بعد از ثبت موفق در دیتابیس، صفحه موفقیت نمایش داده می‌شود
+                registrationForm.style.display = "none";
+
+                document.querySelector(".placement-notice").style.display = "none";
+                document.querySelector(".register-subtitle").style.display = "none";
+                document.querySelector(".register-back").style.display = "none";
+                document.querySelector(".register-icon").style.display = "none";
+                document.querySelector(".register-box > h1").style.display = "none";
+
+                registerMessage.style.display = "none";
+
+                registerSuccess.classList.add("show");
+
+            }
+
+            catch (error) {
+
+                showError(
+                    "ارتباط با سرور برقرار نشد. لطفاً اتصال اینترنت خود را بررسی و دوباره تلاش کنید."
+                );
+
+                console.error("Registration error:", error);
+
+            }
+
+            finally {
+
+                submitButton.disabled = false;
+                submitButton.textContent = "ثبت اطلاعات";
+
+            }
+
+        });
+
+
+        // نمایش پیام خطا
+        function showError(message) {
+
+            registerMessage.textContent = message;
+
+            registerMessage.className =
+                "register-message show error";
+
+        }
+
+    </script>
+
+</body>
+</html>

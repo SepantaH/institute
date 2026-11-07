@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8E2FA8">
+
+    <title>فرصت‌های شغلی | گویش ملل</title>
+
+
+    <!-- ================= FONT ================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap"
+          rel="stylesheet">
+
+
+    <!-- ================= MAIN CSS ================= -->
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/career.css">
+    <link rel="stylesheet" href="/css/footer.css">
+
+
+
+    <style>
+        /* =========================================================
+           SHARED HEADER (same as the Library page)
+           Placed after the CSS files so these rules win.
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        /* Remove any extra space above the header */
+        html,
+        body {
+            margin: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0 !important;
+            right: 0;
+            width: 100%;
+            margin-top: 0 !important;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+            .logo img {
+                width: 85px;
+                height: 85px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .logo h1 {
+                color: #8E2FA8;
+            }
+
+            .logo span {
+                color: #888;
+                font-size: 14px;
+            }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+            nav a:hover,
+            nav a.active {
+                color: #8E2FA8;
+            }
+
+        /* Tablet */
+        @media screen and (max-width: 1024px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+        }
+
+        /* Mobile */
+        @media screen and (max-width: 600px) {
+
+            .logo img {
+                width: 65px;
+                height: 65px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            .logo span {
+                font-size: 12px;
+            }
+
+            nav ul {
+                gap: 8px 13px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         HEADER (same as the Library page)
+    ========================================================= -->
+
+    <header>
+        <div class="container nav">
+
+            <div class="logo">
+                <img src="/images/logo.jfif" alt="لوگوی گویش ملل">
+
+                <div>
+                    <h1>
+                        <sup><small>راهبرد</small></sup>
+                        <b>گـــویش ملل</b>
+                    </h1>
+
+                    <span>Learning Without Borders</span>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="courses.html" target="_blank">دوره‌ها</a></li>
+                    <li><a href="calender.html" target="_blank">تقویم</a></li>
+                    <li><a href="news.html" target="_blank">اخبار</a></li>
+                    <li><a href="library.html">کتابخانه</a></li>
+                    <li><a href="careers.html" class="active">همکاری با ما</a></li>
+                    <li><a href="about us.html" target="_blank">درباره ما</a></li>
+                    <li><a href="contact us.html" target="_blank">تماس با ما</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+
+    <!-- ================= CAREERS PAGE ================= -->
+
+    <main class="careers-page">
+
+
+        <!-- ---------- HERO ---------- -->
+
+        <section class="careers-hero">
+
+            <div class="container">
+
+                <div class="careers-badge">
+                    💼 فرصت شغلی
+                </div>
+
+                <h1>
+                    به خانواده
+                    <span>گویش ملل</span>
+                    بپیوندید
+                </h1>
+
+                <p>
+                    اگر عاشق آموزش زبان هستی یا دوست داری در محیطی پویا و حرفه‌ای
+                    کنار یک تیم متخصص رشد کنی، همین حالا با ما همراه شو.
+                    مسیر مناسب خودت رو انتخاب کن:
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ---------- CAREER OPTIONS ---------- -->
+
+        <section class="careers-options">
+
+            <div class="container careers-grid">
+
+
+                <!-- ===== TEACHER ===== -->
+
+                <a href="apply.html?type=teacher" class="career-card">
+
+                    <div class="career-icon">
+                        🎓
+                    </div>
+
+                    <h3>
+                        جذب استاد
+                    </h3>
+
+                    <p>
+                        به تیم اساتید ما بپیوند و تجربه‌ات رو با زبان‌آموزان
+                        به اشتراک بذار.
+                    </p>
+
+                    <span class="career-link">
+                        شروع فرآیند ثبت‌نام ←
+                    </span>
+
+                </a>
+
+
+                <!-- ===== STAFF ===== -->
+
+                <a href="apply.html?type=staff" class="career-card">
+
+                    <div class="career-icon">
+                        🧑‍💼
+                    </div>
+
+                    <h3>
+                        جذب پرسنل
+                    </h3>
+
+                    <p>
+                        در بخش‌های اداری، پشتیبانی و اجرایی آموزشگاه
+                        با ما همکاری کن.
+                    </p>
+
+                    <span class="career-link">
+                        شروع فرآیند ثبت‌نام ←
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+    <!-- ================================================= -->
+    <!-- ================= FOOTER ========================= -->
+    <!-- ================================================= -->
+
+       <footer class="site-footer">
+
+        <div class="container footer-inner">
+
+            <!-- شعبه مرکزی -->
+            <div class="branch-box">
+                <h3 class="branch-name">شعبه مرکزی</h3>
+                <p class="branch-info">
+                    <span class="info-label">تلفن:</span> 44769810 - 46085884
+                </p>
+                <p class="branch-info">
+                    <span class="info-label">آدرس:</span> شهرک گلستان/ بلوار علی مرادی / انتهای بلوار علیمرادی/ شهرک زیتون (رو به روی مجتمع طوبی)/ انتهای خیابان سهراب سپهری/ برج آریا جنوبی / طبقه همکف.
+                </p>
+                <div class="branch-icons">
+                    <a href="https://maps.app.goo.gl/zdPc5Vm2YprkgbNQ8?g_st=iw" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon map" aria-label="موقعیت شعبه مرکزی روی نقشه">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                            <path
+                                d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.5 11.5 7.05 12 .27.24.68.24.95 0 .55-.5 7.05-6.75 7.05-12C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z" />
+                        </svg>
+                    </a>
+                    <a href="https://eitaa.com/@Rahbordgouyeshmelal" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon eitaa" aria-label="ایتای شعبه مرکزی">
+                        <img src="eitaa.svg" alt="ایتا" class="mini-eitaa-img">
+                    </a>
+                </div>
+            </div>
+
+            <!-- شعبه آسمان -->
+            <div class="branch-box">
+                <h3 class="branch-name">شعبه آسمان</h3>
+                <p class="branch-info">
+                    <span class="info-label">تلفن:</span> 44769835 - 46053768
+                </p>
+                <p class="branch-info">
+                    <span class="info-label">آدرس:</span> دریاچه چیتگر (منطقه ۲۲)، میدان دریاچه - خ جوزانی- خ هیرمند- خ هراز- برج آسمان 17 و 18 - داخل لابی برج 18 - آموزشگاه گویش ملل
+                </p>
+                <div class="branch-icons">
+                    <a href="https://share.google/ScFgq66tfix2D5GCZ" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon map" aria-label="موقعیت شعبه آسمان روی نقشه">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                            <path
+                                d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.5 11.5 7.05 12 .27.24.68.24.95 0 .55-.5 7.05-6.75 7.05-12C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z" />
+                        </svg>
+                    </a>
+                    <a href="https://eitaa.com/@Gouyesh_Melal_Aseman" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon eitaa" aria-label="ایتای شعبه آسمان">
+                        <img src="eitaa.svg" alt="ایتا" class="mini-eitaa-img">
+                    </a>
+                </div>
+            </div>
+
+            <!-- شعبه باقری -->
+            <div class="branch-box">
+                <h3 class="branch-name">شعبه باقری</h3>
+                <p class="branch-info">
+                    <span class="info-label">تلفن:</span> 44759484 - 09391484341
+                </p>
+                <p class="branch-info">
+                    <span class="info-label">آدرس:</span> اتوبان خرازی ، شهرک شهید باقری ، خیابان بوستان ، سرای محله شهید باقری ...
+                </p>
+                <div class="branch-icons">
+                    <a href="https://share.google/pdkI3DRrQrtzLsZxH" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon map" aria-label="موقعیت شعبه باقری روی نقشه">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                            <path
+                                d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.5 11.5 7.05 12 .27.24.68.24.95 0 .55-.5 7.05-6.75 7.05-12C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z" />
+                        </svg>
+                    </a>
+                    <a href="https://eitaa.com/@gooyesh_94" target="_blank" rel="noopener noreferrer"
+                        class="mini-icon eitaa" aria-label="ایتای شعبه باقری">
+                        <img src="eitaa.svg" alt="ایتا" class="mini-eitaa-img">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© تمامی حقوق این سایت برای آموزشگاه راهبرد گویش ملل محفوظ است.</p>
+            <p class="credit">
+                تهیه شده توسط سپنتا حیدری |
+                <a href="https://eitaa.com/SEPANTA765" target="_blank" rel="noopener noreferrer">Sepanta@</a>
+            </p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

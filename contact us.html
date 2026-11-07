@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8E2FA8">
+    <title>تماس با ما | گویش ملل</title>
+
+    <!-- ================= FONT ================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- ================= MAIN CSS ================= -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* =========================================================
+           SHARED HEADER (same as the Library page)
+           Placed after style.css so these rules win.
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        /* Remove any extra space above the header */
+        html,
+        body {
+            margin: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0 !important;
+            right: 0;
+            width: 100%;
+            margin-top: 0 !important;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+            .logo img {
+                width: 85px;
+                height: 85px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .logo h1 {
+                color: #8E2FA8;
+            }
+
+            .logo span {
+                color: #888;
+                font-size: 14px;
+            }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+            nav a:hover,
+            nav a.active {
+                color: #8E2FA8;
+            }
+
+        /* Tablet */
+        @media screen and (max-width: 1024px) {
+            .container {
+                width: 92%;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+        }
+
+        /* Mobile */
+        @media screen and (max-width: 600px) {
+            .logo img {
+                width: 65px;
+                height: 65px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            .logo span {
+                font-size: 12px;
+            }
+
+            nav ul {
+                gap: 8px 13px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+        }
+
+
+        /* =========================================================
+           CONTACT PAGE
+           GOYESH MELAL – PURPLE / LILAC / GOLD
+        ========================================================= */
+
+        .contact-page {
+            --purple: #8E2FA8;
+            --purple-dark: #4A145A;
+            --purple-deep: #32103F;
+            --purple-mid: #702483;
+            --lilac: #E8D2EF;
+            --lilac-light: #F8F1FA;
+            --lilac-pale: #FCF8FD;
+            --gold: #D8A857;
+            --gold-light: #E9C888;
+            --text: #4C3A57;
+            --muted: #786681;
+            --white: #FFFFFF;
+            overflow: hidden;
+            background: #FFFFFF;
+        }
+
+            .contact-page * {
+                box-sizing: border-box;
+            }
+
+            .contact-page .container {
+                width: min(1150px, 92%);
+                margin: 0 auto;
+            }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .contact-hero {
+            position: relative;
+            min-height: 520px;
+            margin-top: 0;
+            padding: 90px 0 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #FFFFFF;
+            overflow: hidden;
+            background: radial-gradient(circle at 15% 25%, rgba(216, 168, 87, .13), transparent 25%), radial-gradient(circle at 85% 75%, rgba(185, 107, 201, .22), transparent 28%), linear-gradient(145deg, #32103F 0%, #4A145A 38%, #76258A 72%, #8E2FA8 100%);
+        }
+
+            .contact-hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                opacity: .15;
+                background-image: linear-gradient(30deg, rgba(255, 255, 255, .12) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, .12) 87.5%, rgba(255, 255, 255, .12)), linear-gradient(150deg, rgba(255, 255, 255, .12) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, .12) 87.5%, rgba(255, 255, 255, .12));
+                background-size: 70px 120px;
+            }
+
+        .contact-hero-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .contact-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 9px 23px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, .25);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, .09);
+            color: #F1DFF5;
+            font-size: 14px;
+            font-weight: 500;
+            backdrop-filter: blur(8px);
+        }
+
+        .contact-hero h1 {
+            margin: 0;
+            color: #FFFFFF;
+            font-size: 54px;
+            font-weight: 900;
+            line-height: 1.5;
+            text-shadow: 0 8px 30px rgba(0, 0, 0, .15);
+        }
+
+            .contact-hero h1 span {
+                color: #E9C888;
+            }
+
+        .contact-hero p {
+            max-width: 650px;
+            margin: 20px auto 0;
+            color: #EEDFF2;
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        .hero-scroll {
+            margin-top: 50px;
+            color: #DCC7E3;
+            font-size: 12px;
+        }
+
+        .scroll-arrow {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px auto 0;
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 50%;
+            color: #E9C888;
+            font-size: 17px;
+        }
+
+        .hero-circle {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 50%;
+        }
+
+        .circle-one {
+            width: 350px;
+            height: 350px;
+            top: -190px;
+            right: -100px;
+        }
+
+        .circle-two {
+            width: 470px;
+            height: 470px;
+            bottom: -300px;
+            left: -170px;
+        }
+
+        .hero-line {
+            position: absolute;
+            width: 220px;
+            height: 1px;
+            right: 3%;
+            top: 40%;
+            transform: rotate(-35deg);
+            background: linear-gradient(90deg, transparent, rgba(216, 168, 87, .5), transparent);
+        }
+
+        /* =========================================================
+           SECTION HEADING
+        ========================================================= */
+
+        .section-heading {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--purple);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+            .section-label::before {
+                content: "";
+                width: 25px;
+                height: 2px;
+                border-radius: 5px;
+                background: var(--gold);
+            }
+
+        .section-heading h2 {
+            margin: 13px 0 12px;
+            color: var(--purple-dark);
+            font-size: 32px;
+            font-weight: 900;
+        }
+
+            .section-heading h2 span {
+                color: var(--purple);
+            }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           BRANCHES
+        ========================================================= */
+
+        .branches-section {
+            position: relative;
+            padding: 105px 0 110px;
+            background: radial-gradient(circle at 90% 10%, rgba(142, 47, 168, .06), transparent 25%), #FFFFFF;
+        }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .branch-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(142, 47, 168, .10);
+            border-radius: 26px;
+            background: #FFFFFF;
+            box-shadow: 0 15px 40px rgba(74, 20, 90, .07);
+            transition: .35s ease;
+        }
+
+            .branch-card:hover {
+                transform: translateY(-9px);
+                border-color: rgba(142, 47, 168, .20);
+                box-shadow: 0 25px 55px rgba(74, 20, 90, .13);
+            }
+
+            .branch-card::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 4px;
+                background: linear-gradient(90deg, var(--gold), var(--purple));
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: .35s;
+            }
+
+            .branch-card:hover::after {
+                transform: scaleX(1);
+            }
+
+        .featured-branch {
+            border-color: rgba(142, 47, 168, .20);
+            background: linear-gradient(180deg, #FFFFFF, #FCF8FD);
+        }
+
+        .branch-number {
+            position: absolute;
+            z-index: 5;
+            top: 17px;
+            left: 19px;
+            color: rgba(255, 255, 255, .8);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, .25);
+        }
+
+        /* =========================================================
+           BRANCH IMAGE
+           When you add a real photo, use:
+           <div class="branch-image">
+               <img src="branch1.jpg" alt="ورودی شعبه مرکزی">
+           </div>
+           object-fit: contain shows the whole photo without cropping.
+        ========================================================= */
+
+        .branch-image {
+            position: relative;
+            width: 100%;
+            height: 245px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #F3E4F7 0%, #E6CBEF 55%, #DDBCE8 100%);
+        }
+
+            .branch-image::before {
+                content: "";
+                position: absolute;
+                width: 180px;
+                height: 180px;
+                border: 1px solid rgba(142, 47, 168, .13);
+                border-radius: 50%;
+            }
+
+            .branch-image::after {
+                content: "";
+                position: absolute;
+                width: 110px;
+                height: 110px;
+                border: 1px solid rgba(216, 168, 87, .22);
+                border-radius: 50%;
+            }
+
+        .image-placeholder {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            color: var(--purple-dark);
+        }
+
+        .placeholder-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, .72);
+            box-shadow: 0 10px 25px rgba(74, 20, 90, .08);
+            font-size: 27px;
+        }
+
+        .image-placeholder span {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .image-placeholder small {
+            margin-top: 5px;
+            color: #80658B;
+            font-size: 10px;
+        }
+
+        .branch-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* =========================================================
+           BRANCH CONTENT
+        ========================================================= */
+
+        .branch-content {
+            padding: 27px 25px 28px;
+        }
+
+        .branch-title-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .branch-label {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--gold);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.7px;
+        }
+
+        .branch-title-row h3 {
+            margin: 0;
+            color: var(--purple-dark);
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .branch-pin {
+            width: 45px;
+            height: 45px;
+            flex: 0 0 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            background: #F7EDF9;
+            font-size: 20px;
+        }
+
+        /* =========================================================
+           LOCATION BUTTON
+        ========================================================= */
+
+        .location-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin: 22px 0;
+            padding: 12px 15px;
+            border: 1px solid rgba(142, 47, 168, .13);
+            border-radius: 13px;
+            background: #FAF6FC;
+            color: var(--purple);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+            .location-button:hover {
+                background: var(--purple);
+                color: #FFFFFF;
+                border-color: var(--purple);
+            }
+
+            .location-button b {
+                font-size: 17px;
+            }
+
+        /* =========================================================
+           INFO ITEMS
+        ========================================================= */
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .info-icon {
+            width: 35px;
+            height: 35px;
+            flex: 0 0 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 11px;
+            background: #F8F0FA;
+            color: var(--purple);
+            font-size: 15px;
+        }
+
+        .info-item strong {
+            display: block;
+            margin-bottom: 3px;
+            color: var(--purple-dark);
+            font-size: 12px;
+        }
+
+        .info-item p {
+            margin: 0;
+            color: #6D5B76;
+            font-size: 11.5px;
+            line-height: 1.9;
+        }
+
+        .info-item a {
+            color: #6D5B76;
+            font-size: 12px;
+            text-decoration: none;
+            direction: ltr;
+            display: inline-block;
+            transition: .2s;
+        }
+
+            .info-item a:hover {
+                color: var(--purple);
+            }
+
+        /* =========================================================
+           BRANCH SOCIALS
+        ========================================================= */
+
+        .branch-socials {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+            margin-top: 23px;
+            padding-top: 19px;
+            border-top: 1px solid #F0E5F3;
+        }
+
+        .social {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            min-width: 0;
+            padding: 10px 11px;
+            border-radius: 12px;
+            background: #FAF7FB;
+            color: var(--purple-dark);
+            text-decoration: none;
+            transition: .3s;
+        }
+
+            .social span {
+                color: var(--purple);
+                font-size: 10px;
+                font-weight: 800;
+            }
+
+            .social b {
+                direction: ltr;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 8.5px;
+                font-weight: 500;
+            }
+
+            .social:hover {
+                background: #F0E2F3;
+                transform: translateY(-2px);
+            }
+
+        /* =========================================================
+           INSTAGRAM
+        ========================================================= */
+
+        .instagram-section {
+            padding: 20px 0 105px;
+            background: #FFFFFF;
+        }
+
+        .instagram-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            padding: 35px 40px;
+            border-radius: 27px;
+            overflow: hidden;
+            color: #FFFFFF;
+            background: radial-gradient(circle at 90% 10%, rgba(216, 168, 87, .16), transparent 30%), linear-gradient(135deg, #4A145A, #702483 55%, #8E2FA8);
+            box-shadow: 0 20px 50px rgba(74, 20, 90, .16);
+        }
+
+        .instagram-icon {
+            width: 70px;
+            height: 70px;
+            flex: 0 0 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, .25);
+        }
+
+            .instagram-icon svg {
+                width: 38px;
+                height: 38px;
+                display: block;
+            }
+
+        .instagram-content {
+            flex: 1;
+        }
+
+            .instagram-content > span {
+                color: #E9C888;
+                font-size: 9px;
+                font-weight: 800;
+                letter-spacing: 2px;
+            }
+
+            .instagram-content h2 {
+                margin: 5px 0 7px;
+                color: #FFFFFF;
+                font-size: 21px;
+            }
+
+            .instagram-content p {
+                max-width: 580px;
+                margin: 0;
+                color: #EADBF0;
+                font-size: 11.5px;
+                line-height: 2;
+            }
+
+        .instagram-button {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 12px 19px;
+            border: 1px solid rgba(255, 255, 255, .20);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, .10);
+            color: #FFFFFF;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 11px;
+            transition: .3s;
+        }
+
+            .instagram-button b {
+                color: #E9C888;
+                font-size: 17px;
+            }
+
+            .instagram-button:hover {
+                background: #FFFFFF;
+                color: var(--purple-dark);
+            }
+
+        /* =========================================================
+           CHAT SECTION
+        ========================================================= */
+
+        .chat-section {
+            padding: 110px 0;
+            background: radial-gradient(circle at 90% 20%, rgba(142, 47, 168, .07), transparent 28%), linear-gradient(180deg, #F9F3FB, #FFFFFF);
+        }
+
+        .chat-layout {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 75px;
+            align-items: center;
+        }
+
+        .chat-intro {
+            padding-right: 20px;
+        }
+
+            .chat-intro h2 {
+                margin: 13px 0 18px;
+                color: var(--purple-dark);
+                font-size: 34px;
+                font-weight: 900;
+                line-height: 1.6;
+            }
+
+                .chat-intro h2 span {
+                    display: block;
+                    color: var(--purple);
+                }
+
+            .chat-intro > p {
+                max-width: 480px;
+                margin: 0;
+                color: #66536F;
+                font-size: 14px;
+                line-height: 2.2;
+            }
+
+        .chat-features {
+            margin-top: 30px;
+        }
+
+            .chat-features div {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 13px;
+            }
+
+            .chat-features span {
+                width: 25px;
+                height: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background: #EBD7F0;
+                color: var(--purple);
+                font-size: 12px;
+                font-weight: 900;
+            }
+
+            .chat-features p {
+                margin: 0;
+                color: #5E4B67;
+                font-size: 12px;
+            }
+
+        /* =========================================================
+           CHAT BOX
+        ========================================================= */
+
+        .chat-box {
+            overflow: hidden;
+            border: 1px solid rgba(142, 47, 168, .12);
+            border-radius: 27px;
+            background: #FFFFFF;
+            box-shadow: 0 25px 60px rgba(74, 20, 90, .12);
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            color: #FFFFFF;
+            background: linear-gradient(135deg, #4A145A, #8E2FA8);
+        }
+
+        .chat-agent {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .agent-avatar {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, .25);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .12);
+            color: #E9C888;
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .chat-agent strong {
+            display: block;
+            font-size: 12px;
+        }
+
+        .chat-agent span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 3px;
+            color: #E9DDF0;
+            font-size: 9px;
+        }
+
+        .chat-agent i {
+            width: 6px;
+            height: 6px;
+            display: block;
+            border-radius: 50%;
+            background: #76D68A;
+        }
+
+        .chat-status {
+            padding: 5px 10px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 20px;
+            color: #E9C888;
+            font-size: 9px;
+        }
+
+        /* =========================================================
+           MESSAGES
+        ========================================================= */
+
+        .chat-messages {
+            height: 300px;
+            padding: 20px;
+            overflow-y: auto;
+            background: #FCF9FD;
+        }
+
+        .message {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 17px;
+        }
+
+            .message.sent {
+                justify-content: flex-start;
+                text-align: right;
+            }
+
+            .message.received {
+                justify-content: flex-start;
+            }
+
+            .message.sent > div {
+                max-width: 75%;
+            }
+
+            .message.received > div:last-child {
+                max-width: 75%;
+            }
+
+        .message-avatar {
+            width: 30px;
+            height: 30px;
+            flex: 0 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: #EBD7F0;
+            color: var(--purple);
+            font-size: 8px;
+            font-weight: 900;
+        }
+
+        .message-bubble {
+            padding: 11px 14px;
+            border-radius: 15px;
+            color: #564260;
+            background: #FFFFFF;
+            border: 1px solid #F0E5F3;
+            font-size: 11px;
+            line-height: 1.9;
+            box-shadow: 0 4px 12px rgba(74, 20, 90, .04);
+        }
+
+        .message.sent .message-bubble {
+            color: #FFFFFF;
+            background: linear-gradient(135deg, #8E2FA8, #702483);
+            border: none;
+            border-radius: 15px 15px 3px 15px;
+        }
+
+        .message.received .message-bubble {
+            border-radius: 15px 15px 15px 3px;
+        }
+
+        .message small {
+            display: block;
+            margin-top: 4px;
+            color: #9B88A4;
+            font-size: 8px;
+        }
+
+        /* =========================================================
+           QUICK QUESTIONS
+        ========================================================= */
+
+        .quick-questions {
+            display: flex;
+            gap: 7px;
+            padding: 11px 15px;
+            overflow-x: auto;
+            border-top: 1px solid #F0E5F3;
+        }
+
+            .quick-questions button {
+                flex: 0 0 auto;
+                padding: 7px 10px;
+                border: 1px solid #EADDED;
+                border-radius: 20px;
+                background: #FAF6FC;
+                color: var(--purple);
+                font-family: inherit;
+                font-size: 9px;
+                cursor: pointer;
+                transition: .25s;
+            }
+
+                .quick-questions button:hover {
+                    color: #FFFFFF;
+                    background: var(--purple);
+                    border-color: var(--purple);
+                }
+
+        /* =========================================================
+           CHAT INPUT
+        ========================================================= */
+
+        .chat-input-area {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 13px 15px;
+            border-top: 1px solid #F0E5F3;
+            background: #FFFFFF;
+        }
+
+            .chat-input-area input {
+                width: 100%;
+                height: 43px;
+                padding: 0 15px;
+                outline: none;
+                border: 1px solid #EADDED;
+                border-radius: 14px;
+                background: #FCF9FD;
+                color: var(--purple-dark);
+                font-family: inherit;
+                font-size: 11px;
+                transition: .25s;
+            }
+
+                .chat-input-area input:focus {
+                    border-color: #C28AD0;
+                    background: #FFFFFF;
+                    box-shadow: 0 0 0 3px rgba(142, 47, 168, .06);
+                }
+
+            .chat-input-area button {
+                width: 43px;
+                height: 43px;
+                flex: 0 0 43px;
+                border: none;
+                border-radius: 14px;
+                background: linear-gradient(135deg, #8E2FA8, #4A145A);
+                color: #FFFFFF;
+                font-family: inherit;
+                font-size: 17px;
+                cursor: pointer;
+                transition: .3s;
+            }
+
+                .chat-input-area button:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 18px rgba(74, 20, 90, .20);
+                }
+
+        .chat-note {
+            padding: 0 15px 13px;
+            color: #AA9AAF;
+            font-size: 8px;
+            text-align: center;
+        }
+
+        /* =========================================================
+           FINAL CTA
+        ========================================================= */
+
+        .contact-final {
+            position: relative;
+            padding: 100px 0 110px;
+            overflow: hidden;
+            text-align: center;
+            color: #FFFFFF;
+            background: radial-gradient(circle at 15% 20%, rgba(216, 168, 87, .13), transparent 25%), radial-gradient(circle at 85% 80%, rgba(185, 107, 201, .20), transparent 28%), linear-gradient(145deg, #32103F, #4A145A 45%, #8E2FA8);
+        }
+
+            .contact-final::before {
+                content: "";
+                position: absolute;
+                inset: 20px;
+                border: 1px solid rgba(255, 255, 255, .08);
+                border-radius: 35px;
+            }
+
+        .final-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, .08);
+            color: #E9C888;
+            font-size: 27px;
+        }
+
+        .contact-final h2 {
+            margin: 0;
+            color: #FFFFFF;
+            font-size: 34px;
+            font-weight: 900;
+        }
+
+            .contact-final h2 span {
+                color: #E9C888;
+            }
+
+        .contact-final p {
+            margin: 12px 0 0;
+            color: #E7D6ED;
+            font-size: 13px;
+        }
+
+        .final-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #E9C888, #D8A857);
+            color: #32103F;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, .20);
+            transition: .3s;
+        }
+
+            .final-button span {
+                font-size: 17px;
+                transition: .3s;
+            }
+
+            .final-button:hover {
+                transform: translateY(-4px);
+            }
+
+                .final-button:hover span {
+                    transform: translateY(4px);
+                }
+
+        .final-orb {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            left: -180px;
+            bottom: -230px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 50%;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .branches-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .branch-card:last-child {
+                grid-column: 1 / -1;
+                width: calc(50% - 12px);
+                margin: 0 auto;
+            }
+
+            .chat-layout {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .chat-intro {
+                padding: 0;
+                text-align: center;
+            }
+
+                .chat-intro > p {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+            .chat-features {
+                width: max-content;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: right;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .contact-hero {
+                min-height: 500px;
+                padding: 70px 0 70px;
+            }
+
+                .contact-hero h1 {
+                    font-size: 40px;
+                }
+
+                .contact-hero p {
+                    font-size: 14px;
+                }
+
+            .branches-section {
+                padding: 80px 0;
+            }
+
+            .section-heading {
+                margin-bottom: 40px;
+            }
+
+                .section-heading h2 {
+                    font-size: 28px;
+                }
+
+            .branches-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .branch-card:last-child {
+                grid-column: auto;
+                width: 100%;
+            }
+
+            .instagram-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 32px 25px;
+            }
+
+            .instagram-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .chat-section {
+                padding: 80px 0;
+            }
+
+            .chat-intro h2 {
+                font-size: 29px;
+            }
+
+            .contact-final h2 {
+                font-size: 29px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .contact-hero {
+                padding-top: 60px;
+            }
+
+                .contact-hero h1 {
+                    font-size: 34px;
+                }
+
+                .contact-hero p {
+                    font-size: 13px;
+                }
+
+            .branch-image {
+                height: 220px;
+            }
+
+            .branch-content {
+                padding: 24px 20px;
+            }
+
+            .branch-socials {
+                grid-template-columns: 1fr;
+            }
+
+            .instagram-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .quick-questions button {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         HEADER (same as the Library page)
+    ========================================================= -->
+
+    <header>
+        <div class="container nav">
+
+            <div class="logo">
+                <img src="/images/logo.jfif" alt="لوگوی گویش ملل">
+
+                <div>
+                    <h1>
+                        <sup><small>راهبرد</small></sup>
+                        <b>گـــویش ملل</b>
+                    </h1>
+
+                    <span>Learning Without Borders</span>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="courses.html" target="_blank">دوره‌ها</a></li>
+                    <li><a href="calender.html" target="_blank">تقویم</a></li>
+                    <li><a href="news.html" target="_blank">اخبار</a></li>
+                    <li><a href="library.html">کتابخانه</a></li>
+                    <li><a href="careers.html">همکاری با ما</a></li>
+                    <li><a href="about us.html" target="_blank">درباره ما</a></li>
+                    <li><a href="contact us.html" class="active">تماس با ما</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================================================
+         CONTACT PAGE
+    ========================================================= -->
+
+    <main class="contact-page">
+
+        <!-- ================= HERO ================= -->
+
+        <section class="contact-hero">
+
+            <div class="hero-circle circle-one"></div>
+            <div class="hero-circle circle-two"></div>
+            <div class="hero-line"></div>
+
+            <div class="container contact-hero-content">
+
+                <div class="contact-badge">✦ در ارتباط باشیم</div>
+
+                <h1>
+                    با <span>گویش ملل</span>
+                    در ارتباط باشید
+                </h1>
+
+                <p>
+                    برای دریافت اطلاعات بیشتر، ثبت‌نام، مشاوره و پاسخ به سؤالات شما
+                    در کنار شما هستیم.
+                </p>
+
+                <div class="hero-scroll">
+                    <span>شعبه‌های ما</span>
+                    <div class="scroll-arrow">↓</div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BRANCHES ================= -->
+
+        <section class="branches-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">شعبه‌های گویش ملل</div>
+
+                    <h2>
+                        نزدیک‌ترین شعبه را
+                        <span>پیدا کنید</span>
+                    </h2>
+
+                    <p>برای مشاهده موقعیت هر شعبه روی نقشه کلیک کنید.</p>
+
+                </div>
+
+                <div class="branches-grid">
+
+                    <!-- ========== BRANCH 1 ========== -->
+
+                    <article class="branch-card">
+
+                        <div class="branch-number">01</div>
+
+                        <div class="branch-image">
+                            <div class="image-placeholder">
+                                <div class="placeholder-icon">📷</div>
+                                <span>تصویر ورودی شعبه</span>
+                                <small>عکس شعبه مرکزی را اینجا قرار دهید</small>
+                            </div>
+                        </div>
+
+                        <div class="branch-content">
+
+                            <div class="branch-title-row">
+                                <div>
+                                    <span class="branch-label">GOYESH MELAL</span>
+                                    <h3>شعبه مرکزی</h3>
+                                </div>
+                                <div class="branch-pin">📍</div>
+                            </div>
+
+                            <a href="https://maps.app.goo.gl/zdPc5Vm2YprkgbNQ8?g_st=iw"
+                               class="location-button"
+                               target="_blank"
+                               rel="noopener noreferrer">
+
+                                <span>مشاهده موقعیت روی نقشه</span>
+                                <b>↗</b>
+
+                            </a>
+
+                            <div class="info-item">
+                                <div class="info-icon">⌂</div>
+                                <div>
+                                    <strong>آدرس</strong>
+                                    <p>
+                                        شهرک گلستان/ بلوار علی مرادی / انتهای بلوار علیمرادی/ شهرک زیتون (رو به روی مجتمع طوبی)/ انتهای خیابان سهراب سپهری/ برج آریا جنوبی / طبقه همکف.
+
+
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">☎</div>
+                                <div>
+                                    <strong>اطلاعات تماس</strong>
+                                    <a href="tel:+989000000000">44769810 - 46085884</a>
+                                </div>
+                            </div>
+
+                            <div class="branch-socials">
+                                <a href="https://eitaa.com/Rahbordgouyeshmelal" class="social eitaa" target="_blank" rel="noopener noreferrer">
+                                    <span>ایتـا</span>
+                                    <b>@Rahbordgouyeshmelal</b>
+                                </a>
+                                <a href="https://web.bale.ai/chat?uid=rahbordgouyeshmelal" class="social bale" target="_blank" rel="noopener noreferrer">
+                                    <span>بله</span>
+                                    <b>@rahbordgouyeshmelal</b>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ========== BRANCH 2 ========== -->
+
+                    <article class="branch-card featured-branch">
+
+                        <div class="branch-number">02</div>
+
+                        <div class="branch-image">
+                            <div class="image-placeholder">
+                                <div class="placeholder-icon">📷</div>
+                                <span>تصویر ورودی شعبه</span>
+                                <small>عکس شعبه آسمان را اینجا قرار دهید</small>
+                            </div>
+                        </div>
+
+                        <div class="branch-content">
+
+                            <div class="branch-title-row">
+                                <div>
+                                    <span class="branch-label">GOYESH MELAL</span>
+                                    <h3>شعبه آسمان</h3>
+                                </div>
+                                <div class="branch-pin">📍</div>
+                            </div>
+
+                            <a href="https://share.google/ScFgq66tfix2D5GCZ"
+                               class="location-button"
+                               target="_blank"
+                               rel="noopener noreferrer">
+
+                                <span>مشاهده موقعیت روی نقشه</span>
+                                <b>↗</b>
+
+                            </a>
+
+                            <div class="info-item">
+                                <div class="info-icon">⌂</div>
+                                <div>
+                                    <strong>آدرس</strong>
+                                    <p> دریاچه چیتگر (منطقه ۲۲)، میدان دریاچه - خ جوزانی- خ هیرمند- خ هراز- برج آسمان 17 و 18 - داخل لابی برج 18 - آموزشگاه گویش ملل</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">☎</div>
+                                <div>
+                                    <strong>اطلاعات تماس</strong>
+                                    <a href="tel:+989000000000">44769835 - 46053768</a>
+                                </div>
+                            </div>
+
+                            <div class="branch-socials">
+                                <a href="https://eitaa.com/Gouyesh_Melal_Aseman" class="social eitaa" target="_blank" rel="noopener noreferrer">
+                                    <span>ایتـا</span>
+                                    <b>@Gouyesh_Melal_Aseman</b>
+                                </a>
+                                <a href="https://web.bale.ai/chat?uid=rahbordgouyeshmelal" class="social bale" target="_blank" rel="noopener noreferrer">
+                                    <span>بله</span>
+                                    <b>@rahbordgouyeshmelal</b>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ========== BRANCH 3 ========== -->
+
+                    <article class="branch-card">
+
+                        <div class="branch-number">03</div>
+
+                        <div class="branch-image">
+                            <div class="image-placeholder">
+                                <div class="placeholder-icon">📷</div>
+                                <span>تصویر ورودی شعبه</span>
+                                <small>عکس شعبه باقری را اینجا قرار دهید</small>
+                            </div>
+                        </div>
+
+                        <div class="branch-content">
+
+                            <div class="branch-title-row">
+                                <div>
+                                    <span class="branch-label">GOYESH MELAL</span>
+                                    <h3>شعبه باقری</h3>
+                                </div>
+                                <div class="branch-pin">📍</div>
+                            </div>
+
+                            <a href="https://share.google/pdkI3DRrQrtzLsZxH"
+                               class="location-button"
+                               target="_blank"
+                               rel="noopener noreferrer">
+
+                                <span>مشاهده موقعیت روی نقشه</span>
+                                <b>↗</b>
+
+                            </a>
+
+                            <div class="info-item">
+                                <div class="info-icon">⌂</div>
+                                <div>
+                                    <strong>آدرس</strong>
+                                    <p>اتوبان خرازی ، شهرک شهید باقری ، خیابان بوستان ، سرای محله شهید باقری </p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">☎</div>
+                                <div>
+                                    <strong>اطلاعات تماس</strong>
+                                    <a href="tel:+989000000000">44759484 - 09391484341</a>
+                                </div>
+                            </div>
+
+                            <div class="branch-socials">
+                                <a href="https://eitaa.com/Gouyesh_Melal" class="social eitaa" target="_blank" rel="noopener noreferrer">
+                                    <span>ایتـا</span>
+                                    <b>@Gouyesh_Melal</b>
+                                </a>
+                                <a href="https://web.bale.ai/chat?uid=rahbordgouyeshmelal" class="social bale" target="_blank" rel="noopener noreferrer">
+                                    <span>بله</span>
+                                    <b>@rahbordgouyeshmelal</b>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INSTAGRAM ================= -->
+
+        <section class="instagram-section">
+
+            <div class="container">
+
+                <div class="instagram-card">
+
+                    <div class="instagram-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.88a1.13 1.13 0 1 1 0 2.25 1.13 1.13 0 0 1 0-2.25z" />
+                        </svg>
+                    </div>
+
+                    <div class="instagram-content">
+
+                        <span>INSTAGRAM</span>
+
+                        <h2>ما را در اینستاگرام دنبال کنید</h2>
+
+                        <p>
+                            اخبار، اطلاعیه‌ها، برنامه کلاس‌ها و جدیدترین مطالب آموزشی
+                            گویش ملل را از طریق صفحه رسمی آموزشگاه دنبال کنید.
+                        </p>
+
+                    </div>
+
+                    <a href="https://instagram.com/gouyeshmelal_insta" class="instagram-button" target="_blank" rel="noopener noreferrer">
+                        <span>
+                        gouyeshmelal_insta@
+                        </span>
+                        <b>↗</b>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT CHAT ================= -->
+
+        <section class="chat-section" id="online-chat">
+
+            <div class="container chat-layout">
+
+                <div class="chat-intro">
+
+                    <div class="section-label">ارتباط مستقیم</div>
+
+                    <h2>
+                        سؤالی دارید؟
+                        <span>با ما صحبت کنید.</span>
+                    </h2>
+
+                    <p>
+                        اگر درباره دوره‌ها، ثبت‌نام، تعیین سطح یا برنامه کلاس‌ها
+                        سؤالی دارید، می‌توانید مستقیماً از طریق همین صفحه برای ما پیام بفرستید.
+                    </p>
+
+                    <div class="chat-features">
+                        <div>
+                            <span>✓</span>
+                            <p>پاسخگویی درباره دوره‌ها</p>
+                        </div>
+                        <div>
+                            <span>✓</span>
+                            <p>راهنمایی ثبت‌نام و تعیین سطح</p>
+                        </div>
+                        <div>
+                            <span>✓</span>
+                            <p>مشاوره انتخاب دوره مناسب</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="chat-box">
+
+                    <div class="chat-header">
+                        <div class="chat-agent">
+                            <div class="agent-avatar">GM</div>
+                            <div>
+                                <strong>پشتیبانی گویش ملل</strong>
+                                <span><i></i> آماده پاسخگویی</span>
+                            </div>
+                        </div>
+                        <div class="chat-status">آنلاین</div>
+                    </div>
+
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message received">
+                            <div class="message-avatar">GM</div>
+                            <div>
+                                <div class="message-bubble">
+                                    سلام 👋
+                                    <br>
+                                    به گویش ملل خوش آمدید.
+                                    چطور می‌توانیم کمکتان کنیم؟
+                                </div>
+                                <small>پشتیبانی گویش ملل</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-questions">
+                        <button onclick="sendQuickMessage('اطلاعات دوره‌ها را می‌خواهم')">📚 اطلاعات دوره‌ها</button>
+                        <button onclick="sendQuickMessage('برای ثبت‌نام راهنمایی می‌خواهم')">✍️ ثبت‌نام</button>
+                        <button onclick="sendQuickMessage('برای تعیین سطح سؤال دارم')">🎯 تعیین سطح</button>
+                    </div>
+
+                    <form class="chat-input-area" id="chatForm">
+                        <input type="text" id="chatInput" placeholder="پیام خود را بنویسید..." autocomplete="off">
+                        <button type="submit" aria-label="ارسال پیام">➤</button>
+                    </form>
+
+                    <div class="chat-note">
+                        پیام شما از طریق فرم ارتباطی سایت ثبت می‌شود.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FINAL CTA ================= -->
+
+        <section class="contact-final">
+
+            <div class="final-orb"></div>
+
+            <div class="container">
+                <div class="final-content">
+
+                    <div class="final-icon">♡</div>
+
+                    <h2>منتظر <span>صدای شما</span> هستیم</h2>
+
+                    <p>انتخاب گویش ملل، شروع یک مسیر تازه برای یادگیری است.</p>
+
+                    <a href="#online-chat" class="final-button">
+                        شروع گفتگو
+                        <span>↓</span>
+                    </a>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         JAVASCRIPT – CHAT
+    ========================================================= -->
+
+    <script>
+
+        const chatForm = document.getElementById("chatForm");
+        const chatInput = document.getElementById("chatInput");
+        const chatMessages = document.getElementById("chatMessages");
+
+
+        /* ---------- ADD MESSAGE ---------- */
+
+        function addMessage(text, type = "sent") {
+
+            const message = document.createElement("div");
+
+            message.className = "message " + type;
+
+            if (type === "sent") {
+
+                message.innerHTML = `
+                            <div>
+                                <div class="message-bubble">
+                                    ${escapeHTML(text)}
+                                </div>
+                                <small>شما</small>
+                            </div>
+                        `;
+
+            } else {
+
+                message.innerHTML = `
+                            <div class="message-avatar">
+                                GM
+                            </div>
+
+                            <div>
+                                <div class="message-bubble">
+                                    ${escapeHTML(text)}
+                                </div>
+                                <small>پشتیبانی گویش ملل</small>
+                            </div>
+                        `;
+
+            }
+
+            chatMessages.appendChild(message);
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        }
+
+
+        /* ---------- FORM SUBMIT ---------- */
+
+        chatForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const text = chatInput.value.trim();
+
+            if (!text) return;
+
+            addMessage(text, "sent");
+
+            chatInput.value = "";
+
+            saveMessage(text);
+
+            /* پاسخ آزمایشی برای نسخه فرانت‌اند
+               بعداً این قسمت می‌تواند به بک‌اند یا سیستم چت واقعی متصل شود. */
+
+            setTimeout(function () {
+
+                addMessage(
+                    "پیام شما دریافت شد 🌷 کارشناسان گویش ملل در اولین فرصت پاسخ شما را بررسی خواهند کرد.",
+                    "received"
+                );
+
+            }, 900);
+
+        });
+
+
+        /* ---------- QUICK MESSAGE ---------- */
+
+        function sendQuickMessage(text) {
+
+            addMessage(text, "sent");
+
+            saveMessage(text);
+
+            setTimeout(function () {
+
+                addMessage(
+                    "حتماً 🌷 پیام شما ثبت شد. برای دریافت اطلاعات دقیق‌تر، کارشناسان ما پاسخ خواهند داد.",
+                    "received"
+                );
+
+            }, 800);
+
+        }
+
+
+        /* ---------- SAVE MESSAGE ---------- */
+
+        function saveMessage(text) {
+
+            let messages =
+                JSON.parse(localStorage.getItem("gouyeshMelalMessages")) || [];
+
+            messages.push({
+
+                text: text,
+
+                time: new Date().toLocaleString("fa-IR")
+
+            });
+
+            localStorage.setItem(
+                "gouyeshMelalMessages",
+                JSON.stringify(messages)
+            );
+
+        }
+
+
+        /* ---------- ESCAPE HTML ---------- */
+
+        function escapeHTML(text) {
+
+            const div = document.createElement("div");
+
+            div.textContent = text;
+
+            return div.innerHTML;
+
+        }
+
+
+        /* ---------- LOCATION ---------- */
+
+        function showLocationMessage(event, branchName) {
+
+            event.preventDefault();
+
+            alert(
+                "لینک موقعیت " +
+                branchName +
+                " بعد از وارد کردن آدرس دقیق شعبه در این قسمت قرار می‌گیرد."
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
