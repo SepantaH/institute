@@ -94,11 +94,5 @@ header {
    /* HERO POSTER */
 
 .hero {
-    width: 100%;
-    min-height: 100svh;
-    background-color: red;
-    background-image: url("../mobile-poster.png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 100% 100%;
+    margin-top: 0 !important;
 }
