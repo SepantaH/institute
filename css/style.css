@@ -19,6 +19,7 @@
     --muted: #888;
     --white: #fff;
     --header-height: 85px;
+   color-scheme: only light;
 }
 
 *,
@@ -864,7 +865,4 @@ button {
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
     }
-}
-:root {
-    color-scheme: light;
 }
