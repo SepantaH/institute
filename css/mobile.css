@@ -4,7 +4,7 @@
    در هر صفحه استایل مخصوص خودش را دارد)
 ===================================== */
 :root {
-    color-scheme: light;
+   color-scheme: only light;
 }
 @media screen and (max-width: 600px) {
 
