@@ -865,3 +865,6 @@ button {
         transition-duration: .01ms !important;
     }
 }
+:root {
+    color-scheme: light;
+}
