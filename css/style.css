@@ -757,17 +757,7 @@ button {
             padding: 13px 18px;
         }
 
-    /* HERO POSTER */
-
-.hero {
-    width: 100%;
-    min-height: 100svh;
-    background-color: red;
-    background-image: url("../mobile-poster.png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 100% 100%;
-}
+ 
 
     .hero-content {
         width: 100%;
