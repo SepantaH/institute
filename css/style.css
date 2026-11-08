@@ -757,7 +757,20 @@ button {
             padding: 13px 18px;
         }
 
- 
+    /* HERO POSTER */
+
+    .hero {
+        width: 100%;
+        min-height: 100svh;
+        height: auto;
+        margin: 0;
+        padding: 40px 20px;
+        background-color: #B77BC2;
+        background-image: url(../mobile-poster.png");
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 100% auto;
+    }
 
     .hero-content {
         width: 100%;
@@ -851,23 +864,4 @@ button {
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
     }
-}
-
-/* MOBILE HERO POSTER */
-
-@media (max-width: 600px) {
-    .hero {
-        width: 100%;
-        min-height: 100svh;
-
-        background-color: red;
-        background-image: url("../mobile-poster.png");
-
-        background-repeat: no-repeat;
-        background-position: center top;
-        background-size: 100% 100%;
-    }
-}
-body {
-    background: red !important;
 }
