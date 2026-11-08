@@ -24,7 +24,7 @@
         margin: 0;
         padding: 400px 20px 40px;
         background-color: #B77BC2;
-        background-image: url("/images/mobile-poster.png");
+        background-image: url("../mobile-poster.png");
         background-repeat: no-repeat;
         background-position: center top;
         background-size: cover;
